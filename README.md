@@ -1,6 +1,11 @@
 # Elasticsearch_LSC_SettingUp
 This is for setting up ES. Please install Elasticsearch first. Then run the ES, it will create a localhost:9200. Finally run this script to create analysers and tokeniser for fields in the ES.
 
+### Indexing
+Run the **ES_text_search.py** file to start indexing data. All information of LSC data is store in the **description_all.json** file. Please make sure that you have already run the elasticsearch before running this code. You also want to install ***Kibana*** to have more config on the Elasticsearch engine. 
+
+After running the code, please wait for processing and indexing data to finish. Then you can play with the Elasticsearch
+
 ### Run with Django
 If you want to run it with Django, in the **views.py**, use this code:
 
