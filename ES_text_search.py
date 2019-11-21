@@ -10,10 +10,10 @@ Then perform simple query
 import json
 from elasticsearch import Elasticsearch
 from tqdm import tqdm
-import time
-import MyLibrary as mylib
+#import time
+#import MyLibrary as mylib
 import pickle
-from PIL import Image
+#from PIL import Image
 from datetime import datetime
 import calendar
 
