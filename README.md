@@ -1,4 +1,4 @@
-#Elasticsearch_LSC_SettingUp
+# Elasticsearch_LSC_SettingUp
 This is for setting up ES. Please install Elasticsearch first. Then run the ES, it will create a localhost:9200. Finally run this script to create analysers and tokeniser for fields in the ES.
 
 ### Run with Django
