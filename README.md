@@ -12,7 +12,7 @@ The file **ES_Embedding_search.py** is for setting the ES in the embedding case 
 If you want to run it with Django, in the **views.py**, use this code:
 
 ```
-import MyLib as mylib
+import MyLibrary as mylib
 # query is the string query
 # List_synonym is the synonym file provided in the repo
 # output will be result including 2 information for each image (image_path and name of that image)
