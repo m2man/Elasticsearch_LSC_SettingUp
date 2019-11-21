@@ -15,7 +15,7 @@ import MyLib as mylib
 # List_synonym is the synonym file provided in the repo
 # output will be result including 2 information for each image (image_path and name of that image)
 data, _ = mylib.generate_es_query_dismax_querystringquery(q=query,
-                                                                  list_synonym=List_synonym,
+                                                          list_synonym=List_synonym,
                                                           max_change=1,
                                                           tie_breaker=0.7,
                                                           numb_get_result=100)
