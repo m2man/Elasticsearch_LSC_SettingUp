@@ -362,8 +362,13 @@ def generate_es_query_dismax_querystringquery(q, list_synonym, max_change = 1, t
     result += "{\"query_string\":{"
     result += "\"query\":" + "\"" + o_qsq + "\","
     result += "\"default_field\":" + "\"description\"," # Here we name the field in the dataset is ... --> can be change
-    result += "\"boost\":" + "3}}" 
-    
+    result += "\"boost\":" + "3}}"
+
+    result += ",{\"query_string\":{"
+    result += "\"query\":" + "\"" + qsq + "\","
+    result += "\"default_field\":" + "\"gps_description\","  # Here we name the field in the dataset is ... --> can be change
+    result += "\"boost\":" + "24}}"
+
     # Step 3.3: 2nd query: constrain query string query (A & B & C) --> upper case --> synonym term
     result += ",{\"query_string\":{"
     result += "\"query\":" + "\"" + qsq + "\","
@@ -375,7 +380,7 @@ def generate_es_query_dismax_querystringquery(q, list_synonym, max_change = 1, t
     result += ",{\"query_string\":{"
     result += "\"query\":" + "\"" + o_qsq + "\","
     result += "\"default_field\":" + "\"description_clip\"," # Here we name the field in the dataset is ... --> can be change
-    result += "\"boost\":" + "2}}" 
+    result += "\"boost\":" + "1.25}}"
     
     # Step 3.5: 2nd --> query: sub query string term with boost = 2 (each query for A, B, C)
     for sub_query, o_sub_query in zip(qs_term, o_qs_term):
@@ -387,7 +392,7 @@ def generate_es_query_dismax_querystringquery(q, list_synonym, max_change = 1, t
         result += ",{\"query_string\":{"
         result += "\"query\":" + "\"" + o_sub_query[0] + "\","
         result += "\"default_field\":" + "\"description_clip\"," # Here we name the field in the dataset is ... --> can be change
-        result += "\"boost\":" + "0.75}}"
+        result += "\"boost\":" + "0.45}}"
     
     for sub_query, o_sub_query in zip(qs_term_adjust, o_qs_term_adjust):
         result += ",{\"query_string\":{"
@@ -398,7 +403,7 @@ def generate_es_query_dismax_querystringquery(q, list_synonym, max_change = 1, t
         result += ",{\"query_string\":{"
         result += "\"query\":" + "\"" + o_sub_query[0] + "\","
         result += "\"default_field\":" + "\"description_clip\"," # Here we name the field in the dataset is ... --> can be change
-        result += "\"boost\":" + "0.35}}"
+        result += "\"boost\":" + "0.1}}"
         
 #        result += ",{\"match\":{"
 #        result += "\"object_yolo_term_clip\":" + "\"" + sub_query + "\"}}"
@@ -463,4 +468,58 @@ def find_descriptive_attribute_in_list_images(database, list_images):
         result_low.append(scene_appearance[x])
     
     return result_low, result_high
-    
+
+def search_es_embedding(ES, index, embedded_query, percent_thres = 0.9, max_len = 10):
+
+    '''
+    Same with search_es but this is used for embedding --> request part will be different
+    embedded_query is a vector(as tolist() form)
+    '''
+
+    result = None
+
+    script_query = {
+        "script_score": {
+            "query": {"match_all": {}},
+            "script": {
+                "source": "cosineSimilarity(params.query_embedded, doc['description_embedded']) + 1.0",
+                "params": {"query_embedded": embedded_query}
+            }
+        }
+    }
+
+    res = ES.search(index=index,
+                    body={
+                        "query": script_query,
+                        "_source": {"includes": ["id", "description"]}
+                    },
+                    size=9999)  # Show all result (9999 results if possible)
+
+    numb_result = len(res["hits"]["hits"])
+    print("Total searched result: " + str(numb_result))
+
+    if numb_result != 0:
+        score = [d["_score"] for d in res["hits"]["hits"]]  # Score of all result (higher mean better)
+        id_result = [d["_source"]["id"] for d in res["hits"]["hits"]]  # List all id images in the result
+
+        score_np = np.asarray(score)
+
+        max_score = score_np[0]
+        thres_score = max_score * percent_thres
+
+        index_filter = np.where(score_np > thres_score)[0]
+
+        if len(index_filter) > 1:
+            result = list(itemgetter(*list(index_filter))(id_result))
+            numb_result = len(result)
+        else:
+            result = id_result[0]
+            numb_result = 1
+
+        if numb_result > max_len:
+            result = result[0:max_len]
+
+        print("Total remaining result: " + str(numb_result))  # Number of result
+        print("Total output result: " + str(min(max_len, numb_result)))  # Number of result
+
+    return res, result

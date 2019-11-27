@@ -6,6 +6,8 @@ Run the **ES_text_search.py** file to start indexing data. All information of LS
 
 After running the code, please wait for processing and indexing data to finish. Then you can play with the Elasticsearch
 
+***Note: Please copy the [all_synonym.txt] file to [elastic_folder/config/analysis/] folder before running***
+
 The file **ES_Embedding_search.py** is for setting the ES in the embedding case (search through the embedded vector by using cosine similarity). In order to run this, you will need the embedding model file and the embedded images file (which is not included here)
 
 ### Run with Django

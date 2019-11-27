@@ -8,11 +8,12 @@ Then perform simple query
 """
 
 import json
+import pickle
 from elasticsearch import Elasticsearch
 from tqdm import tqdm
 #import time
 #import MyLibrary as mylib
-import pickle
+import json
 #from PIL import Image
 from datetime import datetime
 import calendar
@@ -37,8 +38,11 @@ with open(Synonym_glove_all_file, "rb") as f:
 es = Elasticsearch([{"host": "localhost", "port": 9200}])
 
 interest_index = "lsc2019"
-#Delete index (if you want)
-es.indices.delete(index=interest_index)
+
+try:
+    es.indices.delete(index=interest_index)
+except Exception:
+    print("Do not have index to delete: " + interest_index)
 
 ########### Add analyzer for the client ##########
 es.indices.create(
