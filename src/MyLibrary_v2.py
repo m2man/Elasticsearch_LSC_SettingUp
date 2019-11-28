@@ -248,6 +248,17 @@ def create_json_query_string_part(query, field, boost=1):
     }
     return result
 
+def create_location_query(sentence, field, boost=24):
+    location_part = get_places(sentence)  # Put the location detected here
+    if len(location_part) > 0:
+        location_part = " OR ".join(location_part)
+        stt = True
+        location_json = create_json_query_string_part(query=location_part, field=field, boost=boost)
+    else:
+        stt = False
+        location_json = 0
+    return stt, location_json
+
 def generate_query_combined(q, max_change=1, tie_breaker=0.7, numb_of_result=100):
     '''
     Quite the same with generate_es_query_dismax but now inclide query string query, not multimatch anymore
@@ -258,6 +269,7 @@ def generate_query_combined(q, max_change=1, tie_breaker=0.7, numb_of_result=100
     Output:
         + request_string is the txt format of the elasticsearch formatted request
     '''
+    q = q.lower()
     having_comma = q.find(",")
     if having_comma > 0:
         having_comma = True
@@ -270,10 +282,9 @@ def generate_query_combined(q, max_change=1, tie_breaker=0.7, numb_of_result=100
     embedded_query, adjust_sentence_query = create_bow_ft_sentence(q, my_dictionary, list_synonym_stemmed, my_idf)
     embedded_query = embedded_query.tolist()
     queries_part += [create_json_query_string_part(query=adjust_sentence_query, field="description_clip", boost=5)]
-    location_part = get_places(adjust_sentence_query) # Put the location detected here
-    location_part = ["(" + x + ")" for x in location_part]
-    location_part = " OR ".join(location_part)
-    queries_part += [create_json_query_string_part(query=location_part, field="gps_description", boost=24)]
+    having_location, location_query = create_location_query(q, field="gps_description", boost=24)
+    if having_location:
+        queries_part += [location_query]
     if having_comma: # Yes ", " --> should focus on generate subterm | If No --> Should NOT focus since it is not worthy
         o_subterm, subterm = generate_subterm_query(q, list_synonym)
         qsq, qs_term, qs_term_adjust = generate_querystringquery_and_subquery(subterm, max_change)
@@ -306,8 +317,6 @@ def generate_query_combined(q, max_change=1, tie_breaker=0.7, numb_of_result=100
     queries_part_string = queries_part_string.replace("doc[\"description_embedded\"]", "doc['description_embedded']")
     queries_part_string = queries_part_string[1:-1]
     result += queries_part_string
-    #        result += ",{\"match\":{"
-    #        result += "\"object_yolo_term_clip\":" + "\"" + sub_query + "\"}}"
     result += "],\"tie_breaker\":" + str(tie_breaker)
     result += "}}}"
     request_string = result
@@ -323,12 +332,13 @@ def generate_query_text(q, max_change=1, tie_breaker=0.7, numb_of_result=100):
     Output:
         + request_string is the txt format of the elasticsearch formatted request
     '''
+    q = q.lower()
     having_comma = q.find(",")
     if having_comma > 0:
         having_comma = True
     else:
         having_comma = False
-    word_tokens = word_tokenize(q.lower())
+    word_tokens = word_tokenize(q)
     good_tokens = [word for word in word_tokens if word not in stop_words]
     adjust_sentence_query = ' '.join(good_tokens)
     result = "{\"size\":" + str(numb_of_result)
@@ -336,10 +346,9 @@ def generate_query_text(q, max_change=1, tie_breaker=0.7, numb_of_result=100):
     result += ",\"query\":{\"dis_max\":{\"queries\":["
     queries_part = []
     queries_part += [create_json_query_string_part(query=adjust_sentence_query, field="description_clip", boost=5)]
-    location_part = get_places(adjust_sentence_query)  # Put the location detected here
-    location_part = ["(" + x + ")" for x in location_part]
-    location_part = " OR ".join(location_part)
-    queries_part += [create_json_query_string_part(query=location_part, field="gps_description", boost=24)]
+    having_location, location_query = create_location_query(q, field="gps_description", boost=24)
+    if having_location:
+        queries_part += [location_query]
     if having_comma: # Yes ", " --> should focus on generate subterm | If No --> Should NOT focus since it is not worthy
         o_subterm, subterm = generate_subterm_query(q, list_synonym)
         qsq, qs_term, qs_term_adjust = generate_querystringquery_and_subquery(subterm, max_change)
@@ -359,11 +368,8 @@ def generate_query_text(q, max_change=1, tie_breaker=0.7, numb_of_result=100):
             ]
     queries_part_string = str(queries_part)
     queries_part_string = queries_part_string.replace("'", "\"")
-    queries_part_string = queries_part_string.replace("doc[\"description_embedded\"]", "doc['description_embedded']")
     queries_part_string = queries_part_string[1:-1]
     result += queries_part_string
-    #        result += ",{\"match\":{"
-    #        result += "\"object_yolo_term_clip\":" + "\"" + sub_query + "\"}}"
     result += "],\"tie_breaker\":" + str(tie_breaker)
     result += "}}}"
     request_string = result
@@ -446,9 +452,16 @@ def get_places(input_query):
     for i, (word, tag) in enumerate(tags):
         if is_location(word) or tag == "NNP":
             j = i
-            while j > 0:
-                j -= 1
-                if tags[j][1] not in ['NN', 'POS', 'NNP', 'JJ', 'DT', 'FW', 'JJR', 'JJS', 'NP', 'NPS', 'NNS']:
-                    break
-            places.append(' '.join(text[j + 1: i + 1]))
+            if i > 0:
+                while j > 0:
+                    j -= 1
+                    if tags[j][1] not in ['NN', 'POS', 'NNP', 'JJ', 'DT', 'FW', 'JJR', 'JJS', 'NP', 'NPS', 'NNS']:
+                        break
+                if j == 0:
+                    places.append(' '.join(text[j : i + 1]))
+                else:
+                    places.append(' '.join(text[j + 1 : i + 1]))
+            else:
+                places.append(word)
+
     return places

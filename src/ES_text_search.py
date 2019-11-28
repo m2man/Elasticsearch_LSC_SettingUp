@@ -4,35 +4,30 @@
 Created on Tue Oct  8 00:33:34 2019
 Create Elasticsearch database locally and add document from combined descriptione json to the database
 Then perform simple query
-@author: duyphd
 """
 
-import json
 import pickle
 from elasticsearch import Elasticsearch
 from tqdm import tqdm
-#import time
-#import MyLibrary as mylib
+from pathlib import Path
 import json
-#from PIL import Image
 from datetime import datetime
 import calendar
+Data_path = str(Path.cwd().parent / 'data/')
 
 ###### Load list synonym ########
-#Synonym_glove_object_all_file = "/Volumes/GoogleDrive/Msy Drive/BackUp/LSC2019_Test/List_synonym_glove_object_yolo_all.pickle"
-#with open(Synonym_glove_object_all_file, "rb") as f:
-#    List_synonym_glove_object_yolo_all = pickle.load(f)
-#
-#Synonym_glove_att_all_file = "/Volumes/GoogleDrive/My Drive/BackUp/LSC2019_Test/List_synonym_glove_att_all.pickle"
-#with open(Synonym_glove_att_all_file, "rb") as f:
-#    List_synonym_glove_att_all = pickle.load(f)
-#
-#List_synonym = List_synonym_glove_att_all + List_synonym_glove_object_yolo_all
-
 Synonym_glove_all_file = "List_synonym_glove_all.pickle"
 with open(Synonym_glove_all_file, "rb") as f:
     List_synonym = pickle.load(f)
 
+##### Load description #####
+Combined_description_file = Data_path + '/combined_description_all.json'
+with open(Combined_description_file) as json_file:
+    combined_description = json.load(json_file)
+
+description_file = Data_path + '/description_all.json'
+with open(description_file) as json_file:
+    description = json.load(json_file)
 
 ####### Connect to the elastic cluster --> run elasticsearch first #########
 es = Elasticsearch([{"host": "localhost", "port": 9200}])
@@ -113,6 +108,17 @@ es.indices.create(
                                                     "lowercase",
                                                     "english_stop",
                                                     "english_keywords",
+                                                    "english_possessive_stemmer",
+                                                    "english_stemmer"
+                                            ]
+                                    },
+                                    "analyzer_gps_description":{
+                                            "type": "custom",
+                                            "tokenizer": "standard", # remove 'and' and ','
+                                            "filter": [
+                                                    "lowercase",
+                                                    "english_stop",
+                                                    "edge_ngram_filter",
                                                     "english_possessive_stemmer",
                                                     "english_stemmer"
                                             ]
@@ -205,46 +211,53 @@ es.indices.create(
                                     "search_analyzer": "analyzer_search"
                             },
                             "weekday":{
-                                    "type": "text"
+                                "type": "text",
+                                "analyzer": "analyzer_gps_description",
+                                "search_analyzer": "analyzer_gps_description"
+                            },
+                            "gps_description":{
+                                "type": "text",
+                                "analyzer": "analyzer_gps_description",
+                                "search_analyzer": "analyzer_gps_description"
                             }
                     }
             }                        
-    }#,
-    # Will ignore 400 errors, remove to ensure you"re prompted
-    #ignore=400
+    }
 )
 
 ####### Add data to es ########
-File = "description_all.json"
-with open(File) as json_file:
-    description = json.load(json_file)
+# Get id images, both json and embedded file should have the same id list
+list_id_images = list(combined_description.keys())
 
-print("Uploading data to the server ...")    
+number_of_files_want_to_index = len(list_id_images)
+# list_id_images_index_shuffle = [x for x in range(len(list_id_images))]
+# random.shuffle(list_id_images_index_shuffle)
+# index_random = list_id_images_index_shuffle[:number_of_files_want_to_index]
+# list_id_images_random = [list_id_images[x] for x in index_random]
+list_id_images_random = list_id_images
 
-numb_of_image_scan = 0
-for id_image_json, content_image_json in tqdm(description.items()):
-    numb_of_image_scan += 1
-    
-    id_image = id_image_json
-    
-    image_date = id_image[:8] # Extract date information
-    image_datetime = datetime.strptime(image_date, '%Y%m%d') # Convert to datetime type
-    image_weekday = calendar.day_name[image_datetime.weekday()] # Monday, Tuesday, ...
+for number_of_images_scanned in tqdm(range(number_of_files_want_to_index)):
+    id_image = list_id_images_random[number_of_images_scanned]
+    description_image = combined_description[id_image]
 
-    scene_image = content_image_json["scene_image"]
-    object_image = content_image_json["object_image"]
-    object_tfidf_image = content_image_json["object_format_image"]
+    image_date = id_image[:8]  # Extract date information
+    image_datetime = datetime.strptime(image_date, '%Y%m%d')  # Convert to datetime type
+    image_weekday = calendar.day_name[image_datetime.weekday()]  # Monday, Tuesday, ...
+
+    scene_image = description[id_image]["scene_image"]
 
     document = {
-            "id": id_image,
-            "scene": scene_image,
-            "description": scene_image + ", " + object_image,
-            "description_clip": scene_image + ", " + object_image,
-            "weekday": image_weekday
+        "id": id_image,
+        "scene": scene_image,
+        "description": description_image,
+        "description_clip": description_image,
+        "weekday": image_weekday,
     }
-    
-    # Store document in Elasticsearch
-    res = es.index(index=interest_index, doc_type="_doc", id=numb_of_image_scan, body=document)
+
+    res = es.index(index=interest_index,
+                   doc_type="_doc",
+                   id=number_of_images_scanned,
+                   body=document)
 
 
 ########### Summary ##############

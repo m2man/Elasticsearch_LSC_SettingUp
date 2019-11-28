@@ -140,6 +140,17 @@ es.indices.create(
                                                     "english_possessive_stemmer",
                                                     "english_stemmer"
                                             ]
+                                    },
+                                    "analyzer_gps_description":{
+                                            "type": "custom",
+                                            "tokenizer": "standard", # remove 'and' and ','
+                                            "filter": [
+                                                    "lowercase",
+                                                    "english_stop",
+                                                    "edge_ngram_filter",
+                                                    "english_possessive_stemmer",
+                                                    "english_stemmer"
+                                            ]
                                     }
                              },
                             "tokenizer":{
@@ -213,8 +224,15 @@ es.indices.create(
                                     "analyzer": "analyzer_object_yolo_term_clip",
                                     "search_analyzer": "analyzer_object_yolo_term_clip_search"
                             },
-                            "weekday": {
-                                    "type": "text"
+                            "weekday":{
+                                "type": "text",
+                                "analyzer": "analyzer_gps_description",
+                                "search_analyzer": "analyzer_gps_description"
+                            },
+                            "gps_description":{
+                                "type": "text",
+                                "analyzer": "analyzer_gps_description",
+                                "search_analyzer": "analyzer_gps_description"
                             },
                             "description_embedded": {
                                 "type": "dense_vector",
