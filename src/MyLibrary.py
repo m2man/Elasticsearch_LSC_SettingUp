@@ -130,14 +130,15 @@ def show_result(image_path, id_image, ncol = 5):
         except FileNotFoundError:
             print("Cannot find " + id_image)
 
-def add_folder_to_id_images(id_image):
+
+def add_folder_to_id_images(FolderPath, id_image):
     # Add link folder to the id_image (based on the first 10 characters)
-    
+
     if type(id_image) is list:
-        result = [x[:4] + "-" + x[4:6] + "-" + x[6:8] + "/" + x for x in id_image]        
+        result = [FolderPath + x[:4] + "-" + x[4:6] + "-" + x[6:8] + "/" + x for x in id_image]
     else:
         result = id_image[:4] + "-" + id_image[4:6] + "-" + id_image[6:8] + "/" + id_image
-    
+
     return result
 
 def generate_near_query(q, max_change = 1):
