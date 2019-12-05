@@ -188,12 +188,12 @@ es.indices.create(
                                     # Should have synonym filter here
                                     "my_synonym":{
                                             "type": "synonym",
-					    "expand": "false",
+                                            "expand": "false",
                                             "synonyms_path": "analysis/all_synonym.txt"
                                     },
                                     "my_graph_synonym": {
                                             "type": "synonym_graph",
-					    "expand": "false",
+                                            "expand": "false",
                                             "synonyms_path": "analysis/all_synonym.txt"
                                     },
                                     "edge_ngram_filter":{
