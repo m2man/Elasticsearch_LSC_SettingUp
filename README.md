@@ -2,14 +2,21 @@
 This is for setting up ES. Please install Elasticsearch first. Then run the ES, it will create a localhost:9200. Finally run this script to create analysers and tokeniser for fields in the ES.
 ***Note: Please copy the [all_synonym.txt] file to [elastic_folder/config/analysis/] folder before running***
 
-### Indexing
-**28/11/2019 Update**
+## Change Log
+
+### 05/12/2019
+1. Fix bug in text search (in synonym dictionary)
+2. Update **all_synonym.txt** (add it to config folder in Elasticsearch)
+3. Update **List_synonym_glove_all.pickle**
+4. Revise setting in **ES_text_search.py** and **ES_combined_search.py** (add ```expand=false``` setting in synonym filter)
+
+### 28/11/2019
 1. Now add 3 ES setting up files: text, bow, combined. Run the **ES_[method]_search.py** to begin.
 2. Change to MyLibrary_v2 (change name of some function as well)
 3. Run the Process_BOW to create all necessary files (bow feature, bow dictionary, ...)
 After running the code, please wait for processing and indexing data to finish. Then you can play with the Elasticsearch
 
-### Run with Django
+## Run with Django
 If you want to run it with Django, in the **views.py**, use this code:
 
 ```
