@@ -1,431 +1,431 @@
-atrium, rotunda, courtyard, foyer, atria, ventricle, staircase, second-floor, light-filled, colonnade, entryway
-watering, planting, fertilizing, irrigation, lawns, drip, mowing, sprinkler, garden, weeding, misting
-banquet, luncheon, dinner, gala, buffet, reception, ceremony, hall, dining, supper, ballroom
-skyscraper, high-rise, tallest, tower, supertall, skyline, highrise, cityscape, 40-story, Burj, 20-story
-volcano, volcanic, eruption, lava, crater, caldera, Merapi, magma, Eyjafjallajökull, geyser, Kilauea
-formal, informal, semi-formal, appropriate, elaborate, structured, attire, practical, brief, customary, consideration
-cockpit, fuselage, starboard, airplane, aircraft, aft, rudder, foredeck, pilothouse, cabin, hangar
-balcony, terrace, veranda, verandah, porch, overlooking, courtyard, patio, lanai, upstairs, kitchenette
-pantry, cupboard, kitchen, closets, cabinets, larder, refrigerator, fridge, laundry, freezer, walk-in
-loft, bedroom, attic, townhouse, bungalow, basement, upstairs, penthouse, apartment, garage, condo
-closet, wardrobe, pantry, bathroom, cupboard, basement, dresser, upstairs, laundry, kitchen, hallway
-sushi, sashimi, ramen, seafood, tempura, nigiri, pizza, burger, sandwiches, noodle, tapas
-jail, prison, sentenced, probation, convicted, arrested, inmate, felony, detention, imprisonment, guilty
-beauty, glamour, splendor, gorgeous, natural, magnificence, elegance, loveliness, allure, exquisite, makeup
-course, courses, well, teaching, training, instructor, learning, taught, lesson, there, classes
-downtown, midtown, city, neighborhood, streets, uptown, waterfront, mall, town, plaza, bustling
-eating, food, eaten, ate, meal, diet, snacking, drinking, craving, meat, habits
-cottage, farmhouse, bungalow, bedroom, self-catering, villa, rustic, house, townhouse, barn, guesthouse
-conference, meeting, symposium, keynote, seminar, roundtable, convention, presentation, attendees, lecture, workshop
-railroad, railway, locomotive, rail, freight, trains, streetcar, highway, interurban, telegraph, tramway
-badlands, canyons, buttes, prairies, mesas, hoodoos, desert, moonscape, slickrock, plains, rushmore
-trench, overcoat, double-breasted, dug, trenchcoat, jacket, coat, ditch, excavation, insulating, digging
-gymnasium, auditorium, gym, sauna, solarium, cafeteria, playground, swimming, hall, aerobics, dormitory
-sandbox, multiplayer, mmo, themepark, singleplayer, sandpit, minecraft, open-world, bot, single-player, playground
-airplane, plane, aircraft, aeroplane, flying, flight, airliner, helicopter, jet, takeoff, aviation
-tower, skyscraper, spire, building, tallest, castle, dome, fortress, roof, high-rise, atop
-landfill, waste, incinerator, recycling, disposal, wastewater, sewage, leachate, stormwater, reclamation, garbage
-mosque, Masjid, minaret, imam, Muslim, synagogue, Islamic, shrine, Moslem, madrassa, Al-Aqsa
-airfield, aerodrome, airstrip, airbase, hangar, aircraft, heliport, RAF, airdrome, airspace, taxiway
-lecture, seminar, presentation, symposium, colloquium, keynote, introductory, professor, workshop, conference, thesis
-chamber, inlet, passageway, pressurized, cavity, assembly, cylinder, combustion, valve, disposed, hollow
-room, upstairs, downstairs, floor, bathroom, hallway, bedroom, lounge, desk, dining, hall
-amusement, amusements, attraction, recreation, thrill, parks, excitement, enjoyment, entertainment, fairground, playground
-escalator, elevator, stairs, stairwell, stairway, staircase, walkway, subway, turnstile, travelator, handrail
-area, surrounding, region, vicinity, located, adjacent, nearby, outside, places, within, where
-shelf, shelves, drawer, bookcase, cupboard, bookshelf, rack, cabinets, tray, bookshelves, storage
-jewelry, jewelery, jewellery, necklaces, earrings, bracelets, jewlery, pendants, jewerly, sterling, gemstone
-lighthouse, lighthouses, pier, cove, harbour, harbor, shore, headland, breakwater, island, beacon
-campus, campuses, university, faculty, on-campus, college, students, school, off-campus, undergraduate, alumni
-lagoon, waters, ocean, shoreline, beaches, ponds, marina, reef, lake, estuary, shore
-porch, patio, veranda, balcony, verandah, fireplace, courtyard, driveway, gazebo, sunroom, roof
-pagoda, stupa, Shwedagon, chedi, temple, shrine, mausoleum, Thien, octagonal, roofed, spire
-drugstore, pharmacy, walgreens, prescription, walmart, perscription, pharmacist, cosmetics, Rite-Aid, otc, over-the-counter
-fountain, pond, waterfall, marble, courtyard, statuary, garden, statue, water, pool, birdbath
-attic, basement, loft, crawlspace, roof, chimney, porch, upstairs, garage, closet, insulation
-soccer, football, basketball, volleyball, hockey, softball, tennis, lacrosse, baseball, rugby, sports
-patio, porch, gazebo, terrace, fireplace, garden, veranda, courtyard, sunroom, balcony, backyard
-storage, storing, space, containers, capacity, disk, compartment, removable, hardware, shelf, rack
-manufactured, marketed, engineered, fabricated, products, supplied, commercially, constructed, designed, sold, produced
-promenade, seafront, esplanade, stroll, seaside, boardwalk, boulevard, walkway, sea-front, pedestrianised, waterside
-television, TV, Television, tv, broadcast, t.v., aired, radio, televison, channels, entertainment
-ball, throw, kick, bounce, volley, bowling, swing, hoop, toss, basket, foul
-berth, semis, quarterfinals, clinched, semifinals, semi-finals, play-off, playoff, championship, sleeper, postseason
-public, private, government, municipal, governmental, community, education, publicly, federal, citizens, state
-field, feild, position, team, ground, career, research, where, path, second, third
-ski, snowboard, skiers, mountain, piste, alpine, snowmobile, snow, slopes, downhill, backcountry
-legislative, legislature, congressional, constitutional, judicial, Senate, lawmakers, reform, committee, governmental, amendment
-classroom, curriculum, teachers, students, learning, teaching, kindergarten, school, educational, elementary, instructional
-food, meal, eating, meat, cooking, snacks, seafood, vegetables, restaurant, dishes, nutrition
-tree, forest, shrubs, pine, leaf, bushes, willow, twig, garden, vine, sapling
-golf, tennis, golfers, 18-hole, sports, fairway, club, bowling, polo, volleyball, PGA
-base, bottom, plate, solid, core, surface, ground, top, structure, center, edge
-palace, royal, castle, mansion, temple, citadel, imperial, courtyard, fortress, tomb, palatial
-aqueduct, aquaduct, viaduct, canal, watercourse, outfall, cistern, amphitheatre, footbridge, waterway, basilica
-wood, hardwood, wooden, oak, timber, pine, cedar, plywood, bamboo, birch, flooring
-raceway, speedway, racetrack, dragstrip, dragway, motorsports, racecourse, fairgrounds, racing, nhra, autocross
-supermarket, grocery, grocer, deli, Aldi, bakery, Tesco, shopping, Safeway, mall, stores
-studying, teaching, studing, researching, learning, graduate, taught, undergraduate, students, exploring, pursuing
-waiting, awaiting, soon, hoping, next, ready, finally, patiently, before, going, coming
-arts, martial, artistic, education, teaching, exhibitions, humanities, theatre, crafts, workshops, cultural
-restaurant, eatery, dining, cuisine, bistro, cafe, resturant, restuarant, diner, buffet, dinner
-coast, coastline, coastal, inland, southern, shore, south, beaches, island, northern, north
-arena, stadium, venue, coliseum, crowd, hall, amphitheater, rink, marketplace, hockey, amphitheatre
-stable, stability, unstable, relatively, steady, maintain, consistent, long-term, robust, reliable, solid
-assembly, mounting, actuator, components, hinge, mechanism, apparatus, chamber, coupling, comprising, clamp
-pub, tavern, cafe, restaurant, bar, beer, brewery, diner, café, eatery, bistro
-cabin, room, lodge, porch, cottage, cockpit, spacious, bunk, tent, chalet, camper
-lawn, grass, mower, garden, mowing, landscaping, backyard, lawnmower, yard, turf, mulch
-arcade, pinball, tetris, games, platformer, coin-op, puzzle, multiplayer, Sega, side-scrolling, gameplay
-beer, drink, brew, lager, brewery, ale, booze, whiskey, pint, wine, beverage
-raft, canoe, kayak, boat, dinghy, rowboat, whitewater, pontoon, paddling, inflatable, capsized
-athletic, basketball, sports, collegiate, football, soccer, volleyball, atheletic, softball, varsity, athleticism
-throne, reign, king, kingdom, prince, ascended, emperor, heir, coronation, monarch, enthroned
-building, built, construction, brick, renovation, house, structures, concrete, tower, roof, residential
-stage, onstage, phase, concert, performing, musical, rehearsal, theatre, show, step, before
-pasture, grazing, cattle, paddocks, meadow, pastureland, livestock, grassland, farmland, arable, forage
-discotheque, discothèque, night-club, discos, nightclub, discoteque, clubbing, bar/restaurant, night-life, cafe-bar, restaurant/bar
-windmill, turbines, waterwheel, watermill, lighthouse, wind, windfarm, barn, farm, mill, vane
-chemistry, biochemistry, biology, physics, chemical, science, molecular, microbiology, physiology, pharmacology, mathematics
-dock, pier, boat, wharf, barge, mooring, ship, marina, shore, ferry, harbor
-forest, woodland, trees, rainforest, vegetation, woods, habitat, grassland, forestry, pine, wildlife
-coffee, espresso, tea, cappuccino, Coffee, latte, drinks, chocolate, cafe, beverage, iced
-bridge, crossing, river, footbridge, viaduct, overpass, roadway, tunnel, highway, pier, railroad
-cafeteria, lunchroom, canteen, lunches, gymnasium, auditorium, café, diner, dormitory, restaurant, buffet
-pet, dog, cat, puppy, animal, canine, kitten, kennel, ferret, kitty, grooming
-bus, buses, busses, taxi, train, tram, airport, station, minibus, subway, route
-fastfood, fast-food, mcdonalds, McDs, macdonalds, Jollibee, McDo, restaraunt, quick-serve, restuarant, restraunt
-underwater, undersea, dive, scuba, submerged, reef, deep-sea, ocean, marine, submarine, under-water
-booth, expo, tradeshow, attendees, exhibitor, showroom, kiosk, hall, raffle, venue, convention
-salon, hairdresser, spa, barber, stylist, manicure, hair, pedicure, beautician, hairstylist, hairstyling
-staircase, stairway, staircases, stairs, stairwell, foyer, hallway, balustrade, entryway, walkway, banister
-oilrig, oil-rig, oil-drilling, roustabout, scaffolder, roughneck, Deepwater, oil-well, Macondo, pipline, oilwell
-studio, artist, recording, productions, post-production, creative, house, producer, music, suite, theatre
-landing, takeoff, take-off, flying, airplane, aircraft, flight, flew, plane, runway, helicopter
-grotto, cavern, cave, shrine, catacombs, stalactite, chapel, cloister, basilica, cave-like, waterfall
-music, songs, tunes, jazz, musicians, dance, instrumental, listen, piano, sound, soundtrack
-ring, diamond, bracelet, necklace, earrings, pendant, jewelry, silver, sterling, gold, bangle
-rope, ladder, bungee, hook, leash, webbing, twine, pull, cords, braided, hanging
-rodeo, roping, bronc, cowboy, cowgirls, bullriding, bronco, chuckwagon, ranch, PRCA, horse
-indoor, outdoor, indoor/outdoor, swimming, pool, sauna, backyard, garden, patio, playground, rooftop
-gym, fitness, workout, aerobics, gymnasium, cardio, work-out, exercise, jogging, swimming, sauna
-garage, basement, carport, driveway, doors, house, patio, parking, roof, porch, attic
-paddy, sugarcane, maize, rice, irrigated, crops, cassava, taro, plantations, cultivation, kharif
-exterior, interior, roof, facade, stucco, walls, façade, trim, doors, decorative, surfaces
-kitchen, bathroom, pantry, dining, cupboards, dishwasher, cabinets, bedroom, room, downstairs, stove
-cliff, rocky, precipice, steep, ledge, canyon, hill, gorge, climb, cave, ravine
-mezzanine, ground-floor, second-floor, staircase, alcove, terrace, veranda, foyer, stairway, first-floor, open-plan
-living, life, home, people, residing, family, house, dwelling, lifestyle, room, bedroom
-toyshop, toystore, sweetshop, toymaker, toy-shop, Hamleys, stors, fun-fair, front-room, smyths, toybox
-ocean, sea, waters, shore, beach, coast, lagoon, coastal, tides, reef, tropical
-canyon, creek, valley, gorge, ridge, cliffs, mountain, ravine, lake, rocky, river
-performance, perfomance, performace, reliability, efficiency, improved, outstanding, production, exceptional, overall, peformance
-operating, systems, maintaining, revenue, devices, existing, based, facility, infrastructure, computers
-sauna, jacuzzi, solarium, spa, hammam, whirlpool, pool, gymnasium, tub, swimming, massage
-phone, cellphone, telephone, mobile, handset, voicemail, cell, call, smartphone, dialing, fax
-terminal, port, connected, connector, signal, bus, station, terminus, configured, input/output, switch
-kasbah, Taourirt, Benhaddou, ksar, riad, souk, caravanserai, casbah, Ouarzazate, medina, mud-brick
-natural, all-natural, beauty, organic, mineral, artificial, pure, herbal, man-made, oils, synthetic
-shopping, mall, store, grocery, shoppers, supermarket, boutiques, retail, bargains, trendy, shoping
-castle, fortress, palace, manor, medieval, chateau, mansion, knights, abbey, ruins, tower
-islet, beta-cell, insulin-producing, pancreatic, pancreas, transplantation, autoimmunity, Langerhans, exocrine, insulinoma, insulin-secreting
-airport, flights, taxi, Heathrow, shuttle, hotel, aiport, airline, LAX, bus, transportation
-gift, keepsake, birthday, personalized, special, valentine, christmas, baskets, greeting, favors, wonderful
-laundromat, laundrymat, launderette, laundrette, laundry, mini-mart, coin-operated, dry-cleaning, laundramat, restroom, carwash
-beach, seaside, sandy, beachfront, resort, ocean, coast, seashore, shore, sand, beachside
-basketball, volleyball, football, soccer, Basketball, softball, baseball, lacrosse, hockey, tennis, athletics
-outdoor, indoor, patio, indoor/outdoor, garden, backyard, pool, swimming, picnic, dining, playground
+atrium, rotunda, courtyard, foyer, atria, ventricle, staircase, second-floor, light-filled, colonnade, entryway, ventricl, staircas, light-fil, colonnad, stairca
+watering, planting, fertilizing, irrigation, lawns, drip, mowing, sprinkler, garden, weeding, misting, water, plant, fertil, irrig, lawn, mow, weed, mist
+banquet, luncheon, dinner, gala, buffet, reception, ceremony, hall, dining, supper, ballroom, recept, ceremoni, dine
+skyscraper, high-rise, tallest, tower, supertall, skyline, highrise, cityscape, 40-story, Burj, 20-story, skyscrap, high-ris, supertal, skylin, highris, cityscap, 40-stori, burj, 20-stori, high-ri, supert, highri
+volcano, volcanic, eruption, lava, crater, caldera, Merapi, magma, Eyjafjallajökull, geyser, Kilauea, volcan, erupt, merapi, eyjafjallajökul, kilauea
+formal, informal, semi-formal, appropriate, elaborate, structured, attire, practical, brief, customary, consideration, inform, semi-form, appropri, elabor, structur, attir, practic, customari, consider, consid
+cockpit, fuselage, starboard, airplane, aircraft, aft, rudder, foredeck, pilothouse, cabin, hangar, fuselag, airplan, pilothous, piloth
+balcony, terrace, veranda, verandah, porch, overlooking, courtyard, patio, lanai, upstairs, kitchenette, balconi, terrac, overlook, upstair, kitchenett
+pantry, cupboard, kitchen, closets, cabinets, larder, refrigerator, fridge, laundry, freezer, walk-in, pantri, closet, cabinet, refriger, fridg, laundri, refrig
+loft, bedroom, attic, townhouse, bungalow, basement, upstairs, penthouse, apartment, garage, condo, townhous, upstair, penthous, apart, garag, townhou, penthou
+closet, wardrobe, pantry, bathroom, cupboard, basement, dresser, upstairs, laundry, kitchen, hallway, wardrob, pantri, upstair, laundri
+sushi, sashimi, ramen, seafood, tempura, nigiri, pizza, burger, sandwiches, noodle, tapas, sandwich, noodl, tapa
+jail, prison, sentenced, probation, convicted, arrested, inmate, felony, detention, imprisonment, guilty, sentenc, probat, convict, arrest, inmat, feloni, detent, imprison, guilti
+beauty, glamour, splendor, gorgeous, natural, magnificence, elegance, loveliness, allure, exquisite, makeup, beauti, gorgeou, natur, magnific, eleg, loveli, allur, exquisit, magnif, love
+course, courses, well, teaching, training, instructor, learning, taught, lesson, there, classes, cours, teach, train, learn, class, cour
+downtown, midtown, city, neighborhood, streets, uptown, waterfront, mall, town, plaza, bustling, citi, street, bustl
+eating, food, eaten, ate, meal, diet, snacking, drinking, craving, meat, habits, eat, snack, drink, crave, habit
+cottage, farmhouse, bungalow, bedroom, self-catering, villa, rustic, house, townhouse, barn, guesthouse, cottag, farmhous, self-cat, hous, townhous, guesthous, farmhou, hou, townhou, guesthou
+conference, meeting, symposium, keynote, seminar, roundtable, convention, presentation, attendees, lecture, workshop, confer, meet, keynot, roundtabl, convent, present, attende, lectur, attend
+railroad, railway, locomotive, rail, freight, trains, streetcar, highway, interurban, telegraph, tramway, locomot, train
+badlands, canyons, buttes, prairies, mesas, hoodoos, desert, moonscape, slickrock, plains, rushmore, badland, canyon, butt, prairi, mesa, hoodoo, moonscap, plain, rushmor
+trench, overcoat, double-breasted, dug, trenchcoat, jacket, coat, ditch, excavation, insulating, digging, double-breast, excav, insul, dig
+gymnasium, auditorium, gym, sauna, solarium, cafeteria, playground, swimming, hall, aerobics, dormitory, swim, aerob, dormitori
+sandbox, multiplayer, mmo, themepark, singleplayer, sandpit, minecraft, open-world, bot, single-player, playground, multiplay, singleplay, single-play
+airplane, plane, aircraft, aeroplane, flying, flight, airliner, helicopter, jet, takeoff, aviation, airplan, aeroplan, fli, airlin, helicopt, aviat
+tower, skyscraper, spire, building, tallest, castle, dome, fortress, roof, high-rise, atop, skyscrap, build, castl, high-ris, high-ri
+landfill, waste, incinerator, recycling, disposal, wastewater, sewage, leachate, stormwater, reclamation, garbage, landfil, wast, inciner, recycl, dispos, wastewat, sewag, leachat, stormwat, reclam, garbag, incin, dispo
+mosque, Masjid, minaret, imam, Muslim, synagogue, Islamic, shrine, Moslem, madrassa, Al-Aqsa, mosqu, masjid, muslim, synagogu, islam, moslem, al-aqsa
+airfield, aerodrome, airstrip, airbase, hangar, aircraft, heliport, RAF, airdrome, airspace, taxiway, aerodrom, airbas, raf, airdrom, airspac, airba
+lecture, seminar, presentation, symposium, colloquium, keynote, introductory, professor, workshop, conference, thesis, lectur, present, keynot, introductori, confer, thesi
+chamber, inlet, passageway, pressurized, cavity, assembly, cylinder, combustion, valve, disposed, hollow, pressur, caviti, assembl, cylind, combust, valv, dispos, dispo
+room, upstairs, downstairs, floor, bathroom, hallway, bedroom, lounge, desk, dining, hall, upstair, downstair, loung, dine
+amusement, amusements, attraction, recreation, thrill, parks, excitement, enjoyment, entertainment, fairground, playground, amus, attract, recreat, park, excit, enjoy, entertain, amu
+escalator, elevator, stairs, stairwell, stairway, staircase, walkway, subway, turnstile, travelator, handrail, escal, elev, stair, stairwel, staircas, turnstil, travel, stairca
+area, surrounding, region, vicinity, located, adjacent, nearby, outside, places, within, where, surround, vicin, locat, adjac, nearbi, outsid, place
+shelf, shelves, drawer, bookcase, cupboard, bookshelf, rack, cabinets, tray, bookshelves, storage, shelv, bookcas, cabinet, bookshelv, storag, bookca
+jewelry, jewelery, jewellery, necklaces, earrings, bracelets, jewlery, pendants, jewerly, sterling, gemstone, jewelri, jeweleri, jewelleri, necklac, ear, bracelet, jewleri, pendant, jewerli, sterl, gemston
+lighthouse, lighthouses, pier, cove, harbour, harbor, shore, headland, breakwater, island, beacon, lighthous, breakwat, lighthou
+campus, campuses, university, faculty, on-campus, college, students, school, off-campus, undergraduate, alumni, campu, univers, faculti, on-campu, colleg, student, off-campu, undergradu, univ
+lagoon, waters, ocean, shoreline, beaches, ponds, marina, reef, lake, estuary, shore, water, shorelin, beach, pond, estuari
+porch, patio, veranda, balcony, verandah, fireplace, courtyard, driveway, gazebo, sunroom, roof, balconi, fireplac
+pagoda, stupa, Shwedagon, chedi, temple, shrine, mausoleum, Thien, octagonal, roofed, spire, shwedagon, templ, thien, octagon, roof
+drugstore, pharmacy, walgreens, prescription, walmart, perscription, pharmacist, cosmetics, Rite-Aid, otc, over-the-counter, drugstor, pharmaci, walgreen, prescript, perscript, cosmet, rite-aid, over-the-count
+fountain, pond, waterfall, marble, courtyard, statuary, garden, statue, water, pool, birdbath, waterfal, marbl, statuari, statu, waterf
+attic, basement, loft, crawlspace, roof, chimney, porch, upstairs, garage, closet, insulation, crawlspac, upstair, garag, insul
+soccer, football, basketball, volleyball, hockey, softball, tennis, lacrosse, baseball, rugby, sports, footbal, basketbal, volleybal, softbal, tenni, lacross, basebal, rugbi, sport, basketb, volleyb, baseb
+patio, porch, gazebo, terrace, fireplace, garden, veranda, courtyard, sunroom, balcony, backyard, terrac, fireplac, balconi
+storage, storing, space, containers, capacity, disk, compartment, removable, hardware, shelf, rack, storag, store, contain, capac, compart, remov, hardwar
+manufactured, marketed, engineered, fabricated, products, supplied, commercially, constructed, designed, sold, produced, manufactur, market, engin, fabric, product, suppli, commerci, construct, design, produc
+promenade, seafront, esplanade, stroll, seaside, boardwalk, boulevard, walkway, sea-front, pedestrianised, waterside, promenad, esplanad, seasid, pedestrianis, watersid, pedestriani
+television, TV, Television, tv, broadcast, t.v., aired, radio, televison, channels, entertainment, televis, air, channel, entertain, televi
+ball, throw, kick, bounce, volley, bowling, swing, hoop, toss, basket, foul, bounc, bowl
+berth, semis, quarterfinals, clinched, semifinals, semi-finals, play-off, playoff, championship, sleeper, postseason, semi, quarterfin, clinch, semifin, semi-fin
+public, private, government, municipal, governmental, community, education, publicly, federal, citizens, state, privat, govern, municip, commun, educ, publicli, feder, citizen
+field, feild, position, team, ground, career, research, where, path, second, third, posit
+ski, snowboard, skiers, mountain, piste, alpine, snowmobile, snow, slopes, downhill, backcountry, skier, pist, alpin, snowmobil, slope, downhil, backcountri
+legislative, legislature, congressional, constitutional, judicial, Senate, lawmakers, reform, committee, governmental, amendment, legisl, legislatur, congression, constitut, judici, senat, lawmak, committe, government, amend, congress, committ, govern
+classroom, curriculum, teachers, students, learning, teaching, kindergarten, school, educational, elementary, instructional, teacher, student, learn, teach, educ, elementari, instruct
+food, meal, eating, meat, cooking, snacks, seafood, vegetables, restaurant, dishes, nutrition, eat, cook, snack, veget, restaur, dish, nutrit
+tree, forest, shrubs, pine, leaf, bushes, willow, twig, garden, vine, sapling, shrub, bush, sapl
+golf, tennis, golfers, 18-hole, sports, fairway, club, bowling, polo, volleyball, PGA, tenni, golfer, sport, bowl, volleybal, pga, volleyb
+base, bottom, plate, solid, core, surface, ground, top, structure, center, edge, surfac, structur, edg
+palace, royal, castle, mansion, temple, citadel, imperial, courtyard, fortress, tomb, palatial, palac, castl, templ, imperi, palati
+aqueduct, aquaduct, viaduct, canal, watercourse, outfall, cistern, amphitheatre, footbridge, waterway, basilica, watercours, outfal, amphitheatr, footbridg, watercour
+wood, hardwood, wooden, oak, timber, pine, cedar, plywood, bamboo, birch, flooring, floor
+raceway, speedway, racetrack, dragstrip, dragway, motorsports, racecourse, fairgrounds, racing, nhra, autocross, motorsport, racecours, fairground, race, racecour
+supermarket, grocery, grocer, deli, Aldi, bakery, Tesco, shopping, Safeway, mall, stores, groceri, aldi, bakeri, tesco, shop, safeway, store
+studying, teaching, studing, researching, learning, graduate, taught, undergraduate, students, exploring, pursuing, studi, teach, stude, research, learn, graduat, undergradu, student, explor, pursu
+waiting, awaiting, soon, hoping, next, ready, finally, patiently, before, going, coming, wait, await, hope, readi, final, patient, befor, go, come
+arts, martial, artistic, education, teaching, exhibitions, humanities, theatre, crafts, workshops, cultural, art, artist, educ, teach, exhibit, human, theatr, craft, workshop, cultur
+restaurant, eatery, dining, cuisine, bistro, cafe, resturant, restuarant, diner, buffet, dinner, restaur, eateri, dine, cuisin, restur, restuar
+coast, coastline, coastal, inland, southern, shore, south, beaches, island, northern, north, coastlin, beach
+arena, stadium, venue, coliseum, crowd, hall, amphitheater, rink, marketplace, hockey, amphitheatre, venu, amphitheat, marketplac, amphitheatr
+stable, stability, unstable, relatively, steady, maintain, consistent, long-term, robust, reliable, solid, stabl, stabil, unstabl, rel, steadi, consist, reliabl
+assembly, mounting, actuator, components, hinge, mechanism, apparatus, chamber, coupling, comprising, clamp, assembl, mount, actuat, compon, hing, mechan, apparatu, coupl, compris, compri
+pub, tavern, cafe, restaurant, bar, beer, brewery, diner, café, eatery, bistro, restaur, breweri, eateri
+cabin, room, lodge, porch, cottage, cockpit, spacious, bunk, tent, chalet, camper, lodg, cottag, spaciou
+lawn, grass, mower, garden, mowing, landscaping, backyard, lawnmower, yard, turf, mulch, mow, landscap, lawnmow
+arcade, pinball, tetris, games, platformer, coin-op, puzzle, multiplayer, Sega, side-scrolling, gameplay, arcad, pinbal, tetri, game, platform, puzzl, multiplay, sega, side-scrol
+beer, drink, brew, lager, brewery, ale, booze, whiskey, pint, wine, beverage, breweri, booz, beverag
+raft, canoe, kayak, boat, dinghy, rowboat, whitewater, pontoon, paddling, inflatable, capsized, cano, dinghi, whitewat, paddl, inflat, capsiz
+athletic, basketball, sports, collegiate, football, soccer, volleyball, atheletic, softball, varsity, athleticism, athlet, basketbal, sport, collegi, footbal, volleybal, athelet, softbal, varsiti, basketb, volleyb
+throne, reign, king, kingdom, prince, ascended, emperor, heir, coronation, monarch, enthroned, princ, ascend, coron, enthron
+building, built, construction, brick, renovation, house, structures, concrete, tower, roof, residential, build, construct, renov, hous, structur, concret, residenti, hou
+stage, onstage, phase, concert, performing, musical, rehearsal, theatre, show, step, before, onstag, perform, music, rehears, theatr, befor, rehear
+pasture, grazing, cattle, paddocks, meadow, pastureland, livestock, grassland, farmland, arable, forage, pastur, graze, cattl, paddock, arabl, forag
+discotheque, discothèque, night-club, discos, nightclub, discoteque, clubbing, bar/restaurant, night-life, cafe-bar, restaurant/bar, discothequ, discothèqu, disco, discotequ, club, bar/restaur, night-lif
+windmill, turbines, waterwheel, watermill, lighthouse, wind, windfarm, barn, farm, mill, vane, windmil, turbin, watermil, lighthous, lighthou
+chemistry, biochemistry, biology, physics, chemical, science, molecular, microbiology, physiology, pharmacology, mathematics, chemistri, biochemistri, biolog, physic, chemic, scienc, microbiolog, physiolog, pharmacolog, mathemat
+dock, pier, boat, wharf, barge, mooring, ship, marina, shore, ferry, harbor, barg, moor, ferri
+forest, woodland, trees, rainforest, vegetation, woods, habitat, grassland, forestry, pine, wildlife, tree, veget, wood, forestri, wildlif
+coffee, espresso, tea, cappuccino, Coffee, latte, drinks, chocolate, cafe, beverage, iced, coffe, latt, drink, chocol, beverag, ice, coff
+bridge, crossing, river, footbridge, viaduct, overpass, roadway, tunnel, highway, pier, railroad, bridg, cross, footbridg
+cafeteria, lunchroom, canteen, lunches, gymnasium, auditorium, café, diner, dormitory, restaurant, buffet, lunch, dormitori, restaur
+pet, dog, cat, puppy, animal, canine, kitten, kennel, ferret, kitty, grooming, puppi, anim, canin, kitti, groom
+bus, buses, busses, taxi, train, tram, airport, station, minibus, subway, route, bu, buse, buss, minibu, rout
+fastfood, fast-food, mcdonalds, McDs, macdonalds, Jollibee, McDo, restaraunt, quick-serve, restuarant, restraunt, mcdonald, mcd, macdonald, jollibe, mcdo, quick-serv, restuar, jollib
+underwater, undersea, dive, scuba, submerged, reef, deep-sea, ocean, marine, submarine, under-water, underwat, submerg, marin, submarin, under-wat
+booth, expo, tradeshow, attendees, exhibitor, showroom, kiosk, hall, raffle, venue, convention, attende, raffl, venu, convent, attend
+salon, hairdresser, spa, barber, stylist, manicure, hair, pedicure, beautician, hairstylist, hairstyling, hairdress, manicur, pedicur, hairstyl
+staircase, stairway, staircases, stairs, stairwell, foyer, hallway, balustrade, entryway, walkway, banister, staircas, stair, stairwel, balustrad, banist, stairca
+oilrig, oil-rig, oil-drilling, roustabout, scaffolder, roughneck, Deepwater, oil-well, Macondo, pipline, oilwell, oil-dril, scaffold, deepwat, oil-wel, macondo, piplin, oilwel
+studio, artist, recording, productions, post-production, creative, house, producer, music, suite, theatre, record, product, post-product, creativ, hous, produc, suit, theatr, hou
+landing, takeoff, take-off, flying, airplane, aircraft, flight, flew, plane, runway, helicopter, land, fli, airplan, helicopt
+grotto, cavern, cave, shrine, catacombs, stalactite, chapel, cloister, basilica, cave-like, waterfall, catacomb, stalactit, cave-lik, waterfal, waterf
+music, songs, tunes, jazz, musicians, dance, instrumental, listen, piano, sound, soundtrack, song, tune, musician, danc, instrument
+ring, diamond, bracelet, necklace, earrings, pendant, jewelry, silver, sterling, gold, bangle, necklac, ear, jewelri, sterl, bangl
+rope, ladder, bungee, hook, leash, webbing, twine, pull, cords, braided, hanging, bunge, web, cord, braid, hang, bung
+rodeo, roping, bronc, cowboy, cowgirls, bullriding, bronco, chuckwagon, ranch, PRCA, horse, rope, cowgirl, bullrid, prca, hors, hor
+indoor, outdoor, indoor/outdoor, swimming, pool, sauna, backyard, garden, patio, playground, rooftop, swim
+gym, fitness, workout, aerobics, gymnasium, cardio, work-out, exercise, jogging, swimming, sauna, fit, aerob, exercis, jog, swim, exerci
+garage, basement, carport, driveway, doors, house, patio, parking, roof, porch, attic, garag, door, hous, park, hou
+paddy, sugarcane, maize, rice, irrigated, crops, cassava, taro, plantations, cultivation, kharif, paddi, sugarcan, maiz, irrig, crop, plantat, cultiv
+exterior, interior, roof, facade, stucco, walls, façade, trim, doors, decorative, surfaces, facad, wall, façad, door, decor, surfac
+kitchen, bathroom, pantry, dining, cupboards, dishwasher, cabinets, bedroom, room, downstairs, stove, pantri, dine, cupboard, dishwash, cabinet, downstair
+cliff, rocky, precipice, steep, ledge, canyon, hill, gorge, climb, cave, ravine, rocki, precipic, ledg, gorg, ravin, precip
+mezzanine, ground-floor, second-floor, staircase, alcove, terrace, veranda, foyer, stairway, first-floor, open-plan, mezzanin, staircas, alcov, terrac, stairca
+living, life, home, people, residing, family, house, dwelling, lifestyle, room, bedroom, live, peopl, resid, famili, hous, dwell, lifestyl, hou
+toyshop, toystore, sweetshop, toymaker, toy-shop, Hamleys, stors, fun-fair, front-room, smyths, toybox, toystor, toymak, hamley, stor, smyth
+ocean, sea, waters, shore, beach, coast, lagoon, coastal, tides, reef, tropical, water, tide, tropic
+canyon, creek, valley, gorge, ridge, cliffs, mountain, ravine, lake, rocky, river, gorg, ridg, cliff, ravin, rocki
+performance, perfomance, performace, reliability, efficiency, improved, outstanding, production, exceptional, overall, peformance, perform, perfom, performac, reliabl, effici, improv, outstand, product, except, overal, peform, over
+operating, systems, maintaining, revenue, devices, existing, based, facility, infrastructure, computers, oper, system, maintain, revenu, devic, exist, base, facil, infrastructur, comput
+sauna, jacuzzi, solarium, spa, hammam, whirlpool, pool, gymnasium, tub, swimming, massage, swim, massag
+phone, cellphone, telephone, mobile, handset, voicemail, cell, call, smartphone, dialing, fax, cellphon, telephon, mobil, smartphon, dial
+terminal, port, connected, connector, signal, bus, station, terminus, configured, input/output, switch, termin, connect, bu, terminu, configur
+kasbah, Taourirt, Benhaddou, ksar, riad, souk, caravanserai, casbah, Ouarzazate, medina, mud-brick, taourirt, benhadd, ouarzaz
+natural, all-natural, beauty, organic, mineral, artificial, pure, herbal, man-made, oils, synthetic, natur, all-natur, beauti, organ, miner, artifici, man-mad, oil, synthet
+shopping, mall, store, grocery, shoppers, supermarket, boutiques, retail, bargains, trendy, shoping, shop, groceri, shopper, boutiqu, bargain, trendi, shope
+castle, fortress, palace, manor, medieval, chateau, mansion, knights, abbey, ruins, tower, castl, palac, mediev, knight, ruin
+islet, beta-cell, insulin-producing, pancreatic, pancreas, transplantation, autoimmunity, Langerhans, exocrine, insulinoma, insulin-secreting, beta-cel, insulin-produc, pancreat, pancrea, transplant, autoimmun, langerhan, exocrin, insulin-secret
+airport, flights, taxi, Heathrow, shuttle, hotel, aiport, airline, LAX, bus, transportation, flight, heathrow, shuttl, airlin, lax, bu, transport
+gift, keepsake, birthday, personalized, special, valentine, christmas, baskets, greeting, favors, wonderful, keepsak, person, valentin, christma, basket, greet, favor, wonder
+laundromat, laundrymat, launderette, laundrette, laundry, mini-mart, coin-operated, dry-cleaning, laundramat, restroom, carwash, launderett, laundrett, laundri, coin-oper, dry-clean, coin-op
+beach, seaside, sandy, beachfront, resort, ocean, coast, seashore, shore, sand, beachside, seasid, sandi, seashor, beachsid
+basketball, volleyball, football, soccer, Basketball, softball, baseball, lacrosse, hockey, tennis, athletics, basketbal, volleybal, footbal, softbal, basebal, lacross, tenni, athlet, basketb, volleyb, baseb
+outdoor, indoor, patio, indoor/outdoor, garden, backyard, pool, swimming, picnic, dining, playground, swim, dine
 shower, bathroom, tub, bathtub, toilet, bath, towel, jacuzzi, kitchen, washroom, room
-galley, dinette, starboard, pilothouse, portside, companionway, stateroom, kitchenette, aft, kitchen, cockpit
-orchestra, symphony, orchestral, soloist, choir, piano, choral, quartet, violin, Philharmonic, symphonic
-waterfall, waterfalls, cascading, pond, river, canyon, fountains, gorge, lagoon, ravine, lake
-home, house, living, apartment, bedroom, family, residence, kitchen, out, own, life
-neighborhood, neighbourhood, neighbors, downtown, streets, suburb, suburban, residents, city, town, community
-bathroom, shower, kitchen, toilet, bedroom, bath, bathtub, tub, room, washroom, downstairs
-school, college, elementary, teacher, students, kindergarten, education, highschool, university, classroom, teaching
-hot, sexy, sizzling, wet, pussy, horny, steamy, babe, hottest, naked, asian
-deep, deeper, deepest, depth, deeply, shallow, thick, dark, wide, long, beneath
-crevasse, icefall, bergschrund, snowbank, snowfield, couloir, chasm, rockfall, glacier, ravine, gully
-industrial, manufacturing, machinery, agricultural, factories, petrochemical, commercial, engineering, aerospace, construction, automotive
-interior, exterior, upholstery, trim, roof, walls, decor, doors, design, furnishings, paint
-computer, laptop, software, desktop, puter, workstation, PC, hardware, PCs, systems, internet
-lock, latch, keys, lever, bolt, padlock, screw, hook, pull, snap, switch
-biology, biochemistry, physiology, genetics, microbiology, ecology, science, neuroscience, immunology, chemistry, zoology
-cubicles, desks, cubical, washroom, urinals, hallways, lockers, cupboards, cramped, bookcases, windowless
-car, vehicle, automobile, truck, auto, driving, dealership, rental, motorcycle, motorbike, SUV
-sand, gravel, sandy, dunes, mud, rocks, pebbles, beach, dirt, clay, ocean
-artists, musicians, performers, painters, art, songwriters, illustrators, sculptors, composers, artworks, singers
-window, pane, door, curtain, screen, roof, wall, popup, doorway, shutters, sliding
-locker, lockerroom, restroom, dorm, locker-room, room, gym, hallway, closet, clubhouse, washroom
-catacomb, necropolis, baptistery, sarcophagus, sarcophagi, baptistry, cave-like, basilica, charnel, antechamber, labyrinths
-stadium, ballpark, arena, bleachers, football, Coliseum, grandstand, venue, scoreboard, park, baseball
-science, scientific, biology, physics, mathematics, research, astronomy, psychology, scientists, humanities, economics
-subway, metro, train, tram, bus, streetcar, commuter, street, station, transit, sidewalk
-mall, shopping, plaza, downtown, store, grocery, supermarket, midtown, park, street, mart
-volleyball, softball, basketball, tennis, soccer, Volleyball, lacrosse, gymnastics, varsity, badminton, athletics
-alcove, curtained, hallway, entryway, staircase, doorway, anteroom, cupboard, living-room, stairwell, tiled
-elevator, stairs, stairwell, escalator, staircase, hallway, stairway, floor, upstairs, room, downstairs
-road, highway, route, lane, trail, hill, driving, ride, roadway, north, crossing
-igloo, eskimo, penguin, snowman, artic, yurt, doghouse, puffle, arctic, thermos, teepee
-court, judge, prosecution, ruling, jury, appellate, judicial, defendant, appeals, custody, prosecutors
-boathouse, Boathouse, wharf, boatshed, boatyard, pier, slipway, rowboat, jetty, seawall, waterfront
-football, soccer, basketball, baseball, rugby, league, sports, hockey, athletics, coach, volleyball
-zen, buddhism, buddha, buddhist, meditation, feng, zen-like, shui, tai, yogi, koan
-archive, files, repository, searchable, gallery, database, directory, upload, library, links, contents
-pier, wharf, jetty, quay, docks, marina, harbour, shore, boardwalk, harbor, breakwater
-slum, shantytown, squatter, favelas, shanty, inner-city, Kibera, impoverished, poverty-stricken, squalid, ghettos
-iceberg, iceburg, lettuce, romaine, glacier, cucumbers, sinking, berg, spinach, frozen, icy
-wet, damp, dry, moist, soaking, hot, pussy, dripping, dirty, slippery, thick
-bedroom, bathroom, apartment, bed, townhouse, room, upstairs, spacious, bath, house, loft
-courthouse, Courthouse, courtroom, sheriff, jail, county, court, capitol, arraignment, clerk, fairgrounds
-socializing, socialising, mingling, chatting, conversing, schmoozing, partying, gatherings, sociable, lounging, goofing
-barndoor, barn-door, counterweighted, Vdub, snoot, louver, g-damn, shadbush, fundrasier, louvred, lightboard
+galley, dinette, starboard, pilothouse, portside, companionway, stateroom, kitchenette, aft, kitchen, cockpit, dinett, pilothous, portsid, kitchenett, piloth
+orchestra, symphony, orchestral, soloist, choir, piano, choral, quartet, violin, Philharmonic, symphonic, symphoni, orchestr, philharmon, symphon
+waterfall, waterfalls, cascading, pond, river, canyon, fountains, gorge, lagoon, ravine, lake, waterfal, cascad, fountain, gorg, ravin, waterf
+home, house, living, apartment, bedroom, family, residence, kitchen, out, own, life, hous, live, apart, famili, resid, hou
+neighborhood, neighbourhood, neighbors, downtown, streets, suburb, suburban, residents, city, town, community, neighbor, street, resid, citi, commun
+bathroom, shower, kitchen, toilet, bedroom, bath, bathtub, tub, room, washroom, downstairs, downstair
+school, college, elementary, teacher, students, kindergarten, education, highschool, university, classroom, teaching, colleg, elementari, student, educ, univers, teach, univ
+hot, sexy, sizzling, wet, pussy, horny, steamy, babe, hottest, naked, asian, sexi, sizzl, pussi, horni, steami, nake
+deep, deeper, deepest, depth, deeply, shallow, thick, dark, wide, long, beneath, deepli
+crevasse, icefall, bergschrund, snowbank, snowfield, couloir, chasm, rockfall, glacier, ravine, gully, crevass, icefal, rockfal, ravin, gulli, icef
+industrial, manufacturing, machinery, agricultural, factories, petrochemical, commercial, engineering, aerospace, construction, automotive, industri, manufactur, machineri, agricultur, factori, petrochem, commerci, engin, aerospac, construct, automot
+interior, exterior, upholstery, trim, roof, walls, decor, doors, design, furnishings, paint, upholsteri, wall, door, furnish
+computer, laptop, software, desktop, puter, workstation, PC, hardware, PCs, systems, internet, comput, softwar, workstat, hardwar, pc, system
+lock, latch, keys, lever, bolt, padlock, screw, hook, pull, snap, switch, key
+biology, biochemistry, physiology, genetics, microbiology, ecology, science, neuroscience, immunology, chemistry, zoology, biolog, biochemistri, physiolog, genet, microbiolog, ecolog, scienc, neurosci, immunolog, chemistri, zoolog
+cubicles, desks, cubical, washroom, urinals, hallways, lockers, cupboards, cramped, bookcases, windowless, cubicl, desk, cubic, urin, hallway, locker, cupboard, cramp, bookcas, bookca
+car, vehicle, automobile, truck, auto, driving, dealership, rental, motorcycle, motorbike, SUV, vehicl, automobil, drive, motorcycl, motorbik, suv
+sand, gravel, sandy, dunes, mud, rocks, pebbles, beach, dirt, clay, ocean, sandi, dune, rock, pebbl
+artists, musicians, performers, painters, art, songwriters, illustrators, sculptors, composers, artworks, singers, artist, musician, perform, painter, songwrit, illustr, sculptor, compos, artwork, singer, compo
+window, pane, door, curtain, screen, roof, wall, popup, doorway, shutters, sliding, shutter, slide
+locker, lockerroom, restroom, dorm, locker-room, room, gym, hallway, closet, clubhouse, washroom, clubhous, clubhou
+catacomb, necropolis, baptistery, sarcophagus, sarcophagi, baptistry, cave-like, basilica, charnel, antechamber, labyrinths, necropoli, baptisteri, sarcophagu, baptistri, cave-lik, antechamb, labyrinth
+stadium, ballpark, arena, bleachers, football, Coliseum, grandstand, venue, scoreboard, park, baseball, bleacher, footbal, coliseum, venu, basebal, baseb
+science, scientific, biology, physics, mathematics, research, astronomy, psychology, scientists, humanities, economics, scienc, scientif, biolog, physic, mathemat, astronomi, psycholog, scientist, human, econom
+subway, metro, train, tram, bus, streetcar, commuter, street, station, transit, sidewalk, bu, commut
+mall, shopping, plaza, downtown, store, grocery, supermarket, midtown, park, street, mart, shop, groceri
+volleyball, softball, basketball, tennis, soccer, Volleyball, lacrosse, gymnastics, varsity, badminton, athletics, volleybal, softbal, basketbal, tenni, lacross, gymnast, varsiti, athlet, volleyb, basketb
+alcove, curtained, hallway, entryway, staircase, doorway, anteroom, cupboard, living-room, stairwell, tiled, alcov, curtain, staircas, stairwel, tile, stairca
+elevator, stairs, stairwell, escalator, staircase, hallway, stairway, floor, upstairs, room, downstairs, elev, stair, stairwel, escal, staircas, upstair, downstair, stairca
+road, highway, route, lane, trail, hill, driving, ride, roadway, north, crossing, rout, drive, cross
+igloo, eskimo, penguin, snowman, artic, yurt, doghouse, puffle, arctic, thermos, teepee, doghous, puffl, thermo, teepe, doghou, teep
+court, judge, prosecution, ruling, jury, appellate, judicial, defendant, appeals, custody, prosecutors, judg, prosecut, rule, juri, appel, judici, defend, appeal, custodi, prosecutor
+boathouse, Boathouse, wharf, boatshed, boatyard, pier, slipway, rowboat, jetty, seawall, waterfront, boathous, boatsh, jetti, seawal, boathou
+football, soccer, basketball, baseball, rugby, league, sports, hockey, athletics, coach, volleyball, footbal, basketbal, basebal, rugbi, leagu, sport, athlet, volleybal, basketb, baseb, volleyb
+zen, buddhism, buddha, buddhist, meditation, feng, zen-like, shui, tai, yogi, koan, medit, zen-lik
+archive, files, repository, searchable, gallery, database, directory, upload, library, links, contents, archiv, file, repositori, searchabl, galleri, databas, directori, librari, link, content, databa
+pier, wharf, jetty, quay, docks, marina, harbour, shore, boardwalk, harbor, breakwater, jetti, dock, breakwat
+slum, shantytown, squatter, favelas, shanty, inner-city, Kibera, impoverished, poverty-stricken, squalid, ghettos, favela, shanti, inner-c, kibera, impoverish, ghetto
+iceberg, iceburg, lettuce, romaine, glacier, cucumbers, sinking, berg, spinach, frozen, icy, lettuc, romain, cucumb, sink, ici
+wet, damp, dry, moist, soaking, hot, pussy, dripping, dirty, slippery, thick, dri, soak, pussi, drip, dirti, slipperi
+bedroom, bathroom, apartment, bed, townhouse, room, upstairs, spacious, bath, house, loft, apart, townhous, upstair, spaciou, hous, townhou, hou
+courthouse, Courthouse, courtroom, sheriff, jail, county, court, capitol, arraignment, clerk, fairgrounds, courthous, counti, arraign, fairground, courthou
+socializing, socialising, mingling, chatting, conversing, schmoozing, partying, gatherings, sociable, lounging, goofing, social, socialis, mingl, chat, convers, schmooz, parti, gather, sociabl, loung, goof, sociali, conver
+barndoor, barn-door, counterweighted, Vdub, snoot, louver, g-damn, shadbush, fundrasier, louvred, lightboard, counterweight, vdub, fundrasi, louvr
 alley, alleyway, sidewalk, street, lane, corner, courtyard, hallway, driveway, downtown, tavern
-showroom, dealership, shop, dealer, furniture, warehouse, booth, interiors, storefront, furnishings, retailer
-farm, farmer, livestock, agricultural, cattle, pasture, barn, dairy, farmland, orchard, homestead
-gas, fuel, propane, gasoline, gases, combustion, petroleum, coal, heating, methane, electricity
-reception, banquet, venue, room, ceremony, guests, evening, dinner, welcoming, wedding, complimentary
-bookstore, bookshop, bookseller, B&N, library, store, shop, books, storefront, mall, brick-and-mortar
-butchers, fishmongers, greengrocers, grocers, butchery, bakers, delicatessen, barbers, delis, shoemakers, bakeries
-florist, bouquets, flowers, zipcodes, caterer, wedding, officiant, roses, bridal, funeral, bakeries
-hayfield, cornfield, mown, pastureland, meadow, cowshed, untilled, hayloft, pasture, meadowland, wheatfield
-corridor, freeway, hallway, highway, underpass, roadway, lanes, thoroughfare, expressway, entrance, overpass
-candy, chocolate, sweets, cupcakes, popcorn, cake, lollipops, cookie, fudge, peanut, strawberry
-utility, tool, backup, functionality, allows, storage, existing, software, efficient, usage, maintenance
-department, dept., dept, office, supervisor, assistant, staff, administrative, departmental, personnel, university
-art, painting, sculpture, artist, artworks, illustration, photography, exhibition, collage, museum, drawing
-lab, laboratory, tests, experiments, technician, chemistry, research, biology, science, veterinary, classroom
-bedchamber, bed-chamber, anteroom, drawing-room, ante-room, dining-room, sitting-room, antechamber, guardroom, up-stairs, ante-chamber
-hall, auditorium, room, hallway, entrance, foyer, ballroom, courtyard, floor, upstairs, lobby
-topiary, boxwood, espalier, bonsai, shrubbery, potted, ornamental, parterre, flowerbeds, hydrangea, evergreens
-theater, theatre, cinema, theatrical, productions, entertainment, musicals, auditorium, concerts, movie, theather
-driveway, sidewalk, porch, garage, walkway, pavement, parking, gravel, roadway, patio, fence
-engine, diesel, horsepower, motor, powerplant, turbo, cylinder, fuel, exhaust, powered, turbocharged
-boat, sailboat, sail, yacht, canoe, pontoon, fishing, dinghy, kayak, shore, barge
-pharmacy, prescription, viagra, cialis, perscription, levitra, generic, drugstore, pharmacist, medication, rx
-schoolhouse, one-room, school-house, schoolroom, schoolhouses, meetinghouse, parsonage, clapboard, firehouse, homestead, farmhouse
-glossy, matte, gloss, shiny, high-gloss, translucent, eye-catching, textured, lustrous, slick, sleek
-auditorium, hall, gymnasium, amphitheater, cafeteria, theater, theatre, foyer, rotunda, classrooms, chapel
-working, doing, job, done, trying, helping, needed, busy, involved, time, well
-racecourse, Racecourse, racetrack, Aintree, horseracing, Sandown, paddock, racegoers, grandstand, Randwick, Ascot
-playroom, livingroom, mudroom, gameroom, cubby, downstairs, upstairs, playground, playpen, entryway, playtime
-rock, punk, band, pop, blues, rockers, indie, music, metal, funk, jazz
-rice, corn, potato, beans, noodles, vegetables, wheat, chicken, flour, soup, cooked
+showroom, dealership, shop, dealer, furniture, warehouse, booth, interiors, storefront, furnishings, retailer, furnitur, warehous, interior, furnish, retail, wareh
+farm, farmer, livestock, agricultural, cattle, pasture, barn, dairy, farmland, orchard, homestead, agricultur, cattl, pastur, dairi
+gas, fuel, propane, gasoline, gases, combustion, petroleum, coal, heating, methane, electricity, ga, propan, gasolin, gase, combust, heat, methan, electr
+reception, banquet, venue, room, ceremony, guests, evening, dinner, welcoming, wedding, complimentary, recept, venu, ceremoni, guest, even, welcom, wed, complimentari
+bookstore, bookshop, bookseller, B&N, library, store, shop, books, storefront, mall, brick-and-mortar, bookstor, booksel, b&n, librari, book
+butchers, fishmongers, greengrocers, grocers, butchery, bakers, delicatessen, barbers, delis, shoemakers, bakeries, butcher, fishmong, greengroc, grocer, butcheri, baker, barber, deli, shoemak, bakeri
+florist, bouquets, flowers, zipcodes, caterer, wedding, officiant, roses, bridal, funeral, bakeries, bouquet, flower, zipcod, cater, wed, offici, rose, funer, bakeri
+hayfield, cornfield, mown, pastureland, meadow, cowshed, untilled, hayloft, pasture, meadowland, wheatfield, cowsh, until, pastur
+corridor, freeway, hallway, highway, underpass, roadway, lanes, thoroughfare, expressway, entrance, overpass, lane, thoroughfar, entranc
+candy, chocolate, sweets, cupcakes, popcorn, cake, lollipops, cookie, fudge, peanut, strawberry, candi, chocol, sweet, cupcak, lollipop, cooki, fudg, strawberri
+utility, tool, backup, functionality, allows, storage, existing, software, efficient, usage, maintenance, util, function, allow, storag, exist, softwar, effici, usag, mainten
+department, dept., dept, office, supervisor, assistant, staff, administrative, departmental, personnel, university, depart, offic, assist, administr, univers, univ
+art, painting, sculpture, artist, artworks, illustration, photography, exhibition, collage, museum, drawing, paint, sculptur, artwork, illustr, photographi, exhibit, collag, draw
+lab, laboratory, tests, experiments, technician, chemistry, research, biology, science, veterinary, classroom, laboratori, test, experi, chemistri, biolog, scienc, veterinari
+bedchamber, bed-chamber, anteroom, drawing-room, ante-room, dining-room, sitting-room, antechamber, guardroom, up-stairs, ante-chamber, bedchamb, bed-chamb, antechamb, up-stair, ante-chamb
+hall, auditorium, room, hallway, entrance, foyer, ballroom, courtyard, floor, upstairs, lobby, entranc, upstair, lobbi
+topiary, boxwood, espalier, bonsai, shrubbery, potted, ornamental, parterre, flowerbeds, hydrangea, evergreens, topiari, espali, shrubberi, pot, ornament, parterr, flowerb, evergreen
+theater, theatre, cinema, theatrical, productions, entertainment, musicals, auditorium, concerts, movie, theather, theatr, theatric, product, entertain, music, concert, movi
+driveway, sidewalk, porch, garage, walkway, pavement, parking, gravel, roadway, patio, fence, garag, park, fenc
+engine, diesel, horsepower, motor, powerplant, turbo, cylinder, fuel, exhaust, powered, turbocharged, engin, horsepow, powerpl, cylind, power, turbocharg
+boat, sailboat, sail, yacht, canoe, pontoon, fishing, dinghy, kayak, shore, barge, cano, fish, dinghi, barg
+pharmacy, prescription, viagra, cialis, perscription, levitra, generic, drugstore, pharmacist, medication, rx, pharmaci, prescript, ciali, perscript, gener, drugstor, medic
+schoolhouse, one-room, school-house, schoolroom, schoolhouses, meetinghouse, parsonage, clapboard, firehouse, homestead, farmhouse, schoolhous, school-hous, meetinghous, parsonag, firehous, farmhous, schoolhou, school-hou, meetingh, fireh, farmhou
+glossy, matte, gloss, shiny, high-gloss, translucent, eye-catching, textured, lustrous, slick, sleek, glossi, matt, shini, transluc, eye-catch, textur, lustrou
+auditorium, hall, gymnasium, amphitheater, cafeteria, theater, theatre, foyer, rotunda, classrooms, chapel, amphitheat, theatr, classroom
+working, doing, job, done, trying, helping, needed, busy, involved, time, well, work, do, tri, help, need, busi, involv
+racecourse, Racecourse, racetrack, Aintree, horseracing, Sandown, paddock, racegoers, grandstand, Randwick, Ascot, racecours, aintre, horserac, sandown, racego, randwick, ascot, racecour, aintr
+playroom, livingroom, mudroom, gameroom, cubby, downstairs, upstairs, playground, playpen, entryway, playtime, cubbi, downstair, upstair, playtim
+rock, punk, band, pop, blues, rockers, indie, music, metal, funk, jazz, blue, rocker, indi
+rice, corn, potato, beans, noodles, vegetables, wheat, chicken, flour, soup, cooked, bean, noodl, veget, cook
 jacuzzi, sauna, whirlpool, tub, solarium, pool, hot-tub, spa, bathtub, jaccuzi, sundeck
-path, route, direction, step, way, passing, pathway, toward, exit, journey, trail
-bowling, bowlers, cricket, tennis, volleyball, badminton, billiards, softball, balls, croquet, golf
-snowfield, couloir, bergschrund, icefall, headwall, snowline, treeline, crevasse, icefield, creekbed, rock-strewn
-bow, tie, sash, skirt, satin, arrow, ribbon, recurve, sword, feather, lace
-spring, summer, winter, fall, autumn, springtime, season, bloom, end, weekend, spring/summer
-bank, financial, credit, lender, loan, lending, cash, mortgage, banker, finance, debt
+path, route, direction, step, way, passing, pathway, toward, exit, journey, trail, rout, direct, pass
+bowling, bowlers, cricket, tennis, volleyball, badminton, billiards, softball, balls, croquet, golf, bowl, bowler, tenni, volleybal, billiard, softbal, ball, volleyb
+snowfield, couloir, bergschrund, icefall, headwall, snowline, treeline, crevasse, icefield, creekbed, rock-strewn, icefal, headwal, snowlin, treelin, crevass, creekb, icef
+bow, tie, sash, skirt, satin, arrow, ribbon, recurve, sword, feather, lace, recurv
+spring, summer, winter, fall, autumn, springtime, season, bloom, end, weekend, spring/summer, springtim, spring/summ
+bank, financial, credit, lender, loan, lending, cash, mortgage, banker, finance, debt, financi, lend, mortgag, financ
 parlor, parlour, tavern, saloon, salon, barber, barbershop, diner, hall, cafe, brothel
-construction, building, concrete, renovation, industrial, structural, design, engineering, projects, demolition, contractor
-swimming, pool, diving, tennis, beach, jacuzzi, indoor, swiming, volleyball, sunbathing, sauna
-pit, lap, bull, dirt, gravel, dog, pole, quarry, backyard, cage, paddock
-market, marketplace, consumer, investment, commodity, industry, sales, demand, retail, buyers, stocks
-plaza, mall, courtyard, downtown, park, midtown, parkway, boulevard, walkway, hall, esplanade
-vegetable, veggie, veg, tomato, potato, rice, salad, broccoli, carrot, garlic, onion
-wild, exotic, birds, animals, deer, untamed, forest, wolves, crazy, tame, wildlife
-rink, skating, ice-skating, hockey, playground, ice, sledding, gymnasium, park, skaters, volleyball
-army, troops, soldiers, military, forces, infantry, battalion, cavalry, armed, war, commander
-kennel, dog, breeder, puppy, pet, cattery, terrier, labrador, retriever, pup, breed
-courtyard, terrace, landscaped, overlooking, gardens, patio, balcony, veranda, porch, walkway, gazebo
-lot, much, some, alot, few, plenty, there, quite, enough, many, too
-embassy, consulate, diplomats, consular, ambassador, passport, visa, hostages, foreign, envoy, legation
-vault, crypt, cellar, cavern, storeroom, basement, locked, tomb, doorway, depository, stairway
-orchard, grove, farm, vineyard, meadow, garden, fruit, pasture, trees, woodland, apples
-wind, turbines, gusts, storm, rain, breeze, windy, blowing, solar, sun, weather
-oast, uard, byre, ourt, urning, houso, sldo, bouse, 17thC, aisled, orth
-archaelogical, archeological, archeaological, paleontological, archaeological, palaeontological, archelogical, archealogical, ethnological, epigraphic, archæological
-deck, patio, porch, balcony, veranda, roof, railing, floor, cockpit, gazebo, tub
-door, doorway, window, front, garage, stairs, roof, sliding, hallway, floor, entrance
-boardwalk, promenade, pier, walkway, shoreline, seawall, waterfront, esplanade, beach, stroll, seashore
-ballroom, dance, hall, dancers, ballet, cabaret, tango, banquet, auditorium, nightclub, venue
-gallery, pics, thumbnail, pictures, photo, nude, tgp, porn, naked, xxx, images
-hangar, airfield, aircraft, airplane, airstrip, fuselage, cockpit, flightline, helipad, taxied, aeroplane
-train, railway, bus, rail, subway, railroad, station, buses, tram, commuter, taxi
-roof, doors, walls, porch, exterior, ceiling, attic, siding, floor, rooftop, brick
-baseball, softball, Baseball, basketball, football, league, hockey, soccer, mlb, sports, lacrosse
-runway, catwalk, takeoff, taxiway, taxiing, landing, take-off, tarmac, airfield, ramp, fashion
-rainforest, forests, jungle, tropical, rain-forest, flora, fauna, mangrove, habitats, lowland, biodiversity
-museum, exhibition, musuem, art, historic, sculpture, curator, heritage, monument, Smithsonian, zoo
-station, radio, railway, bus, train, subway, metro, airport, staion, broadcasting, tram
-skating, rink, skaters, skateboarding, ice-skating, skiing, snowboarding, rollerblading, hockey, gymnastics, sledding
-childs, childrens, babys, toddler, child?s, kids, preschool, pre-school, infant, elses, someones
-church, congregation, parish, pastor, chapel, catholic, Baptist, ministry, Episcopal, worship, clergy
-fabric, woven, cotton, polyester, silk, cloth, wool, sewn, quilted, knit, yarn
-medina, souks, riad, Essaouira, Chefchaouen, Marrakech, Fes, Fna, kasbah, Fez, bazaars
-viaduct, underpass, footbridge, overpass, trestle, aqueduct, overbridge, bridge, tramway, seawall, culvert
-house, houses, home, apartment, bedroom, residence, garage, basement, mansion, room, kitchen
-youth, young, youngsters, teenagers, children, community, education, adults, teens, kids, school
-dining, dinning, lounge, restaurant, buffet, patio, bistro, kitchen, room, gourmet, cuisine
-slope, steep, steeper, ridge, steeply, elevation, hillside, downhill, curve, terrain, hill
-excavation, archaeological, trenching, archeological, backfilling, demolition, archaeologists, earthworks, digging, quarry, dredging
-japanese, asian, korean, chinese, jap, Japanese, thai, anime, tokyo, japenese, russian
-crosswalk, pedestrian, cross-walk, roadway, sidewalk, stoplight, mid-block, bicyclist, overpass, intersections, signalized
-picnic, barbeque, cookout, lunch, barbecue, camping, gazebo, playground, dinner, potluck, picnicking
-auto, automobile, car, automotive, insurance, dealership, vehicle, ford, bmw, automatic, dealers
+construction, building, concrete, renovation, industrial, structural, design, engineering, projects, demolition, contractor, construct, build, concret, renov, industri, structur, engin, project, demolit
+swimming, pool, diving, tennis, beach, jacuzzi, indoor, swiming, volleyball, sunbathing, sauna, swim, dive, tenni, swime, volleybal, sunbath, volleyb
+pit, lap, bull, dirt, gravel, dog, pole, quarry, backyard, cage, paddock, quarri
+market, marketplace, consumer, investment, commodity, industry, sales, demand, retail, buyers, stocks, marketplac, consum, invest, commod, industri, sale, buyer, stock
+plaza, mall, courtyard, downtown, park, midtown, parkway, boulevard, walkway, hall, esplanade, esplanad
+vegetable, veggie, veg, tomato, potato, rice, salad, broccoli, carrot, garlic, onion, veget, veggi
+wild, exotic, birds, animals, deer, untamed, forest, wolves, crazy, tame, wildlife, exot, bird, anim, untam, wolv, crazi, wildlif
+rink, skating, ice-skating, hockey, playground, ice, sledding, gymnasium, park, skaters, volleyball, skate, ice-sk, sled, skater, volleybal, volleyb
+army, troops, soldiers, military, forces, infantry, battalion, cavalry, armed, war, commander, armi, troop, soldier, militari, forc, infantri, cavalri, arm, command
+kennel, dog, breeder, puppy, pet, cattery, terrier, labrador, retriever, pup, breed, puppi, catteri, retriev
+courtyard, terrace, landscaped, overlooking, gardens, patio, balcony, veranda, porch, walkway, gazebo, terrac, landscap, overlook, garden, balconi
+lot, much, some, alot, few, plenty, there, quite, enough, many, too, plenti, quit, mani
+embassy, consulate, diplomats, consular, ambassador, passport, visa, hostages, foreign, envoy, legation, embassi, consul, diplomat, hostag, legat
+vault, crypt, cellar, cavern, storeroom, basement, locked, tomb, doorway, depository, stairway, lock, depositori
+orchard, grove, farm, vineyard, meadow, garden, fruit, pasture, trees, woodland, apples, pastur, tree, appl
+wind, turbines, gusts, storm, rain, breeze, windy, blowing, solar, sun, weather, turbin, gust, breez, windi, blow
+oast, uard, byre, ourt, urning, houso, sldo, bouse, 17thC, aisled, orth, urn, bous, 17thc, aisl, bou
+archaelogical, archeological, archeaological, paleontological, archaeological, palaeontological, archelogical, archealogical, ethnological, epigraphic, archæological, archaelog, archeolog, archeaolog, paleontolog, archaeolog, palaeontolog, archelog, archealog, ethnolog, epigraph, archæolog
+deck, patio, porch, balcony, veranda, roof, railing, floor, cockpit, gazebo, tub, balconi, rail
+door, doorway, window, front, garage, stairs, roof, sliding, hallway, floor, entrance, garag, stair, slide, entranc
+boardwalk, promenade, pier, walkway, shoreline, seawall, waterfront, esplanade, beach, stroll, seashore, promenad, shorelin, seawal, esplanad, seashor
+ballroom, dance, hall, dancers, ballet, cabaret, tango, banquet, auditorium, nightclub, venue, danc, dancer, venu
+gallery, pics, thumbnail, pictures, photo, nude, tgp, porn, naked, xxx, images, galleri, pic, pictur, nake, imag
+hangar, airfield, aircraft, airplane, airstrip, fuselage, cockpit, flightline, helipad, taxied, aeroplane, airplan, fuselag, flightlin, taxi, aeroplan
+train, railway, bus, rail, subway, railroad, station, buses, tram, commuter, taxi, bu, buse, commut
+roof, doors, walls, porch, exterior, ceiling, attic, siding, floor, rooftop, brick, door, wall, ceil, side
+baseball, softball, Baseball, basketball, football, league, hockey, soccer, mlb, sports, lacrosse, basebal, softbal, basketbal, footbal, leagu, sport, lacross, baseb, basketb
+runway, catwalk, takeoff, taxiway, taxiing, landing, take-off, tarmac, airfield, ramp, fashion, taxi, land
+rainforest, forests, jungle, tropical, rain-forest, flora, fauna, mangrove, habitats, lowland, biodiversity, forest, jungl, tropic, mangrov, habitat, biodivers, biodiv
+museum, exhibition, musuem, art, historic, sculpture, curator, heritage, monument, Smithsonian, zoo, exhibit, histor, sculptur, curat, heritag, smithsonian
+station, radio, railway, bus, train, subway, metro, airport, staion, broadcasting, tram, bu, broadcast
+skating, rink, skaters, skateboarding, ice-skating, skiing, snowboarding, rollerblading, hockey, gymnastics, sledding, skate, skater, skateboard, ice-sk, ski, snowboard, rollerblad, gymnast, sled
+childs, childrens, babys, toddler, child?s, kids, preschool, pre-school, infant, elses, someones, child, children, babi, child?, kid, els, someon, el
+church, congregation, parish, pastor, chapel, catholic, Baptist, ministry, Episcopal, worship, clergy, congreg, cathol, baptist, ministri, episcop, clergi
+fabric, woven, cotton, polyester, silk, cloth, wool, sewn, quilted, knit, yarn, polyest, quilt
+medina, souks, riad, Essaouira, Chefchaouen, Marrakech, Fes, Fna, kasbah, Fez, bazaars, souk, essaouira, chefchaouen, marrakech, fe, fna, fez, bazaar
+viaduct, underpass, footbridge, overpass, trestle, aqueduct, overbridge, bridge, tramway, seawall, culvert, footbridg, trestl, overbridg, bridg, seawal
+house, houses, home, apartment, bedroom, residence, garage, basement, mansion, room, kitchen, hous, apart, resid, garag, hou
+youth, young, youngsters, teenagers, children, community, education, adults, teens, kids, school, youngster, teenag, commun, educ, adult, teen, kid
+dining, dinning, lounge, restaurant, buffet, patio, bistro, kitchen, room, gourmet, cuisine, dine, din, loung, restaur, cuisin
+slope, steep, steeper, ridge, steeply, elevation, hillside, downhill, curve, terrain, hill, ridg, steepli, elev, hillsid, downhil, curv
+excavation, archaeological, trenching, archeological, backfilling, demolition, archaeologists, earthworks, digging, quarry, dredging, excav, archaeolog, trench, archeolog, backfil, demolit, archaeologist, earthwork, dig, quarri, dredg
+japanese, asian, korean, chinese, jap, Japanese, thai, anime, tokyo, japenese, russian, japanes, chines, anim, japenes, japan, chine, japen
+crosswalk, pedestrian, cross-walk, roadway, sidewalk, stoplight, mid-block, bicyclist, overpass, intersections, signalized, intersect, signal
+picnic, barbeque, cookout, lunch, barbecue, camping, gazebo, playground, dinner, potluck, picnicking, barbequ, barbecu, camp, picnick
+auto, automobile, car, automotive, insurance, dealership, vehicle, ford, bmw, automatic, dealers, automobil, automot, insur, vehicl, automat, dealer
 bamboo, wood, wooden, rattan, hardwood, teak, birch, willow, pine, cedar, woven
-cream, creme, butter, chocolate, creamy, milk, ice-cream, pudding, lotion, cheese, almond
-burial, cemetery, interment, cremation, funeral, graves, buried, tomb, gravesite, casket, mausoleum
-martial, karate, kickboxing, boxing, arts, judo, taekwondo, aikido, kung-fu, kung, jujitsu
-campsite, campground, camping, trailhead, picnic, caravan, tent, lodge, hut, hostel, campfire
-park, hill, campground, zoo, playground, lake, recreation, plaza, gardens, walk, trails
-bazaar, souk, bazar, souq, barter, emporium, bazzar, accoutrement, bustling, marketplace, abounding
-entrance, enterance, courtyard, hallway, hall, doorway, foyer, parking, gate, staircase, walkway
-server, DNS, client, configuration, webserver, setup, proxy, FTP, database, linux, backend
-dorm, dormitory, frat, roommates, room, hallway, upstairs, sorority, hostel, bathroom, locker
-laboratory, lab, clinical, experiments, testing, research, scientific, microbiology, biomedical, studies, biological
-hardware, peripherals, computer, components, console, functionality, software, systems, devices, electronics, storage
-village, town, hamlet, countryside, outskirts, picturesque, rural, situated, township, cottages, neighbouring
-dam, hydroelectric, river, dike, spillway, hydro-electric, reservoir, hydropower, weir, levee, lake
-greenhouse, emissions, Greenhouse, GHG, dioxide, gases, CO2, climate, warming, methane, greenhouse-gas
-hole, drilled, bottom, gaping, screw, butt, shaft, ass, inside, tight, cock
-mountain, hills, alpine, hiking, valley, slopes, trail, foothills, climbing, ski, canyon
-bullring, bullfight, Maestranza, bull-ring, matadors, bull-fighting, toros, hippodrome, Ventas, Pamplona, Ayuntamiento
-recreation, parks, leisure, boating, playgrounds, biking, activities, outdoor, sports, amusement, facilities
-amphitheater, amphitheatre, ampitheater, ampitheatre, auditorium, coliseum, open-air, bandshell, pavilion, pavillion, bandstand
-wheat, barley, corn, grain, oats, flour, maize, rye, sorghum, rice, cereals
-mausoleum, tomb, columbarium, sarcophagus, gravesite, monument, cenotaph, burial, shrine, cemetery, stupa
-delicatessen, deli, patisserie, bakery, greengrocers, charcuterie, pizzeria, boulangerie, fishmonger, brasserie, grocer
-urban, rural, suburban, metropolitan, inner-city, city, neighborhoods, metropolis, communities, neighbourhoods, sprawl
-movie, film, flick, starring, soundtrack, trailer, cinema, remake, comedy, scene, horror
-bakery, deli, pastries, patisserie, baker, breads, delicatessen, pizzeria, grocery, pizza, supermarket
-hostel, guesthouse, hotel, hostal, backpackers, accommodation, accomodation, motel, dormitory, lodgings, appartment
-shed, barn, roof, garage, fence, lay, porch, carport, shelter, basement, weigh
-carrousel, carousel, carosel, merry-go-round, carousal, funfair, fairground, wheel-like, factice, tresor, hobbyhorse
-broadleaf, broad-leaved, broad-leaf, broadleaved, crabgrass, conifer, herbicide, forbs, grasses, understory, shrub
-glacier, glacial, fjord, icebergs, alpine, mountains, moraine, crevasses, lakes, canyon, crater
-aquarium, aquaria, saltwater, reef, goldfish, terrarium, pond, fishtank, fish, freshwater, aquatic
-residential, residences, homes, multi-family, single-family, condominium, multifamily, buildings, apartments, commercial, non-residential
+cream, creme, butter, chocolate, creamy, milk, ice-cream, pudding, lotion, cheese, almond, chocol, creami, pud, chees, chee
+burial, cemetery, interment, cremation, funeral, graves, buried, tomb, gravesite, casket, mausoleum, cemeteri, inter, cremat, funer, grave, buri, gravesit
+martial, karate, kickboxing, boxing, arts, judo, taekwondo, aikido, kung-fu, kung, jujitsu, karat, kickbox, box, art
+campsite, campground, camping, trailhead, picnic, caravan, tent, lodge, hut, hostel, campfire, campsit, camp, lodg, campfir
+park, hill, campground, zoo, playground, lake, recreation, plaza, gardens, walk, trails, recreat, garden, trail
+bazaar, souk, bazar, souq, barter, emporium, bazzar, accoutrement, bustling, marketplace, abounding, accoutr, bustl, marketplac, abound
+entrance, enterance, courtyard, hallway, hall, doorway, foyer, parking, gate, staircase, walkway, entranc, enter, park, staircas, stairca
+server, DNS, client, configuration, webserver, setup, proxy, FTP, database, linux, backend, dn, configur, webserv, proxi, ftp, databas, databa
+dorm, dormitory, frat, roommates, room, hallway, upstairs, sorority, hostel, bathroom, locker, dormitori, roommat, upstair, soror
+laboratory, lab, clinical, experiments, testing, research, scientific, microbiology, biomedical, studies, biological, laboratori, clinic, experi, test, scientif, microbiolog, biomed, studi, biolog, biom
+hardware, peripherals, computer, components, console, functionality, software, systems, devices, electronics, storage, hardwar, peripher, comput, compon, consol, function, softwar, system, devic, electron, storag, periph
+village, town, hamlet, countryside, outskirts, picturesque, rural, situated, township, cottages, neighbouring, villag, countrysid, outskirt, picturesqu, situat, cottag, neighbour
+dam, hydroelectric, river, dike, spillway, hydro-electric, reservoir, hydropower, weir, levee, lake, hydroelectr, hydro-electr, hydropow, leve
+greenhouse, emissions, Greenhouse, GHG, dioxide, gases, CO2, climate, warming, methane, greenhouse-gas, greenhous, emiss, ghg, dioxid, gase, co2, climat, warm, methan, greenhouse-ga, greenhou
+hole, drilled, bottom, gaping, screw, butt, shaft, ass, inside, tight, cock, drill, gape, insid
+mountain, hills, alpine, hiking, valley, slopes, trail, foothills, climbing, ski, canyon, hill, alpin, hike, slope, foothil, climb
+bullring, bullfight, Maestranza, bull-ring, matadors, bull-fighting, toros, hippodrome, Ventas, Pamplona, Ayuntamiento, bullr, maestranza, bull-r, matador, bull-fight, toro, hippodrom, venta, pamplona, ayuntamiento
+recreation, parks, leisure, boating, playgrounds, biking, activities, outdoor, sports, amusement, facilities, recreat, park, leisur, boat, playground, bike, activ, sport, amus, facil, amu
+amphitheater, amphitheatre, ampitheater, ampitheatre, auditorium, coliseum, open-air, bandshell, pavilion, pavillion, bandstand, amphitheat, amphitheatr, ampitheat, ampitheatr, bandshel
+wheat, barley, corn, grain, oats, flour, maize, rye, sorghum, rice, cereals, oat, maiz, cereal
+mausoleum, tomb, columbarium, sarcophagus, gravesite, monument, cenotaph, burial, shrine, cemetery, stupa, sarcophagu, gravesit, cemeteri
+delicatessen, deli, patisserie, bakery, greengrocers, charcuterie, pizzeria, boulangerie, fishmonger, brasserie, grocer, patisseri, bakeri, greengroc, charcuteri, boulangeri, fishmong, brasseri
+urban, rural, suburban, metropolitan, inner-city, city, neighborhoods, metropolis, communities, neighbourhoods, sprawl, inner-c, citi, neighborhood, metropoli, commun, neighbourhood
+movie, film, flick, starring, soundtrack, trailer, cinema, remake, comedy, scene, horror, movi, star, remak, comedi
+bakery, deli, pastries, patisserie, baker, breads, delicatessen, pizzeria, grocery, pizza, supermarket, bakeri, pastri, patisseri, bread, groceri
+hostel, guesthouse, hotel, hostal, backpackers, accommodation, accomodation, motel, dormitory, lodgings, appartment, guesthous, backpack, accommod, accomod, dormitori, lodg, appart, guesthou
+shed, barn, roof, garage, fence, lay, porch, carport, shelter, basement, weigh, garag, fenc
+carrousel, carousel, carosel, merry-go-round, carousal, funfair, fairground, wheel-like, factice, tresor, hobbyhorse, carous, wheel-lik, factic, hobbyhors, carou, hobbyhor
+broadleaf, broad-leaved, broad-leaf, broadleaved, crabgrass, conifer, herbicide, forbs, grasses, understory, shrub, broad-leav, broadleav, conif, herbicid, forb, grass, understori
+glacier, glacial, fjord, icebergs, alpine, mountains, moraine, crevasses, lakes, canyon, crater, iceberg, alpin, mountain, morain, crevass, lake
+aquarium, aquaria, saltwater, reef, goldfish, terrarium, pond, fishtank, fish, freshwater, aquatic, saltwat, freshwat, aquat
+residential, residences, homes, multi-family, single-family, condominium, multifamily, buildings, apartments, commercial, non-residential, residenti, resid, home, multi-famili, single-famili, multifamili, build, apart, commerci, non-residenti
 cloth, fabric, linen, cotton, towel, woven, muslin, sewn, wool, silk, garment
-cultivated, planted, grown, nurtured, harvested, crops, fertile, organically, sown, irrigated, varieties
-junkyard, scrapyard, junker, junked, salvage, wrecker, broken-down, rusted, jalopy, scavenged, rusted-out
-highway, freeway, roads, roadway, expressway, interstate, motorway, hwy, lane, overpass, two-lane
-shopfront, shop-front, store-front, storefront, street-front, frontages, streetfront, shopfitting, curtainwall, fitout, hoardings
-yard, lawn, backyard, garden, driveway, porch, fence, landscaping, barn, yd, patio
-diner, eatery, restaurant, bistro, cafe, dining, resturant, waitress, tavern, pizzeria, café
-doorway, hallway, stairs, door, staircase, stairwell, entryway, arched, stairway, peered, entrance
-garden, lawn, patio, backyard, landscaping, courtyard, outdoor, pond, terrace, shrubs, planting
-cemetery, cemetary, burial, graves, graveyard, gravesite, churchyard, memorial, headstone, gravestone, interment
-water, salt, pond, seawater, dry, sewage, liquid, ocean, boiling, heat, sand
-canal, waterway, towpath, river, aqueduct, drainage, bridge, tunnel, navigable, estuary, viaduct
-physics, science, mathematics, astrophysics, quantum, biology, relativity, chemistry, theory, physicists, mechanics
-clean, cleaner, wash, tidy, spotless, dirty, safe, neat, nice, dry, keep
-basement, attic, upstairs, garage, downstairs, cellar, floor, closet, house, hallway, room
-lobby, foyer, room, lounge, hall, dining, courtyard, café, upstairs, elevator, inviting
-fire, flames, blaze, burning, smoke, firefighters, lightning, explosion, blast, sparks, storm
-center, centre, central, located, middle, facility, area, city, front, corner, downtown
-ticket, tix, fares, airfare, reservation, booking, airline, discounted, flight, tour, admission
-escape, flee, trapped, danger, survive, evade, forced, darkness, hiding, attempting, fear
-floe, bergs, icebergs, pack-ice, ice-covered, sea-ice, walruses, ice-bound, icecap, beached, sandbar
-repair, maintenance, damaged, replacement, restoration, parts, salvage, plumbing, servicing, fix, remodeling
-loading, unloading, loader, reloading, manually, handling, storing, configuration, container, sorting, storage
-shoe, footwear, sneaker, sandals, boots, heel, toe, suede, soles, leather, socks
-ruin, spoil, destroy, shame, havoc, downfall, mess, wreak, threaten, surely, doomed
-cell, cellular, phone, cellphone, tumor, proliferation, mobile, differentiation, tissue, epithelial, activation
-inn, motel, hotel, lodge, marriott, tavern, manor, ramada, guesthouse, resturant, cottages
-veterinarians, veterinary, vets, nutritionists, physicians, farriers, pharmacists, pediatricians, equine, doctors, behaviorists
-clothing, apparel, garments, shirts, jackets, wear, jeans, fashions, attire, dresses, pants
-kindergarden, kindergarten, kindy, gradeschool, playschool, pre-k, pre-school, kindegarten, preschool, kindergaten, preK
-hotel, motel, rooms, accommodation, lodging, inn, resort, hostel, guesthouse, restaurant, reservations
-vegetation, grassland, habitats, grasses, forests, wetland, riparian, shrubs, trees, fauna, flora
-pizzeria, trattoria, eatery, pizza, restaurant, deli, ristorante, bakery, gelateria, bistro, delicatessen
-tundra, arctic, boreal, grasslands, artic, biome, subarctic, taiga, permafrost, snowy, steppe
-synagogue, shul, congregation, rabbi, church, mosque, Jewish, Jerusalem, yeshiva, Jews, temple
-general, terms, certain, concerned, particular, lack, other, regard, reasons, common, particularly
-bar, restaurant, cafe, pub, lounge, café, dining, drinks, menu, tavern, coffee
-shop, store, retailer, cafe, grocery, mall, showroom, bakery, supermarket, warehouse, boutique
-platform, capabilities, integration, enables, functionality, enterprise, technology, mobile, applications, scalable, launch
-boxing, kickboxing, mma, martial, boxer, sparring, wrestling, karate, muay, judo, heavyweight
-history, historical, heritage, literature, origins, century, cultural, past, tradition, ancient, decades
-hospital, medical, clinic, ambulance, nursing, hospice, doctors, outpatient, care, inpatient, physician
-line, end, point, along, right, same, edge, path, side, straight, bottom
-sky, clouds, moon, sun, horizon, sunset, heavens, sunrise, shining, starry, blue
-nursing, nurse, hospital, medical, care, hospice, healthcare, midwifery, pediatric, geriatric, lpn
-matte, gloss, glossy, shimmery, textured, high-gloss, shimmer, gunmetal, pearlescent, translucent, satin
-arch, heel, upper, curved, toe, archway, gable, facade, wall, staircase, parapet
-track, record, album, song, tune, instrumental, music, road, race, sound, listen
-glass, crystal, frosted, ceramic, bottle, acrylic, glassware, decorative, vase, plastic, mirror
-ice, frozen, icy, cream, ice-cream, snow, puck, cold, icecream, rink, chocolate
-store, shop, grocery, retailer, warehouse, mall, supermarket, merchandise, bookstore, items, Walmart
-dressing, salad, mayonnaise, vinaigrette, sauce, mustard, cheese, lettuce, ketchup, onion, garlic
-apartment, townhouse, condo, appartment, bedroom, house, rent, penthouse, condominium, residence, villa
-desert, arid, mountains, plains, dunes, wilderness, barren, oasis, canyon, desolate, hills
-shaft, rotor, rod, piston, bushing, flange, cylinder, pinion, axle, pulley, bearings
-botanical, zoological, flora, medicinal, horticultural, gardens, herbal, arboretum, botany, orchid, extracts
-hockey, soccer, basketball, lacrosse, baseball, football, NHL, skating, goalie, volleyball, softball
-parking, carpark, driveway, entrance, garage, on-street, off-street, sidewalk, taxi, valet, restrooms
-reading, writing, books, readers, re-reading, thinking, rereading, listening, thoughts, discussing, about
-office, desk, department, headquarters, appointment, clerk, secretary, staff, administrative, house, assistant
-flea, heartworm, lice, mites, infestation, tick, insect, pet, mosquito, cats, dog
-nursery, crib, preschool, bedding, pre-school, childrens, daycare, kindergarten, garden, baby, toddler
-site, website, web, webpage, web-site, homepage, link, page, blog, webmaster, portal
-library, bookstore, librarian, libary, repository, archives, collections, databases, placeOfPublica, public, museum
-heliport, helipad, aerodrome, heli-pad, airfield, airstrip, seaplane, airdrome, helideck, taxiways, hangar
-motel, hotel, inn, lodging, campground, accomodations, hostel, guesthouse, apartment, accommodations, rooms
-street, sidewalk, alley, downtown, neighborhood, road, city, avenue, corner, subway, thoroughfare
-factory, manufacturing, warehouse, aftermarket, automotive, industrial, shop, machinery, manufactory, supplier, mill
-playground, backyard, picnic, park, pool, swimming, outdoor, rink, gymnasium, kiddie, recreation
-microwave, refrigerator, oven, fridge, toaster, dishwasher, cooker, stove, freezer, dryer, stovetop
-person, someone, he/she, individual, if, people, one, every, unless, anyone, regardless
-scissors, shears, tweezers, knife, pliers, knives, scalpel, cutters, snips, clippers, screwdriver
-umbrella, parasol, unbrella, chairs, tent, blanket, raincoat, arm, holding, tarp, sunshade
-knife, knives, blade, scissors, serrated, sword, machete, dagger, cutter, slicing, sharpener
-bed, bedroom, sofa, bath, sleeping, couch, bunk, mattress, room, bathroom, pillow
-bench, sitting, chair, standing, floor, seat, leaning, squat, corner, locker, desk
-elephant, giraffe, hippo, lion, tiger, rhino, monkey, rhinoceros, gorilla, hippopotamus, frog
-bicycle, bike, motorcycle, cycling, scooter, motorbike, ride, cyclists, tricycle, moped, mtb
-keyboard, keypad, touchpad, keys, typing, laptop, mouse, trackpad, QWERTY, touchscreen, screen
-bus, buses, busses, taxi, train, tram, airport, station, minibus, subway, route
-cat, kitten, dog, kitty, pet, puppy, feline, ferret, rabbit, pup, animal
-kite, kitesurfing, kiteboarding, kayak, windsurfing, paragliding, kiter, glider, sail, flying
-tie, knot, pull, wrap, necktie, shirt, bow, scarf, hook, snap, clinch
-cow, sheep, pig, goat, cattle, herd, milk, dairy, horse, animal, bull
-toaster, oven, microwave, kettle, fridge, dishwasher, refrigerator, coffeemaker, cooker, refridgerator, stove
-toilet, bathroom, shower, washroom, restroom, toliet, bathtub, urinal, loo, tub, towel
-suitcase, suitcases, luggage, briefcase, carry-on, backpack, duffel, duffle, bag, rucksack, baggage
-zebra, giraffe, leopard, cheetah, hippo, striped, elephant, wildebeest, rhino, polka, peacock
-refrigerator, fridge, freezer, refrigerators, refridgerator, microwave, dishwasher, oven, dryer, frig, stove
-banana, pineapple, coconut, strawberry, mango, carrot, fruit, pumpkin, peanut, blueberry, potato
-bird, owl, pigeon, parrot, nest, hummingbird, squirrel, turtle, fowl, ducks, avian
-sheep, goats, cattle, lambs, cows, herd, pigs, donkeys, livestock, rabbits, pasture
-bear, lion, wolf, teddy, grizzly, moose, elephant, animal, deer, bunny, tiger
-sink, faucet, bathtub, toilet, drain, tub, bathroom, kitchen, countertop, pedestal, shower
-car, vehicle, automobile, truck, auto, driving, dealership, rental, motorcycle, motorbike, SUV
-cup, bowl, tablespoons, teaspoon, milk, butter, spoon, tbsp, juice, tsp, pint
-oven, stove, cooker, bake, microwave, toaster, freezer, refrigerator, cook, fridge, pan
-backpack, duffel, rucksack, bag, duffle, suitcase, daypack, tote, briefcase, luggage, bookbag
-sofa, couch, loveseat, recliner, futon, armchairs, settee, bed, upholstered, chaise, chairs
-remote, wireless, control, access, monitor, connect, setup, system, transmitter, computer, device
-broccoli, cauliflower, spinach, carrots, asparagus, kale, sprouts, cabbage, celery, zucchini, brocolli
-skis, snowboards, skiis, snowshoes, sleds, kayaks, skiers, skates, telemark, snowmobiles, freeride
-frisbee, Frisbee, bocce, kickball, dodgeball, whiffle, frizbee, wiffle, croquet, badminton, flyball
-cake, cupcakes, dessert, chocolate, cheesecake, pudding, frosting, cookie, pie, brownies, icing
-truck, vehicle, car, tractor, tow, pickup, cab, jeep, hauling, hauler, lorry
-fork, spoon, bend, spatula, tines, skewer, wheel, tongs, handlebars, shovel, knife
-orange, yellow, red, blue, purple, green, pink, lime, peach, lemon, tangerine
-toothbrush, toothpaste, mouthwash, sonicare, sanitizer, brushing, flossing, hairbrush, shaver, towel, shaving
+cultivated, planted, grown, nurtured, harvested, crops, fertile, organically, sown, irrigated, varieties, cultiv, plant, nurtur, harvest, crop, fertil, organ, irrig, varieti
+junkyard, scrapyard, junker, junked, salvage, wrecker, broken-down, rusted, jalopy, scavenged, rusted-out, junk, salvag, rust, jalopi, scaveng
+highway, freeway, roads, roadway, expressway, interstate, motorway, hwy, lane, overpass, two-lane, road, interst, hwi, two-lan
+shopfront, shop-front, store-front, storefront, street-front, frontages, streetfront, shopfitting, curtainwall, fitout, hoardings, frontag, shopfit, curtainwal, hoard, curtainw
+yard, lawn, backyard, garden, driveway, porch, fence, landscaping, barn, yd, patio, fenc, landscap
+diner, eatery, restaurant, bistro, cafe, dining, resturant, waitress, tavern, pizzeria, café, eateri, restaur, dine, restur
+doorway, hallway, stairs, door, staircase, stairwell, entryway, arched, stairway, peered, entrance, stair, staircas, stairwel, arch, peer, entranc, stairca
+garden, lawn, patio, backyard, landscaping, courtyard, outdoor, pond, terrace, shrubs, planting, landscap, terrac, shrub, plant
+cemetery, cemetary, burial, graves, graveyard, gravesite, churchyard, memorial, headstone, gravestone, interment, cemeteri, cemetari, grave, gravesit, memori, headston, graveston, inter
+water, salt, pond, seawater, dry, sewage, liquid, ocean, boiling, heat, sand, seawat, dri, sewag, boil
+canal, waterway, towpath, river, aqueduct, drainage, bridge, tunnel, navigable, estuary, viaduct, drainag, bridg, navig, estuari
+physics, science, mathematics, astrophysics, quantum, biology, relativity, chemistry, theory, physicists, mechanics, physic, scienc, mathemat, astrophys, biolog, rel, chemistri, theori, physicist, mechan, astrophi
+clean, cleaner, wash, tidy, spotless, dirty, safe, neat, nice, dry, keep, tidi, dirti, dri
+basement, attic, upstairs, garage, downstairs, cellar, floor, closet, house, hallway, room, upstair, garag, downstair, hous, hou
+lobby, foyer, room, lounge, hall, dining, courtyard, café, upstairs, elevator, inviting, lobbi, loung, dine, upstair, elev, invit
+fire, flames, blaze, burning, smoke, firefighters, lightning, explosion, blast, sparks, storm, flame, burn, firefight, lightn, explos, spark, explo
+center, centre, central, located, middle, facility, area, city, front, corner, downtown, centr, locat, middl, facil, citi
+ticket, tix, fares, airfare, reservation, booking, airline, discounted, flight, tour, admission, fare, airfar, reserv, book, airlin, discount, admiss
+escape, flee, trapped, danger, survive, evade, forced, darkness, hiding, attempting, fear, escap, trap, surviv, evad, forc, dark, hide, attempt
+floe, bergs, icebergs, pack-ice, ice-covered, sea-ice, walruses, ice-bound, icecap, beached, sandbar, berg, iceberg, pack-ic, ice-cov, sea-ic, walrus, beach, walru
+repair, maintenance, damaged, replacement, restoration, parts, salvage, plumbing, servicing, fix, remodeling, mainten, damag, replac, restor, part, salvag, plumb, servic, remodel
+loading, unloading, loader, reloading, manually, handling, storing, configuration, container, sorting, storage, load, unload, reload, manual, handl, store, configur, contain, sort, storag
+shoe, footwear, sneaker, sandals, boots, heel, toe, suede, soles, leather, socks, sandal, boot, sued, sole, sock, su
+ruin, spoil, destroy, shame, havoc, downfall, mess, wreak, threaten, surely, doomed, downfal, sure, doom
+cell, cellular, phone, cellphone, tumor, proliferation, mobile, differentiation, tissue, epithelial, activation, cellphon, prolifer, mobil, differenti, tissu, epitheli, activ, prolif, epith
+inn, motel, hotel, lodge, marriott, tavern, manor, ramada, guesthouse, resturant, cottages, lodg, guesthous, restur, cottag, guesthou
+veterinarians, veterinary, vets, nutritionists, physicians, farriers, pharmacists, pediatricians, equine, doctors, behaviorists, veterinarian, veterinari, vet, nutritionist, physician, farrier, pharmacist, pediatrician, equin, doctor, behaviorist
+clothing, apparel, garments, shirts, jackets, wear, jeans, fashions, attire, dresses, pants, cloth, garment, shirt, jacket, jean, fashion, attir, dress, pant
+kindergarden, kindergarten, kindy, gradeschool, playschool, pre-k, pre-school, kindegarten, preschool, kindergaten, preK, kindi, prek
+hotel, motel, rooms, accommodation, lodging, inn, resort, hostel, guesthouse, restaurant, reservations, room, accommod, lodg, guesthous, restaur, reserv, guesthou
+vegetation, grassland, habitats, grasses, forests, wetland, riparian, shrubs, trees, fauna, flora, veget, habitat, grass, forest, shrub, tree
+pizzeria, trattoria, eatery, pizza, restaurant, deli, ristorante, bakery, gelateria, bistro, delicatessen, eateri, restaur, ristorant, bakeri, ristor
+tundra, arctic, boreal, grasslands, artic, biome, subarctic, taiga, permafrost, snowy, steppe, grassland, biom, subarct, snowi, stepp
+synagogue, shul, congregation, rabbi, church, mosque, Jewish, Jerusalem, yeshiva, Jews, temple, synagogu, congreg, mosqu, jewish, jerusalem, jew, templ
+general, terms, certain, concerned, particular, lack, other, regard, reasons, common, particularly, gener, term, concern, reason, particularli
+bar, restaurant, cafe, pub, lounge, café, dining, drinks, menu, tavern, coffee, restaur, loung, dine, drink, coffe, coff
+shop, store, retailer, cafe, grocery, mall, showroom, bakery, supermarket, warehouse, boutique, retail, groceri, bakeri, warehous, boutiqu, wareh
+platform, capabilities, integration, enables, functionality, enterprise, technology, mobile, applications, scalable, launch, capabl, integr, enabl, function, enterpris, technolog, mobil, applic, scalabl, enterpri
+boxing, kickboxing, mma, martial, boxer, sparring, wrestling, karate, muay, judo, heavyweight, box, kickbox, spar, wrestl, karat
+history, historical, heritage, literature, origins, century, cultural, past, tradition, ancient, decades, histori, histor, heritag, literatur, origin, centuri, cultur, tradit, decad
+hospital, medical, clinic, ambulance, nursing, hospice, doctors, outpatient, care, inpatient, physician, hospit, medic, ambul, nurs, hospic, doctor, outpati, inpati, nur
+line, end, point, along, right, same, edge, path, side, straight, bottom, edg
+sky, clouds, moon, sun, horizon, sunset, heavens, sunrise, shining, starry, blue, cloud, heaven, sunris, shine, starri, sunri
+nursing, nurse, hospital, medical, care, hospice, healthcare, midwifery, pediatric, geriatric, lpn, nurs, hospit, medic, hospic, healthcar, midwiferi, pediatr, geriatr, nur
+matte, gloss, glossy, shimmery, textured, high-gloss, shimmer, gunmetal, pearlescent, translucent, satin, matt, glossi, shimmeri, textur, gunmet, pearlesc, transluc
+arch, heel, upper, curved, toe, archway, gable, facade, wall, staircase, parapet, curv, gabl, facad, staircas, stairca
+track, record, album, song, tune, instrumental, music, road, race, sound, listen, instrument
+glass, crystal, frosted, ceramic, bottle, acrylic, glassware, decorative, vase, plastic, mirror, frost, ceram, bottl, acryl, glasswar, decor
+ice, frozen, icy, cream, ice-cream, snow, puck, cold, icecream, rink, chocolate, ici, chocol
+store, shop, grocery, retailer, warehouse, mall, supermarket, merchandise, bookstore, items, Walmart, groceri, retail, warehous, merchandis, bookstor, item, walmart, wareh, merchandi
+dressing, salad, mayonnaise, vinaigrette, sauce, mustard, cheese, lettuce, ketchup, onion, garlic, dress, mayonnais, vinaigrett, sauc, chees, lettuc, mayonnai, chee
+apartment, townhouse, condo, appartment, bedroom, house, rent, penthouse, condominium, residence, villa, apart, townhous, appart, hous, penthous, resid, townhou, hou, penthou
+desert, arid, mountains, plains, dunes, wilderness, barren, oasis, canyon, desolate, hills, mountain, plain, dune, wilder, oasi, desol, hill
+shaft, rotor, rod, piston, bushing, flange, cylinder, pinion, axle, pulley, bearings, bush, flang, cylind, axl, bear
+botanical, zoological, flora, medicinal, horticultural, gardens, herbal, arboretum, botany, orchid, extracts, botan, zoolog, medicin, horticultur, garden, botani, extract
+hockey, soccer, basketball, lacrosse, baseball, football, NHL, skating, goalie, volleyball, softball, basketbal, lacross, basebal, footbal, nhl, skate, goali, volleybal, softbal, basketb, baseb, volleyb
+parking, carpark, driveway, entrance, garage, on-street, off-street, sidewalk, taxi, valet, restrooms, park, entranc, garag, restroom
+reading, writing, books, readers, re-reading, thinking, rereading, listening, thoughts, discussing, about, read, write, book, reader, re-read, think, reread, listen, thought, discuss
+office, desk, department, headquarters, appointment, clerk, secretary, staff, administrative, house, assistant, offic, depart, headquart, appoint, secretari, administr, hous, assist, hou
+flea, heartworm, lice, mites, infestation, tick, insect, pet, mosquito, cats, dog, mite, infest, cat
+nursery, crib, preschool, bedding, pre-school, childrens, daycare, kindergarten, garden, baby, toddler, nurseri, bed, children, daycar, babi
+site, website, web, webpage, web-site, homepage, link, page, blog, webmaster, portal, websit, webpag, web-sit, homepag, webmast
+library, bookstore, librarian, libary, repository, archives, collections, databases, placeOfPublica, public, museum, librari, bookstor, libari, repositori, archiv, collect, databas, placeofpublica, databa
+heliport, helipad, aerodrome, heli-pad, airfield, airstrip, seaplane, airdrome, helideck, taxiways, hangar, aerodrom, seaplan, airdrom, taxiway
+motel, hotel, inn, lodging, campground, accomodations, hostel, guesthouse, apartment, accommodations, rooms, lodg, accomod, guesthous, apart, accommod, room, guesthou
+street, sidewalk, alley, downtown, neighborhood, road, city, avenue, corner, subway, thoroughfare, citi, avenu, thoroughfar
+factory, manufacturing, warehouse, aftermarket, automotive, industrial, shop, machinery, manufactory, supplier, mill, factori, manufactur, warehous, automot, industri, machineri, manufactori, wareh
+playground, backyard, picnic, park, pool, swimming, outdoor, rink, gymnasium, kiddie, recreation, swim, kiddi, recreat
+microwave, refrigerator, oven, fridge, toaster, dishwasher, cooker, stove, freezer, dryer, stovetop, microwav, refriger, fridg, dishwash, refrig
+person, someone, he/she, individual, if, people, one, every, unless, anyone, regardless, someon, he/sh, individu, peopl, everi, anyon
+scissors, shears, tweezers, knife, pliers, knives, scalpel, cutters, snips, clippers, screwdriver, scissor, shear, tweezer, plier, knive, cutter, snip, clipper, screwdriv
+umbrella, parasol, unbrella, chairs, tent, blanket, raincoat, arm, holding, tarp, sunshade, chair, hold, sunshad
+knife, knives, blade, scissors, serrated, sword, machete, dagger, cutter, slicing, sharpener, knive, scissor, serrat, machet, slice, sharpen
+bed, bedroom, sofa, bath, sleeping, couch, bunk, mattress, room, bathroom, pillow, sleep
+bench, sitting, chair, standing, floor, seat, leaning, squat, corner, locker, desk, sit, stand, lean
+elephant, giraffe, hippo, lion, tiger, rhino, monkey, rhinoceros, gorilla, hippopotamus, frog, eleph, giraff, rhinocero, hippopotamu
+bicycle, bike, motorcycle, cycling, scooter, motorbike, ride, cyclists, tricycle, moped, mtb, bicycl, motorcycl, cycl, motorbik, cyclist, tricycl, mope
+keyboard, keypad, touchpad, keys, typing, laptop, mouse, trackpad, QWERTY, touchscreen, screen, key, type, mous, qwerti, mou
+bus, buses, busses, taxi, train, tram, airport, station, minibus, subway, route, bu, buse, buss, minibu, rout
+cat, kitten, dog, kitty, pet, puppy, feline, ferret, rabbit, pup, animal, kitti, puppi, felin, anim
+kite, kitesurfing, kiteboarding, kayak, windsurfing, paragliding, kiter, glider, sail, flying, kitesurf, kiteboard, windsurf, paraglid, fli
+tie, knot, pull, wrap, necktie, shirt, bow, scarf, hook, snap, clinch, neckti
+cow, sheep, pig, goat, cattle, herd, milk, dairy, horse, animal, bull, cattl, dairi, hors, anim, hor
+toaster, oven, microwave, kettle, fridge, dishwasher, refrigerator, coffeemaker, cooker, refridgerator, stove, microwav, kettl, fridg, dishwash, refriger, coffeemak, refridger, refrig, refridg
+toilet, bathroom, shower, washroom, restroom, toliet, bathtub, urinal, loo, tub, towel, urin
+suitcase, suitcases, luggage, briefcase, carry-on, backpack, duffel, duffle, bag, rucksack, baggage, suitcas, luggag, briefcas, duffl, baggag, suitca, briefca
+zebra, giraffe, leopard, cheetah, hippo, striped, elephant, wildebeest, rhino, polka, peacock, giraff, stripe, eleph
+refrigerator, fridge, freezer, refrigerators, refridgerator, microwave, dishwasher, oven, dryer, frig, stove, refriger, fridg, refridger, microwav, dishwash, refrig, refridg
+banana, pineapple, coconut, strawberry, mango, carrot, fruit, pumpkin, peanut, blueberry, potato, pineappl, strawberri, blueberri
+bird, owl, pigeon, parrot, nest, hummingbird, squirrel, turtle, fowl, ducks, avian, turtl, duck
+sheep, goats, cattle, lambs, cows, herd, pigs, donkeys, livestock, rabbits, pasture, goat, cattl, lamb, cow, pig, donkey, rabbit, pastur
+bear, lion, wolf, teddy, grizzly, moose, elephant, animal, deer, bunny, tiger, teddi, grizzli, moos, eleph, anim, bunni, moo
+sink, faucet, bathtub, toilet, drain, tub, bathroom, kitchen, countertop, pedestal, shower, pedest
+car, vehicle, automobile, truck, auto, driving, dealership, rental, motorcycle, motorbike, SUV, vehicl, automobil, drive, motorcycl, motorbik, suv
+cup, bowl, tablespoons, teaspoon, milk, butter, spoon, tbsp, juice, tsp, pint, tablespoon, juic
+oven, stove, cooker, bake, microwave, toaster, freezer, refrigerator, cook, fridge, pan, microwav, refriger, fridg, refrig
+backpack, duffel, rucksack, bag, duffle, suitcase, daypack, tote, briefcase, luggage, bookbag, duffl, suitcas, briefcas, luggag, suitca, briefca
+sofa, couch, loveseat, recliner, futon, armchairs, settee, bed, upholstered, chaise, chairs, reclin, armchair, sette, upholst, chais, chair, sett, chai
+remote, wireless, control, access, monitor, connect, setup, system, transmitter, computer, device, remot, transmitt, comput, devic
+broccoli, cauliflower, spinach, carrots, asparagus, kale, sprouts, cabbage, celery, zucchini, brocolli, cauliflow, carrot, asparagu, sprout, cabbag, celeri
+skis, snowboards, skiis, snowshoes, sleds, kayaks, skiers, skates, telemark, snowmobiles, freeride, ski, snowboard, skii, snowsho, sled, kayak, skier, skate, snowmobil, freerid
+frisbee, Frisbee, bocce, kickball, dodgeball, whiffle, frizbee, wiffle, croquet, badminton, flyball, frisbe, bocc, kickbal, dodgebal, whiffl, frizbe, wiffl, flybal, frisb, dodgeb, frizb
+cake, cupcakes, dessert, chocolate, cheesecake, pudding, frosting, cookie, pie, brownies, icing, cupcak, chocol, cheesecak, pud, frost, cooki, browni, ice
+truck, vehicle, car, tractor, tow, pickup, cab, jeep, hauling, hauler, lorry, vehicl, haul, lorri
+fork, spoon, bend, spatula, tines, skewer, wheel, tongs, handlebars, shovel, knife, tine, tong, handlebar
+orange, yellow, red, blue, purple, green, pink, lime, peach, lemon, tangerine, orang, purpl, tangerin
+toothbrush, toothpaste, mouthwash, sonicare, sanitizer, brushing, flossing, hairbrush, shaver, towel, shaving, toothpast, sonicar, sanit, brush, floss, shave
 surfboard, longboard, paddleboard, surf, surfer, skateboard, kiteboard, windsurf, bodyboard, sailboard, kayak
-apple, blackberry, iphone, fruit, blueberry, strawberry, ipad, pineapple, pear, cider, mango
-bottle, drink, beer, jug, pint, wine, glass, vodka, flask, cans, whiskey
-motorbike, motorcycle, scooter, bike, moped, motorcyle, bicycle, car, dirtbike, motocycle, motorcyclists
-mouse, Mouse, mice, rat, cursor, keyboard, rabbit, hamster, rodent, touchpad, buttons
-vase, porcelain, teapot, pottery, earthenware, jug, glass, paperweight, decorative, flower, stoneware
-laptop, notebook, netbook, computer, battery, toshiba, macbook, acer, compaq, vaio, inspiron
-spoon, ladle, bowl, spatula, butter, tongs, pan, utensil, whisk, fork, cup
-pizza, pasta, burger, sandwiches, pizzeria, hamburger, pepperoni, cheese, bread, steak, lasagna
-carrot, celery, potato, onion, zucchini, cabbage, broccoli, cauliflower, turnip, cucumber, radish
-train, railway, bus, rail, subway, railroad, station, buses, tram, commuter, taxi
-horse, horses, pony, equine, stallion, thoroughbred, donkey, riding, dog, cow, equestrian
-sandwich, burger, hamburger, pizza, sandwhich, cheese, salad, bacon, fries, bread, bagel
-clock, timer, alarm, stopwatch, dial, signal, ticking, time, chime, countdown, cuckoo
-aeroplane, airplane, biplane, aircraft, airliner, flying, plane, airship, seaplane, helicopter, airbus
+apple, blackberry, iphone, fruit, blueberry, strawberry, ipad, pineapple, pear, cider, mango, appl, blackberri, iphon, blueberri, strawberri, pineappl
+bottle, drink, beer, jug, pint, wine, glass, vodka, flask, cans, whiskey, bottl, can
+motorbike, motorcycle, scooter, bike, moped, motorcyle, bicycle, car, dirtbike, motocycle, motorcyclists, motorbik, motorcycl, mope, motorcyl, bicycl, dirtbik, motocycl, motorcyclist
+mouse, Mouse, mice, rat, cursor, keyboard, rabbit, hamster, rodent, touchpad, buttons, mous, button, mou
+vase, porcelain, teapot, pottery, earthenware, jug, glass, paperweight, decorative, flower, stoneware, potteri, earthenwar, decor, stonewar
+laptop, notebook, netbook, computer, battery, toshiba, macbook, acer, compaq, vaio, inspiron, comput, batteri
+spoon, ladle, bowl, spatula, butter, tongs, pan, utensil, whisk, fork, cup, ladl, tong
+pizza, pasta, burger, sandwiches, pizzeria, hamburger, pepperoni, cheese, bread, steak, lasagna, sandwich, hamburg, chees, chee
+carrot, celery, potato, onion, zucchini, cabbage, broccoli, cauliflower, turnip, cucumber, radish, celeri, cabbag, cauliflow, cucumb
+train, railway, bus, rail, subway, railroad, station, buses, tram, commuter, taxi, bu, buse, commut
+horse, horses, pony, equine, stallion, thoroughbred, donkey, riding, dog, cow, equestrian, hors, poni, equin, thoroughbr, ride, hor
+sandwich, burger, hamburger, pizza, sandwhich, cheese, salad, bacon, fries, bread, bagel, hamburg, chees, fri, chee
+clock, timer, alarm, stopwatch, dial, signal, ticking, time, chime, countdown, cuckoo, tick
+aeroplane, airplane, biplane, aircraft, airliner, flying, plane, airship, seaplane, helicopter, airbus, aeroplan, airplan, biplan, airlin, fli, seaplan, helicopt, airbu
 bowl, spoon, cup, dish, jug, soup, pan, pot, toss, butter, platter
-chair, sofa, seat, recliner, desk, couch, sitting, table, upholstered, chaise, stool
-dog, puppy, pet, cat, canine, pup, terrier, kitten, poodle, kennel, beagle
-skateboard, skate, bmx, longboard, skatepark, snowboard, sk8, skater, rollerblades
-donut, doughnut, dunkin, Kreme, Krispy, cupcake, ice-cream, muffin, pancake, bagel, cheeseburger
-book, author, paperback, read, novels, writing, ebook, non-fiction, fiction, e-book, memoir
-boat, sailboat, sail, yacht, canoe, pontoon, fishing, dinghy, kayak, shore, barge
-handbag, purse, tote, satchel, wallet, bag, fendi, hobo, Vuitton, prada, chanel
+chair, sofa, seat, recliner, desk, couch, sitting, table, upholstered, chaise, stool, reclin, sit, tabl, upholst, chais, chai
+dog, puppy, pet, cat, canine, pup, terrier, kitten, poodle, kennel, beagle, puppi, canin, poodl, beagl
+skateboard, skate, bmx, longboard, skatepark, snowboard, sk8, skater, rollerblades, rollerblad
+donut, doughnut, dunkin, Kreme, Krispy, cupcake, ice-cream, muffin, pancake, bagel, cheeseburger, kreme, krispi, cupcak, pancak, cheeseburg
+book, author, paperback, read, novels, writing, ebook, non-fiction, fiction, e-book, memoir, novel, write, non-fict
+boat, sailboat, sail, yacht, canoe, pontoon, fishing, dinghy, kayak, shore, barge, cano, fish, dinghi, barg
+handbag, purse, tote, satchel, wallet, bag, fendi, hobo, Vuitton, prada, chanel, purs, vuitton, pur

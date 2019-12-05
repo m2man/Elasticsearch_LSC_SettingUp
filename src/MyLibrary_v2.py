@@ -138,9 +138,14 @@ def generate_original_synonym(given_word, list_synonym=list_synonym):
         + If can find any synonym --> len = 0
     '''
     result = []
-    for index, sublist in enumerate(list_synonym):
-        if given_word in sublist:
-            result.append(list_synonym[index][0])
+    word_tokens = word_tokenize(given_word.lower())
+    good_tokens = [word for word in word_tokens if word not in stop_words]
+    for word in good_tokens:
+        for index, sublist in enumerate(list_synonym):
+            if word in sublist:
+                result.append(list_synonym[index][0])
+    if len(result) > 0:
+        result = sorted(list(set(result)))
     return result
 
 def generate_subterm_query(q, list_synonym=list_synonym):
@@ -155,6 +160,7 @@ def generate_subterm_query(q, list_synonym=list_synonym):
     q_process = q_process.replace(" or ", ", ")  # same with "or" --> we dont care difference between "and" and "or"
     q_process = q_process.replace(", ", ",")  # "1 car, 1 person" to "1 car,1 person"
     q_split = q_process.split(",")  # "1 car" "1 person"
+    q_split = [x for x in q_split if x != '']
     original_result = [[x] for x in q_split if x != '']
     for tag in q_split:
         element = tag.split(" ")  # "1 car" --> "1", "car"
@@ -465,3 +471,29 @@ def get_places(input_query):
                 places.append(word)
 
     return places
+
+
+def extend_list_synonym(list_synonym, save=False):
+    # Add stem words of each word in the list synonym
+    list_extend = list_synonym
+    for idx in range(len(list_extend)):
+        sub_list = list_extend[idx]
+        for word in sub_list:
+            word_stemmed = ps.stem(word)
+            if word_stemmed not in list_extend[idx]:
+                list_extend[idx] += [word_stemmed]
+    if save:
+        with open('List_synonym_glove_extend.pickle', 'wb') as f:
+            pickle.dump(list_extend, f)
+    return list_extend
+
+def create_synonym_txt_from_pickle(list_synonym, save=False):
+    Text = ""
+    for sub_list in list_synonym:
+        line = ", ".join(sub_list)
+        Text += line + "\n"
+    if save:
+        file = open("all_synonym_extend.txt","w")
+        file.write(Text)
+        file.close()
+    return Text

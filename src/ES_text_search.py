@@ -16,7 +16,7 @@ import calendar
 Data_path = str(Path.cwd().parent / 'data/')
 
 ###### Load list synonym ########
-Synonym_glove_all_file = "List_synonym_glove_all.pickle"
+Synonym_glove_all_file = Data_path + "/List_synonym_glove_all.pickle"
 with open(Synonym_glove_all_file, "rb") as f:
     List_synonym = pickle.load(f)
 
@@ -159,10 +159,12 @@ es.indices.create(
                                     # Should have synonym filter here
                                     "my_synonym":{
                                             "type": "synonym",
+                                            "expand": "false",
                                             "synonyms_path": "analysis/all_synonym.txt"
                                     },
                                     "my_graph_synonym":{
                                             "type": "synonym_graph",
+                                            "expand": "false",
                                             "synonyms_path": "analysis/all_synonym.txt"
                                     },
                                     "edge_ngram_filter":{

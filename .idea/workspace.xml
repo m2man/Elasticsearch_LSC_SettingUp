@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a5cf6842-a229-42b3-8b57-e3122a8d88e5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ES_combined_text_bow_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ES_combined_text_bow_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/List_synonym_glove_all.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/data/List_synonym_glove_all.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/all_synonym.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/all_synonym.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ES_text_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ES_text_search.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MyLibrary_v2.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyLibrary_v2.py" afterDir="false" />
     </list>
@@ -34,6 +35,35 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="ES_text_search" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Elasticsearch_LSC_SettingUp" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/ES_text_search.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.ES_text_search" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -45,7 +75,9 @@
       <option name="presentableId" value="Default" />
       <updated>1574890178476</updated>
       <workItem from="1574890191514" duration="2652000" />
-      <workItem from="1574967448846" duration="819000" />
+      <workItem from="1574967448846" duration="1091000" />
+      <workItem from="1575547295320" duration="7991000" />
+      <workItem from="1575559728406" duration="2543000" />
     </task>
     <servers />
   </component>
@@ -64,5 +96,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Elasticsearch_LSC_SettingUp$ES_text_search.coverage" NAME="ES_text_search Coverage Results" MODIFIED="1575560208333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
 </project>
