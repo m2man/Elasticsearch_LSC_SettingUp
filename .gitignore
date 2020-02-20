@@ -9,6 +9,9 @@ __pycache__/
 # Folder
 /LSC_DATA/
 
+# File
+*BERT*
+
 # Distribution / packaging
 .Python
 build/
