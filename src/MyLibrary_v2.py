@@ -85,7 +85,6 @@ def unlist(l):
         result.extend(s)
     return result
 
-
 def search_es(ES, index, request, percent_thres=0.9, max_len=10):
     '''
     ES: Elasticsearch engine with collected data
@@ -179,7 +178,6 @@ def generate_subterm_query(q, list_synonym=list_synonym):
             result.append([str(element_numb) + " " + x for x in original_synonym])
     return original_result, result
 
-
 def generate_querystringquery_and_subquery(sq, max_change=1):
     '''
     Generate query string format from the subterm query sq (generated from generate_subterm_query)
@@ -254,7 +252,7 @@ def create_json_query_string_part(query, field, boost=1):
     }
     return result
 
-def create_location_query(sentence, field, boost=24):
+def create_location_query_v0(sentence, field, boost=24):
     location_part = get_places(sentence)  # Put the location detected here
     if len(location_part) > 0:
         location_part = " OR ".join(location_part)
@@ -264,6 +262,26 @@ def create_location_query(sentence, field, boost=24):
         stt = False
         location_json = 0
     return stt, location_json
+
+def create_location_query(list_loc=['home'], field='address', boost=24):
+    if len(list_loc) > 0:
+        location_part = " OR ".join(list_loc)
+        stt = True
+        location_json = create_json_query_string_part(query=location_part, field=field, boost=boost)
+    else:
+        stt = False
+        location_json = 0
+    return stt, location_json
+
+def create_weekday_query(list_weekday=['Saturday'], field='weekday', boost=24):
+    if len(list_weekday) > 0:
+        weekday_part = " OR ".join(list_weekday)
+        stt = True
+        weekday_json = create_json_query_string_part(query=weekday_part, field=field, boost=boost)
+    else:
+        stt = False
+        weekday_json = 0
+    return stt, weekday_json
 
 def generate_query_combined(q, max_change=1, tie_breaker=0.7, numb_of_result=100):
     '''
@@ -275,58 +293,12 @@ def generate_query_combined(q, max_change=1, tie_breaker=0.7, numb_of_result=100
     Output:
         + request_string is the txt format of the elasticsearch formatted request
     '''
-    q = q.lower()
-    having_comma = q.find(",")
-    if having_comma > 0:
-        having_comma = True
-    else:
-        having_comma = False
+    dismax_part = generate_dismax_part(q, choice=2, max_change=max_change, tie_breaker=tie_breaker)
     result = "{\"size\":" + str(numb_of_result)
     result += ",\"_source\": {\"includes\": [\"id\", \"description\"]}"
-    result += ",\"query\":{\"dis_max\":{\"queries\":["
-    queries_part = []
-    embedded_query, adjust_sentence_query = create_bow_ft_sentence(q, my_dictionary, list_synonym_stemmed, my_idf)
-    embedded_query = embedded_query.tolist()
-    queries_part += [create_json_query_string_part(query=adjust_sentence_query, field="description_clip", boost=5)]
-    having_location, location_query = create_location_query(q, field="gps_description", boost=24)
-    if having_location:
-        queries_part += [location_query]
-    if having_comma: # Yes ", " --> should focus on generate subterm | If No --> Should NOT focus since it is not worthy
-        o_subterm, subterm = generate_subterm_query(q, list_synonym)
-        qsq, qs_term, qs_term_adjust = generate_querystringquery_and_subquery(subterm, max_change)
-        o_qsq, o_qs_term, o_qs_term_adjust = generate_querystringquery_and_subquery(o_subterm, max_change)
-        queries_part += [create_json_query_string_part(query=o_qsq, field="description", boost=3)]
-        queries_part += [create_json_query_string_part(query=qsq, field="description", boost=2)]
-        queries_part += [create_json_query_string_part(query=o_qsq, field="description_clip", boost=1.25)]
-        for sub_query, o_sub_query in zip(qs_term, o_qs_term):
-            queries_part += [
-                create_json_query_string_part(query=sub_query[0], field="description", boost=0.75),
-                create_json_query_string_part(query=o_sub_query[0], field="description_clip", boost=0.45)
-            ]
-        for sub_query, o_sub_query in zip(qs_term_adjust, o_qs_term_adjust):
-            queries_part += [
-                create_json_query_string_part(query=sub_query[0], field="description", boost=0.35),
-                create_json_query_string_part(query=o_sub_query[0], field="description_clip", boost=0.1)
-            ]
-    script_query = {
-        "script_score": {
-            "query": {"match_all": {}},
-            "script": {
-                "source": "9.5*(cosineSimilarity(params.query_embedded, doc['description_embedded']) + 1.0)",
-                "params": {"query_embedded": embedded_query}
-            }
-        }
-    }
-    queries_part += [script_query]
-    queries_part_string = str(queries_part)
-    queries_part_string = queries_part_string.replace("'", "\"")
-    queries_part_string = queries_part_string.replace("doc[\"description_embedded\"]", "doc['description_embedded']")
-    queries_part_string = queries_part_string[1:-1]
-    result += queries_part_string
-    result += "],\"tie_breaker\":" + str(tie_breaker)
-    result += "}}}"
-    request_string = result
-    return request_string
+    result += ",\"query\":" + dismax_part
+    result += "}"
+    return result
 
 def generate_query_text(q, max_change=1, tie_breaker=0.7, numb_of_result=100):
     '''
@@ -338,48 +310,12 @@ def generate_query_text(q, max_change=1, tie_breaker=0.7, numb_of_result=100):
     Output:
         + request_string is the txt format of the elasticsearch formatted request
     '''
-    q = q.lower()
-    having_comma = q.find(",")
-    if having_comma > 0:
-        having_comma = True
-    else:
-        having_comma = False
-    word_tokens = word_tokenize(q)
-    good_tokens = [word for word in word_tokens if word not in stop_words]
-    adjust_sentence_query = ' '.join(good_tokens)
+    dismax_part = generate_dismax_part(q, choice=1, max_change=max_change, tie_breaker=tie_breaker)
     result = "{\"size\":" + str(numb_of_result)
     result += ",\"_source\": {\"includes\": [\"id\", \"description\"]}"
-    result += ",\"query\":{\"dis_max\":{\"queries\":["
-    queries_part = []
-    queries_part += [create_json_query_string_part(query=adjust_sentence_query, field="description_clip", boost=5)]
-    having_location, location_query = create_location_query(q, field="gps_description", boost=24)
-    if having_location:
-        queries_part += [location_query]
-    if having_comma: # Yes ", " --> should focus on generate subterm | If No --> Should NOT focus since it is not worthy
-        o_subterm, subterm = generate_subterm_query(q, list_synonym)
-        qsq, qs_term, qs_term_adjust = generate_querystringquery_and_subquery(subterm, max_change)
-        o_qsq, o_qs_term, o_qs_term_adjust = generate_querystringquery_and_subquery(o_subterm, max_change)
-        queries_part += [create_json_query_string_part(query=o_qsq, field="description", boost=3)]
-        queries_part += [create_json_query_string_part(query=qsq, field="description", boost=2)]
-        queries_part += [create_json_query_string_part(query=o_qsq, field="description_clip", boost=1.25)]
-        for sub_query, o_sub_query in zip(qs_term, o_qs_term):
-            queries_part += [
-                create_json_query_string_part(query=sub_query[0], field="description", boost=0.75),
-                create_json_query_string_part(query=o_sub_query[0], field="description_clip", boost=0.45)
-            ]
-        for sub_query, o_sub_query in zip(qs_term_adjust, o_qs_term_adjust):
-            queries_part += [
-                create_json_query_string_part(query=sub_query[0], field="description", boost=0.35),
-                create_json_query_string_part(query=o_sub_query[0], field="description_clip", boost=0.1)
-            ]
-    queries_part_string = str(queries_part)
-    queries_part_string = queries_part_string.replace("'", "\"")
-    queries_part_string = queries_part_string[1:-1]
-    result += queries_part_string
-    result += "],\"tie_breaker\":" + str(tie_breaker)
-    result += "}}}"
-    request_string = result
-    return request_string
+    result += ",\"query\":" + dismax_part
+    result += "}"
+    return result
 
 def find_descriptive_attribute_in_list_images(database, list_images):
     '''
@@ -450,7 +386,6 @@ def is_location(word):
                 break
     return False
 
-
 def get_places(input_query):
     places = []
     text = word_tokenize(input_query)
@@ -471,7 +406,6 @@ def get_places(input_query):
                 places.append(word)
 
     return places
-
 
 def extend_list_synonym(list_synonym, save=False):
     # Add stem words of each word in the list synonym
@@ -497,3 +431,186 @@ def create_synonym_txt_from_pickle(list_synonym, save=False):
         file.write(Text)
         file.close()
     return Text
+
+def generate_dismax_part_v0(q, choice=1, max_change=1, tie_breaker=0.7):
+    # generate dismax part for text and combined search
+    # choice = 1, 2 --> text, combined
+    # combined will have vector space part
+
+    q = q.lower()
+    having_comma = q.find(",")
+    if having_comma > 0:
+        having_comma = True
+    else:
+        having_comma = False
+
+    word_tokens = word_tokenize(q)
+    good_tokens = [word for word in word_tokens if word not in stop_words]
+    adjust_sentence_query = ' '.join(good_tokens)
+
+    result = "{\"dis_max\":{\"queries\":["
+    queries_part = []
+    queries_part += [create_json_query_string_part(query=adjust_sentence_query, field="description_clip", boost=5)]
+    having_location, location_query = create_location_query(q, field="gps_description", boost=24)
+    if having_location:
+        queries_part += [location_query]
+    if having_comma:  # Yes ", " --> should focus on generate subterm | If No --> Should NOT focus since it is not worthy
+        o_subterm, subterm = generate_subterm_query(q, list_synonym)
+        qsq, qs_term, qs_term_adjust = generate_querystringquery_and_subquery(subterm, max_change)
+        o_qsq, o_qs_term, o_qs_term_adjust = generate_querystringquery_and_subquery(o_subterm, max_change)
+        queries_part += [create_json_query_string_part(query=o_qsq, field="description", boost=3)]
+        queries_part += [create_json_query_string_part(query=qsq, field="description", boost=2)]
+        queries_part += [create_json_query_string_part(query=o_qsq, field="description_clip", boost=1.25)]
+        for sub_query, o_sub_query in zip(qs_term, o_qs_term):
+            queries_part += [
+                create_json_query_string_part(query=sub_query[0], field="description", boost=0.75),
+                create_json_query_string_part(query=o_sub_query[0], field="description_clip", boost=0.45)
+            ]
+        for sub_query, o_sub_query in zip(qs_term_adjust, o_qs_term_adjust):
+            queries_part += [
+                create_json_query_string_part(query=sub_query[0], field="description", boost=0.35),
+                create_json_query_string_part(query=o_sub_query[0], field="description_clip", boost=0.1)
+            ]
+
+    if choice == 2:
+        embedded_query,_ = create_bow_ft_sentence(q, my_dictionary, list_synonym_stemmed, my_idf)
+        embedded_query = embedded_query.tolist()
+        script_query = {
+            "script_score": {
+                "query": {"match_all": {}},
+                "script": {
+                    "source": "9.5*(cosineSimilarity(params.query_embedded, doc['description_embedded']) + 1.0)",
+                    "params": {"query_embedded": embedded_query}
+                }
+            }
+        }
+        queries_part += [script_query]
+
+    queries_part_string = str(queries_part)
+    queries_part_string = queries_part_string.replace("'", "\"")
+    queries_part_string = queries_part_string.replace("doc[\"description_embedded\"]", "doc['description_embedded']")
+    queries_part_string = queries_part_string[1:-1]
+    result += queries_part_string
+    result += "],\"tie_breaker\":" + str(tie_breaker) + "}"
+    result += "}"
+
+    return result
+
+def generate_dismax_part(q, l=None, choice=1, max_change=1, tie_breaker=0.7):
+    # generate dismax part for text and combined search
+    # choice = 1, 2 --> text, combined
+    # combined will have vector space part
+    # Input:
+    # - q: list of object (and maybe location)
+    # - l: list of location only (true location: home, office, oslo)
+
+    if isinstance(q, list):
+        q = ','.join(q)
+
+    q = q.lower()
+    '''
+    having_comma = q.find(",")
+    if having_comma > 0:
+        having_comma = True
+    else:
+        having_comma = False
+    '''
+    having_comma = True
+    
+    word_tokens = word_tokenize(q)
+    good_tokens = [word for word in word_tokens if word not in stop_words]
+    adjust_sentence_query = ' '.join(good_tokens)
+
+    result = "{\"dis_max\":{\"queries\":["
+    queries_part = []
+    queries_part += [create_json_query_string_part(query=adjust_sentence_query, field="description_clip", boost=5)]
+    
+    if l is not None:
+        having_location, location_query = create_location_query(l, field="address", boost=24)
+    if having_location:
+        queries_part += [location_query]
+
+    if having_comma:  # Yes ", " --> should focus on generate subterm | If No --> Should NOT focus since it is not worthy
+        o_subterm, subterm = generate_subterm_query(q, list_synonym)
+        qsq, qs_term, qs_term_adjust = generate_querystringquery_and_subquery(subterm, max_change)
+        o_qsq, o_qs_term, o_qs_term_adjust = generate_querystringquery_and_subquery(o_subterm, max_change)
+        queries_part += [create_json_query_string_part(query=o_qsq, field="description", boost=3)]
+        queries_part += [create_json_query_string_part(query=qsq, field="description", boost=2)]
+        queries_part += [create_json_query_string_part(query=o_qsq, field="description_clip", boost=1.25)]
+        for sub_query, o_sub_query in zip(qs_term, o_qs_term):
+            queries_part += [
+                create_json_query_string_part(query=sub_query[0], field="description", boost=0.75),
+                create_json_query_string_part(query=o_sub_query[0], field="description_clip", boost=0.45)
+            ]
+        for sub_query, o_sub_query in zip(qs_term_adjust, o_qs_term_adjust):
+            queries_part += [
+                create_json_query_string_part(query=sub_query[0], field="description", boost=0.35),
+                create_json_query_string_part(query=o_sub_query[0], field="description_clip", boost=0.1)
+            ]
+
+    if choice == 2:
+        embedded_query,_ = create_bow_ft_sentence(q, my_dictionary, list_synonym_stemmed, my_idf)
+        embedded_query = embedded_query.tolist()
+        script_query = {
+            "script_score": {
+                "query": {"match_all": {}},
+                "script": {
+                    "source": "9.5*(cosineSimilarity(params.query_embedded, doc['description_embedded']) + 1.0)",
+                    "params": {"query_embedded": embedded_query}
+                }
+            }
+        }
+        queries_part += [script_query]
+
+    queries_part_string = str(queries_part)
+    queries_part_string = queries_part_string.replace("'", "\"")
+    queries_part_string = queries_part_string.replace("doc[\"description_embedded\"]", "doc['description_embedded']")
+    queries_part_string = queries_part_string[1:-1]
+    result += queries_part_string
+    result += "],\"tie_breaker\":" + str(tie_breaker) + "}"
+    result += "}"
+
+    return result
+
+def generate_query_filter(q, ids_filter, choice=1, max_change=1, tie_breaker=0.7):
+    # Search query q in the ids_filter
+    # q: string, ids_filter: list
+    # Query bool must filter in elasticsearch
+    # choice = 1, 2 --> text, combined
+    '''
+        {
+            "query": {
+                "bool": {
+                    "must": [
+                        {"match": {"title": "Search"}},
+                        {"match": {"content": "Elasticsearch"}}
+                    ],
+                    "filter": [
+                        {"term": {"status": "published"}},
+                        {"range": {"publish_date": {"gte": "2015-01-01"}}}
+                    ]
+                }
+            }
+        }
+    '''
+    string_ids = ""
+    for id in ids_filter:
+        string_ids += "\"" + id + "\"" + ", "
+    string_ids = string_ids[0:-2]
+    string_ids = "[" + string_ids + "]"
+    dismax = generate_dismax_part(q, choice=choice, max_change=max_change, tie_breaker=tie_breaker)
+    result = "{"
+    result += "\"query\": {"
+    result += "\"bool\": {"
+    result += "\"must\": ["
+    result += dismax
+    result += "]"
+    result += ",\"filter\": ["
+    result += "{" + "\"terms\": {\"id\":" + string_ids + "}" + "}"
+    result += "]"
+    result += "}"
+    result += "}"
+    result += "}"
+    return result
+
+#list_id = ["20160903_172115_000.jpg", "20160815_062124_000.jpg", "20160815_090038_000.jpg"]

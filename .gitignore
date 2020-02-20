@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# Folder
+/LSC_DATA/
+
 # Distribution / packaging
 .Python
 build/
