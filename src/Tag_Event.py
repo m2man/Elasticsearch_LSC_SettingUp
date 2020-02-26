@@ -14,15 +14,15 @@ from parsedatetime import Constants
 from nltk.tokenize import WordPunctTokenizer
 import os
 
-os.chdir("/Users/duynguyen/DuyNguyen/Gitkraken/Elasticsearch_LSC_SettingUp/")
+#os.chdir("/Users/duynguyen/DuyNguyen/Gitkraken/Elasticsearch_LSC_SettingUp/")
 
 #nlp = spacy.load("en_core_web_sm")
 
-c = pdt.Constants()
-c.uses24 = True
+#c = pdt.Constants()
+#c.uses24 = True
 
-cal = pdt.Calendar(c)
-now = datetime.now()
+#cal = pdt.Calendar(c)
+#now = datetime.now()
 
 simpletime = ['at', 'around', 'about', 'on']
 period = ['while', "along", "as"]
@@ -78,7 +78,7 @@ class TimeTagger:
         self.all_regexes.append(("TIMEOFDAY", r"\b(afternoon|noon|morning|evening|night|twilight)\b"))
         self.all_regexes.append(("TIMEPREP", r"\b(before|after|while|late|early)\b"))
 
-    def __merge_interval(self, intervals):
+    def merge_interval(self, intervals):
         if intervals:
             intervals.sort(key=lambda interval: interval[0])
             merged = [intervals[0]]
@@ -93,15 +93,15 @@ class TimeTagger:
             return merged
         return []
 
-    def __find_time(self, sent):
+    def find_time(self, sent):
         results = []
         for kind, r in self.all_regexes:
             for t in find_regex(r, sent):
                 results.append([*t, kind])
-        return self.__merge_interval(results)
+        return self.merge_interval(results)
 
     def tag(self, sent):
-        times = self.__find_time(sent)
+        times = self.find_time(sent)
         intervals = dict([(time[0], time[1]) for time in times])
         tag_dict = dict([(time[2], time[3]) for time in times])
         tokenizer = WordPunctTokenizer()
@@ -209,6 +209,13 @@ class Tagger:
                     if word in self.specials[t]:
                         tag = t
                         break
+            if tag in ['NN', 'NNS']: # fix error NN after NN --> should be NN after VBG
+                try:
+                    t1, t2 = new_tags[-1]
+                except:
+                    t1, t2 = None, None
+                if t2 in ['NN', 'NNS']:
+                    new_tags[-1] = (t1, 'VBG')
             new_tags.append((word, tag))
         return new_tags
 
@@ -385,7 +392,7 @@ class ElementTagger:
                       PERIOD: {<QUANTITY>?<PERIOD>}
                       TIMEPREP: {(<RB>|<PERIOD>)?<TIMEPREP>}
                       SPACE: {<SPACE><LOCATION>}
-                      LOCATION: {(<OBJECT><LOCATION>|<SPACE>|<NN>|<NNP>)(<VBD>|<VBN>|<\,>)<DT>?(<OBJECT><LOCATION>|<SPACE>|<NN>|<NNP>)}
+                      LOCATION: {(<OBJECT><LOCATION>|<SPACE>|<NNP>)(<VBD>|<VBN>|<\,>)<DT>?(<OBJECT><LOCATION>|<SPACE>|<NNP>)}
                       LOCATION: {<RB>?<IN>?(<DT>|<PRP\$>)?(<LOCATION>|<SPACE>)+}
                 
                       NN: {(<NN>|<NNS>)+(<IN>(<NNS>|<NN>))?}
@@ -619,8 +626,9 @@ stop_words += [',', '.']
 init_tagger = Tagger(address_and_gps)
 e_tag = ElementTagger()
 
+
 #sent = 'after walking to the bus station, I took the bus 109 to DCU which took 2 hours, then walked to my office, then played games on my laptop'
-sent = 'after walking to bus station, go to DCU, 2 hours, then walked to office and played game on laptop'
+#sent = 'after walking to bus station, go to DCU, 2 hours, then walked to office and played game on laptop'
 
 def extract_info_from_sentence(sent):
     sent = sent.replace(', ', ',')
@@ -691,3 +699,100 @@ def extract_info_from_sentence(sent):
     return info     
 
 
+def extract_info_from_sentence_full_tag(sent):
+    sent = sent.replace(', ', ',')
+    tense_sent = sent.split(',')
+
+    past_sent = ''
+    present_sent = ''
+    future_sent = ''
+
+    for current_sent in tense_sent:
+        split_sent = current_sent.split()
+        if split_sent[0] == 'after':
+            past_sent += ' '.join(split_sent) + ', '
+        elif split_sent[0] == 'then':
+            future_sent += ' '.join(split_sent) + ', '
+        else:
+            present_sent += ' '.join(split_sent) + ', '
+
+    past_sent = past_sent[0:-2]
+    present_sent = present_sent[0:-2]
+    future_sent = future_sent[0:-2]
+
+    list_sent = [past_sent, present_sent, future_sent]
+
+    info = {}
+    info['past'] = {}
+    info['present'] = {}
+    info['future'] = {}
+
+    for idx, tense_sent in enumerate(list_sent):
+        if len(tense_sent) > 2:
+            tags = init_tagger.tag(tense_sent)
+            info_full = e_tag.tag(tags)
+            print(tags)
+            print(info_full)
+            obj = []
+            loc = []
+            period = []
+            time = []
+            timeofday = []
+            
+            if len(info_full['object']) != 0:
+                for each_obj in info_full['object']:
+                    split_term = each_obj.split(', ')
+                    if len(split_term) == 2:
+                        obj.append(split_term[1])
+            
+            if len(info_full['period']) != 0:
+                for each_period in info_full['period']:
+                    if each_period not in ['after', 'before', 'then', 'prior to']:
+                        period.append(each_period)
+
+            if len(info_full['location']) != 0:
+                for each_loc in info_full['location']:
+                    split_term = each_loc.split('> ')
+                    if split_term[0][-3:] != 'not':
+                        word_tag = pos_tag(split_term[1].split())
+                        final_loc = []
+                        for word, tag in word_tag:
+                            if tag not in ['DT']:
+                                final_loc.append(word)
+                        final_loc = ' '.join(final_loc)
+                        loc.append(final_loc)
+            
+            if len(info_full['time']) != 0:
+                for each_time in info_full['time']:
+                    if 'from' in each_time or 'to' in each_time:
+                        timeofday.append(each_time)
+                    else:
+                        timetag = init_tagger.time_tagger.tag(each_time)
+                        if timetag[-1][1] in ['TIME', 'TIMEOFDAY']:
+                            timeofday.append(each_time)
+                        elif timetag[-1][1] in ['WEEKDAY', 'DATE']:
+                            time.append(timetag[-1][0])
+
+            if idx == 0:
+                info['past']['obj'] = obj
+                info['past']['loc'] = loc
+                info['past']['period'] = period
+                info['past']['time'] = time
+                info['past']['timeofday'] = timeofday            
+            if idx == 1:
+                info['present']['obj'] = obj
+                info['present']['loc'] = loc
+                info['present']['period'] = period
+                info['present']['time'] = time
+                info['present']['timeofday'] = timeofday   
+            if idx == 2:
+                info['future']['obj'] = obj
+                info['future']['loc'] = loc
+                info['future']['period'] = period
+                info['future']['time'] = time
+                info['future']['timeofday'] = timeofday           
+    
+    return info     
+
+sent = 'flower, vase'
+a = extract_info_from_sentence_full_tag(sent)

@@ -3,6 +3,22 @@ This is for setting up ES. Please install Elasticsearch first. Then run the ES, 
 ***Note: Please copy the [all_synonym.txt] file to [elastic_folder/config/analysis/] folder before running***
 
 ## Change Log
+### 25/02/2019
+1. Add NLP Processing in **Tag_Event.py** Library.
+- Usage: Run the function ```extract_info_from_sentence_full_tag(sentence)``` to extract the dictionary of past, present, and future action. If there is no information extracted, it will be an empty dict for each action.
+2. Add **ProcImgLib.py** Library: grouping list of images based on its SIFT, description, and time into distinct clusters.
+- Usage: Run the function ```grouping_image_with_sift_dict(list_images, description_dict, sift_dict)``` to group images. The result will be the list of images cluster.
+- ```Description_dict``` and ```Sift_dict```(too large to upload) can be found in folder **data**
+3. Update **MyLibrary_v2.py**: Mostly update about generate query in search text case
+- Mechanism will be generate list of dismax and filter list, then generate json format query to pass to ES
+- ```generate_list_dismax_part_and_filter_time_from_info(info)``` take the input is the past/present/future action created in section 1, and create list dismax, filter.
+- Pass the list dismax and filter to ```generate_query_text``` function to create json fornat to be used in ES
+4. **Test_sequence_query,py** (Under developing) to test to search sequence (or single) action in ES. Flow will be generate dictionary of past/present/future dict, then seach each action and update the following. Do it TWICE!
+- **Single action**: search text as normal
+- **Double action**: search the previous action --> group result images --> generate times --> Add times as condition to the following action --> Do it again 1 more time!
+	- The Result will be the ranked list of [[group action 1], [group action 2], average score]
+- **Triple action**: Search action 1, action 3 --> group 1, group 3 --> times 1, times 3 --> add to query 2 --> search action 2. (Still updating ...)
+5. **ES_text_search.py** update how to index data: add time, day, month, hour, minute field to the data.
 
 ### 05/12/2019
 1. Fix bug in text search (in synonym dictionary)

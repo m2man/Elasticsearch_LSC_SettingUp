@@ -13,7 +13,15 @@ from pathlib import Path
 import json
 from datetime import datetime
 import calendar
-Data_path = str(Path.cwd().parent / 'data/')
+import os
+os.chdir("/Users/duynguyen/DuyNguyen/Gitkraken/Elasticsearch_LSC_SettingUp/")
+
+Data_path = 'data'
+
+###### Load Sequence Action ######
+Sequence_file = "Sequence_5_post_faster.pickle"
+with open(Sequence_file, "rb") as f:
+    sequence_5 = pickle.load(f)
 
 ###### Load list synonym ########
 Synonym_glove_all_file = Data_path + "/List_synonym_glove_all.pickle"
@@ -32,7 +40,7 @@ with open(description_file) as json_file:
 ####### Connect to the elastic cluster --> run elasticsearch first #########
 es = Elasticsearch([{"host": "localhost", "port": 9200}])
 
-interest_index = "lsc2019"
+interest_index = "lsc2019_test_time"
 
 try:
     es.indices.delete(index=interest_index)
@@ -202,7 +210,27 @@ es.indices.create(
                                     "analyzer": "analyzer_object_yolo_term",
                                     "search_analyzer": "analyzer_object_yolo_term"
                             },
+                            "description_past_5":{
+                                    "type": "text",
+                                    "analyzer": "analyzer_object_yolo_term",
+                                    "search_analyzer": "analyzer_object_yolo_term"
+                            },
+                            "description_future_5":{
+                                    "type": "text",
+                                    "analyzer": "analyzer_object_yolo_term",
+                                    "search_analyzer": "analyzer_object_yolo_term"
+                            },
                             "description_clip":{
+                                    "type": "text",
+                                    "analyzer": "analyzer_object_yolo_term_clip",
+                                    "search_analyzer": "analyzer_object_yolo_term_clip_search"
+                            },
+                            "description_clip_past_5":{
+                                    "type": "text",
+                                    "analyzer": "analyzer_object_yolo_term_clip",
+                                    "search_analyzer": "analyzer_object_yolo_term_clip_search"
+                            },
+                            "description_clip_future_5":{
                                     "type": "text",
                                     "analyzer": "analyzer_object_yolo_term_clip",
                                     "search_analyzer": "analyzer_object_yolo_term_clip_search"
@@ -221,6 +249,22 @@ es.indices.create(
                                 "type": "text",
                                 "analyzer": "analyzer_gps_description",
                                 "search_analyzer": "analyzer_gps_description"
+                            },
+                            "time": {
+                                "type": "date",
+                                "format": "yyyy/MM/dd HH:mm:ss"
+                            },
+                            "hour":{
+                                "type":"float"
+                            },
+                            "minute":{
+                                "type":"integer"
+                            },
+                            "day":{
+                                "type":"integer"
+                            },
+                            "month":{
+                                "type":"integer"
                             }
                     }
             }                        
@@ -230,6 +274,7 @@ es.indices.create(
 ####### Add data to es ########
 # Get id images, both json and embedded file should have the same id list
 list_id_images = list(combined_description.keys())
+list_id_images = sorted(list_id_images)
 
 number_of_files_want_to_index = len(list_id_images)
 # list_id_images_index_shuffle = [x for x in range(len(list_id_images))]
@@ -239,27 +284,48 @@ number_of_files_want_to_index = len(list_id_images)
 list_id_images_random = list_id_images
 
 for number_of_images_scanned in tqdm(range(number_of_files_want_to_index)):
-    id_image = list_id_images_random[number_of_images_scanned]
-    description_image = combined_description[id_image]
+        id_image = list_id_images_random[number_of_images_scanned]
+        description_image = combined_description[id_image]
+        id_past_5 = sequence_5['past'][number_of_images_scanned]
+        id_future_5 = sequence_5['future'][number_of_images_scanned]
+        if id_past_5 != '':
+                description_image_past_5 = combined_description[id_past_5]
+        else:
+                description_image_past_5 = ''
+        if id_future_5 != '':
+                description_image_future_5 = combined_description[id_future_5]
+        else:
+                description_image_future_5 = ''
 
-    image_date = id_image[:8]  # Extract date information
-    image_datetime = datetime.strptime(image_date, '%Y%m%d')  # Convert to datetime type
-    image_weekday = calendar.day_name[image_datetime.weekday()]  # Monday, Tuesday, ...
+        image_date = id_image[:8]  # Extract date information
+        image_datetime = datetime.strptime(image_date, '%Y%m%d')  # Convert to datetime type
+        image_weekday = calendar.day_name[image_datetime.weekday()]  # Monday, Tuesday, ...
 
-    scene_image = description[id_image]["scene_image"]
+        scene_image = description[id_image]["scene_image"]
 
-    document = {
-        "id": id_image,
-        "scene": scene_image,
-        "description": description_image,
-        "description_clip": description_image,
-        "weekday": image_weekday,
-    }
+        image_time = id_image[:15]
+        image_time_string = f"{image_time[:4]}/{image_time[4:6]}/{image_time[6:8]} {image_time[9:11]}:{image_time[11:13]}:{image_time[13:15]}"
 
-    res = es.index(index=interest_index,
-                   doc_type="_doc",
-                   id=number_of_images_scanned,
-                   body=document)
+        document = {
+                "id": id_image,
+                "description": description_image,
+                "description_clip": description_image,
+                #"description_past_5": description_image_past_5,
+                #"description_clip_past_5": description_image_past_5,
+                #"description_future_5": description_image_future_5,
+                #"description_clip_future_5": description_image_future_5,
+                "weekday": image_weekday,
+                "time": image_time_string,
+                "hour": round(int(image_time[9:11]) + int(image_time[11:13])/60.0, 2),
+                "minute": int(image_time[11:13]),
+                "day": int(image_time[6:8]),
+                "month": int(image_time[4:6])
+        }
+
+        res = es.index(index=interest_index,
+                        doc_type="_doc",
+                        id=number_of_images_scanned,
+                        body=document)
 
 
 ########### Summary ##############

@@ -10,6 +10,8 @@ from nltk.corpus import wordnet
 from nltk import pos_tag
 import random
 import time
+from datetime import datetime
+from dateutil.parser import parse
 
 stop_words = stopwords.words('english')
 stop_words += [',', '.']
@@ -115,18 +117,24 @@ def search_es(ES, index, request, percent_thres=0.9, max_len=10):
 
         if len(index_filter) > 1:
             result = list(itemgetter(*list(index_filter))(id_result))
+            result_score = list(itemgetter(*list(index_filter))(score))
             numb_result = len(result)
         else:
             result = id_result[0]
+            result_score = score[0]
             numb_result = 1
 
         if numb_result > max_len:
             result = result[0:max_len]
+            result_score = result_score[0:max_len]
 
-        print("Total remaining result: " + str(numb_result))  # Number of result
-        print("Total output result: " + str(min(max_len, numb_result)))  # Number of result
-
-    return res, result
+        #print("Total remaining result: " + str(numb_result))  # Number of result
+        #print("Total output result: " + str(min(max_len, numb_result)))  # Number of result
+    else:
+        result_score = []
+        result = []
+        
+    return result_score, result
 
 def generate_original_synonym(given_word, list_synonym=list_synonym):
     '''
@@ -243,25 +251,17 @@ def generate_query_embedding(sentence, numb_get_result=100):
     return body
 
 def create_json_query_string_part(query, field, boost=1):
-    result = {
-        "query_string":{
-            "query": query,
-            "default_field": field,
-            "boost": boost
+    if query != "" and query != " " and len(query) >= 2:
+        result = {
+            "query_string":{
+                "query": query,
+                "default_field": field,
+                "boost": boost
+            }
         }
-    }
-    return result
-
-def create_location_query_v0(sentence, field, boost=24):
-    location_part = get_places(sentence)  # Put the location detected here
-    if len(location_part) > 0:
-        location_part = " OR ".join(location_part)
-        stt = True
-        location_json = create_json_query_string_part(query=location_part, field=field, boost=boost)
     else:
-        stt = False
-        location_json = 0
-    return stt, location_json
+        result = None
+    return result
 
 def create_location_query(list_loc=['home'], field='address', boost=24):
     if len(list_loc) > 0:
@@ -300,21 +300,32 @@ def generate_query_combined(q, max_change=1, tie_breaker=0.7, numb_of_result=100
     result += "}"
     return result
 
-def generate_query_text(q, max_change=1, tie_breaker=0.7, numb_of_result=100):
+def generate_query_text(list_queries, list_filters, tie_breaker=0.7, numb_of_result=100):
     '''
-    Quite the same with generate_es_query_dismax but now inclide query string query, not multimatch anymore
-    Generate elastic-formatted request and use the result for the input of elasticsearch
-    list_synonym: list of synonym generated from Glove and only support classes in yolo or cbnet or your own defined
-    max_change >= 0: See generate_near_query
-    tie_breaker: See elasticsearch document
-    Output:
-        + request_string is the txt format of the elasticsearch formatted request
+    See previous version
+    Add list_filters ==> machenism is changed ==> using bool + filter if list_filter exist
     '''
-    dismax_part = generate_dismax_part(q, choice=1, max_change=max_change, tie_breaker=tie_breaker)
+
+    dismax_part = "{\"dis_max\":{\"queries\":["
+
+    queries_part_string = str(list_queries)
+    queries_part_string = queries_part_string.replace("'", "\"")
+    queries_part_string = queries_part_string.replace("doc[\"description_embedded\"]", "doc['description_embedded']")
+    queries_part_string = queries_part_string[1:-1]
+    dismax_part += queries_part_string
+    dismax_part += "],\"tie_breaker\":" + str(tie_breaker) + "}"
+    dismax_part += "}"
+
     result = "{\"size\":" + str(numb_of_result)
-    result += ",\"_source\": {\"includes\": [\"id\", \"description\"]}"
-    result += ",\"query\":" + dismax_part
-    result += "}"
+    result += ",\"_source\": {\"includes\":" 
+    result += "[\"id\", \"description\", \"time\"]" + "}"
+    result += ",\"query\":{\"bool\":{\"must\":["  
+    result += dismax_part + "]"
+
+    if len(list_filters) > 0:
+        result += ",\"filter\":" + str(list_filters).replace("'","\"")
+    
+    result += "}" + "}" + "}"
     return result
 
 def find_descriptive_attribute_in_list_images(database, list_images):
@@ -432,70 +443,6 @@ def create_synonym_txt_from_pickle(list_synonym, save=False):
         file.close()
     return Text
 
-def generate_dismax_part_v0(q, choice=1, max_change=1, tie_breaker=0.7):
-    # generate dismax part for text and combined search
-    # choice = 1, 2 --> text, combined
-    # combined will have vector space part
-
-    q = q.lower()
-    having_comma = q.find(",")
-    if having_comma > 0:
-        having_comma = True
-    else:
-        having_comma = False
-
-    word_tokens = word_tokenize(q)
-    good_tokens = [word for word in word_tokens if word not in stop_words]
-    adjust_sentence_query = ' '.join(good_tokens)
-
-    result = "{\"dis_max\":{\"queries\":["
-    queries_part = []
-    queries_part += [create_json_query_string_part(query=adjust_sentence_query, field="description_clip", boost=5)]
-    having_location, location_query = create_location_query(q, field="gps_description", boost=24)
-    if having_location:
-        queries_part += [location_query]
-    if having_comma:  # Yes ", " --> should focus on generate subterm | If No --> Should NOT focus since it is not worthy
-        o_subterm, subterm = generate_subterm_query(q, list_synonym)
-        qsq, qs_term, qs_term_adjust = generate_querystringquery_and_subquery(subterm, max_change)
-        o_qsq, o_qs_term, o_qs_term_adjust = generate_querystringquery_and_subquery(o_subterm, max_change)
-        queries_part += [create_json_query_string_part(query=o_qsq, field="description", boost=3)]
-        queries_part += [create_json_query_string_part(query=qsq, field="description", boost=2)]
-        queries_part += [create_json_query_string_part(query=o_qsq, field="description_clip", boost=1.25)]
-        for sub_query, o_sub_query in zip(qs_term, o_qs_term):
-            queries_part += [
-                create_json_query_string_part(query=sub_query[0], field="description", boost=0.75),
-                create_json_query_string_part(query=o_sub_query[0], field="description_clip", boost=0.45)
-            ]
-        for sub_query, o_sub_query in zip(qs_term_adjust, o_qs_term_adjust):
-            queries_part += [
-                create_json_query_string_part(query=sub_query[0], field="description", boost=0.35),
-                create_json_query_string_part(query=o_sub_query[0], field="description_clip", boost=0.1)
-            ]
-
-    if choice == 2:
-        embedded_query,_ = create_bow_ft_sentence(q, my_dictionary, list_synonym_stemmed, my_idf)
-        embedded_query = embedded_query.tolist()
-        script_query = {
-            "script_score": {
-                "query": {"match_all": {}},
-                "script": {
-                    "source": "9.5*(cosineSimilarity(params.query_embedded, doc['description_embedded']) + 1.0)",
-                    "params": {"query_embedded": embedded_query}
-                }
-            }
-        }
-        queries_part += [script_query]
-
-    queries_part_string = str(queries_part)
-    queries_part_string = queries_part_string.replace("'", "\"")
-    queries_part_string = queries_part_string.replace("doc[\"description_embedded\"]", "doc['description_embedded']")
-    queries_part_string = queries_part_string[1:-1]
-    result += queries_part_string
-    result += "],\"tie_breaker\":" + str(tie_breaker) + "}"
-    result += "}"
-
-    return result
-
 def generate_dismax_part(q, l=None, choice=1, max_change=1, tie_breaker=0.7):
     # generate dismax part for text and combined search
     # choice = 1, 2 --> text, combined
@@ -523,14 +470,16 @@ def generate_dismax_part(q, l=None, choice=1, max_change=1, tie_breaker=0.7):
 
     result = "{\"dis_max\":{\"queries\":["
     queries_part = []
-    queries_part += [create_json_query_string_part(query=adjust_sentence_query, field="description_clip", boost=5)]
+    basic_part = create_json_query_string_part(query=adjust_sentence_query, field="description_clip", boost=5)
+    if basic_part is not None:
+        queries_part += [basic_part]
     
     if l is not None:
         having_location, location_query = create_location_query(l, field="address", boost=24)
     if having_location:
         queries_part += [location_query]
 
-    if having_comma:  # Yes ", " --> should focus on generate subterm | If No --> Should NOT focus since it is not worthy
+    if having_comma and basic_part is not None:  # Yes ", " --> should focus on generate subterm | If No --> Should NOT focus since it is not worthy
         o_subterm, subterm = generate_subterm_query(q, list_synonym)
         qsq, qs_term, qs_term_adjust = generate_querystringquery_and_subquery(subterm, max_change)
         o_qsq, o_qs_term, o_qs_term_adjust = generate_querystringquery_and_subquery(o_subterm, max_change)
@@ -614,3 +563,331 @@ def generate_query_filter(q, ids_filter, choice=1, max_change=1, tie_breaker=0.7
     return result
 
 #list_id = ["20160903_172115_000.jpg", "20160815_062124_000.jpg", "20160815_090038_000.jpg"]
+
+def convert_text_to_date(t):
+    result = ''
+    if '/' in t: # in the right format (should be dd/mm/yyyy, can miss yyyy part):
+        part = t.split('/')
+        for idx, x in enumerate(part):
+            if len(x) == 1:
+                part[idx] = f'0{x}'
+            else:
+                part[idx] = x
+        result = '/'.join(part)
+        if len(part) == 2: # miss the year
+            result += '/2016'
+    else: # in case data only mentioned about month (without day)
+        result = parse(t)
+        result = result.month
+        if result < 10:
+            result = f"0{result}"
+        else:
+            result = str(result)
+    return result
+
+def generate_list_dismax_part(q, l=None, max_change=1, tense=1, time=5):
+    # Generate list of dismax json parts --> then can extend to prior and post part to become full ES format query
+    # Input:
+    # - q: list of object (and maybe location)
+    # - l: list of location only (true location: home, office, oslo)
+    # - max_change: int --> if > 0 --> extend the number of object in
+    # - tense: int 0, 1, 2 --> past, present, future
+    # - time: int 1, 5, 10, ... --> period between action
+
+    if tense == 1:
+        field_des = 'description'
+        field_clip = 'description_clip'
+    if tense == 0:
+        field_des = f'description_past_{time}'
+        field_clip = f'description_clip_past_{time}'
+    if tense == 2:
+        field_des = f'description_future_{time}'
+        field_clip = f'description_clip_future_{time}'
+
+    good_tokens = [word for word in q if word not in stop_words]
+    good_tokens_sentence = ', '.join(good_tokens)
+    queries_part = []
+    basic_part = create_json_query_string_part(query=good_tokens_sentence, field=field_clip, boost=5)
+    if basic_part is not None:
+        queries_part += [basic_part]
+
+    if l is not None:
+        having_location, location_query = create_location_query(l, field="address", boost=24)
+    if having_location:
+        queries_part += [location_query]
+
+    if basic_part is not None:
+        o_subterm, subterm = generate_subterm_query(good_tokens_sentence, list_synonym) #o_subterm is original term, subterm is synonym term
+        # synonym term is only used for description field --> no synonym analyze in ES
+        qsq, qs_term, qs_term_adjust = generate_querystringquery_and_subquery(subterm, max_change)
+        o_qsq, o_qs_term, o_qs_term_adjust = generate_querystringquery_and_subquery(o_subterm, max_change)
+        queries_part += [create_json_query_string_part(query=o_qsq, field=field_des, boost=3)]
+        queries_part += [create_json_query_string_part(query=qsq, field=field_des, boost=2)]
+        queries_part += [create_json_query_string_part(query=o_qsq, field=field_clip, boost=1.25)]
+        for sub_query, o_sub_query in zip(qs_term, o_qs_term):
+            queries_part += [
+                create_json_query_string_part(query=sub_query[0], field=field_des, boost=0.75),
+                create_json_query_string_part(query=o_sub_query[0], field=field_clip, boost=0.45)
+            ]
+        for sub_query, o_sub_query in zip(qs_term_adjust, o_qs_term_adjust):
+            queries_part += [
+                create_json_query_string_part(query=sub_query[0], field=field_des, boost=0.35),
+                create_json_query_string_part(query=o_sub_query[0], field=field_clip, boost=0.1)
+            ]
+    return queries_part
+
+def generate_list_dismax_part_and_filter_time_from_info(info):
+    # info is a dict with keys of obj, loc, period, time, timeofday
+    # Time will be in filter --> No score
+    field_clip = 'description_clip'
+    field_des = 'description'
+    delta_hour = 0.5
+
+    # For obj and loc --> query as normal
+    obj_sentence = ', '.join(info['obj'])
+    loc_sentence = ', '.join(info['loc'])
+
+    queries_part = []
+    basic_obj_part = create_json_query_string_part(query=obj_sentence, field=field_clip, boost=3)
+    loc_as_obj_part = create_json_query_string_part(query=loc_sentence, field=field_clip, boost=3)
+    loc_as_obj_part_des = create_json_query_string_part(query=loc_sentence, field=field_des, boost=5)
+    
+    queries_part = queries_part + [basic_obj_part] if basic_obj_part is not None else queries_part
+    queries_part = queries_part + [loc_as_obj_part] if loc_as_obj_part is not None else queries_part
+    queries_part = queries_part + [loc_as_obj_part_des] if loc_as_obj_part_des is not None else queries_part
+    
+    having_location, location_query = create_location_query(info['loc'], field="address", boost=10)
+    queries_part = queries_part + [location_query] if having_location else queries_part
+    
+    # Expand object, location here
+
+
+    # For time and timeofday --> filter is better
+    filters_part = []
+    if len(info['time']) > 0:
+        for time in info['time']:
+            if time in ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']:
+                time_json = [{ "match":  { "weekday": time }}]
+            else:
+                time_convert = convert_text_to_date(time)
+                if len(time_convert) == 10: # full day, and month, year (be added)
+                    day = int(time_convert[0:2])
+                    month = int(time_convert[3:5])
+                else: # only month
+                    day = -1
+                    month = int(time_convert)
+                time_json = [{"term":{"month": month}}]
+                if day >= 0:
+                    time_json += [{"term": {"day": day}}]
+            filters_part += time_json
+    
+    if len(info['timeofday']) > 0:
+        time_json = []
+        for time in info['timeofday']:
+            if ';' in time:
+                temp = time.split('; ')
+                oclock = parse(temp[1])
+                oclock = oclock.hour
+                if temp[0] in ['after']:
+                    time_json += [{"range" : {"hour" : {"gte" : oclock-delta_hour}}}]
+                elif temp[0] in ['to', 'til', 'before']:
+                    time_json += [{"range" : {"hour" : {"lte" : oclock+delta_hour}}}]
+                elif temp[0] in ['at', 'around']:
+                    time_json += [{"range" : {"hour" : {"gte": oclock-delta_hour, "lte" : oclock+delta_hour}}}]
+            else:
+                oclock = parse(time)
+                oclock = oclock.hour
+                time_json += [{"range" : {"hour" : {"gte" : oclock-1}}}]
+        filters_part += time_json
+        
+    return queries_part, filters_part
+
+
+
+            
+'''
+# ======= OLD VERSION =======
+def generate_query_text_v0(q, max_change=1, tie_breaker=0.7, numb_of_result=100):
+    
+    # Quite the same with generate_es_query_dismax but now inclide query string query, not multimatch anymore
+    # Generate elastic-formatted request and use the result for the input of elasticsearch
+    # list_synonym: list of synonym generated from Glove and only support classes in yolo or cbnet or your own defined
+    # max_change >= 0: See generate_near_query
+    # tie_breaker: See elasticsearch document
+    # Output:
+    #     + request_string is the txt format of the elasticsearch formatted request
+    
+    dismax_part = generate_dismax_part(q, choice=1, max_change=max_change, tie_breaker=tie_breaker)
+    result = "{\"size\":" + str(numb_of_result)
+    result += ",\"_source\": {\"includes\": [\"id\", \"description\"]}"
+    result += ",\"query\":" + dismax_part
+    result += "}"
+    return result
+
+def generate_query_text_v1(list_dismax, tie_breaker=0.7, numb_of_result=100):
+    # Quite the same with generate_es_query_dismax but now inclide query string query, not multimatch anymore
+    # Generate elastic-formatted request and use the result for the input of elasticsearch
+    # list_synonym: list of synonym generated from Glove and only support classes in yolo or cbnet or your own defined
+    # max_change >= 0: See generate_near_query
+    # tie_breaker: See elasticsearch document
+    # Output:
+    #     + request_string is the txt format of the elasticsearch formatted request
+
+    dismax_part = "{\"dis_max\":{\"queries\":["
+
+    queries_part_string = str(list_dismax)
+    queries_part_string = queries_part_string.replace("'", "\"")
+    queries_part_string = queries_part_string.replace("doc[\"description_embedded\"]", "doc['description_embedded']")
+    queries_part_string = queries_part_string[1:-1]
+    dismax_part += queries_part_string
+    dismax_part += "],\"tie_breaker\":" + str(tie_breaker) + "}"
+    dismax_part += "}"
+
+    result = "{\"size\":" + str(numb_of_result)
+    result += ",\"_source\": {\"includes\": [\"id\", \"description\"]}"
+    result += ",\"query\":" + dismax_part
+    result += "}"
+    return result
+
+def create_location_query_v0(sentence, field, boost=24):
+    location_part = get_places(sentence)  # Put the location detected here
+    if len(location_part) > 0:
+        location_part = " OR ".join(location_part)
+        stt = True
+        location_json = create_json_query_string_part(query=location_part, field=field, boost=boost)
+    else:
+        stt = False
+        location_json = 0
+    return stt, location_json
+
+def generate_dismax_part_v0(q, choice=1, max_change=1, tie_breaker=0.7):
+    # generate dismax part for text and combined search
+    # choice = 1, 2 --> text, combined
+    # combined will have vector space part
+
+    q = q.lower()
+    having_comma = q.find(",")
+    if having_comma > 0:
+        having_comma = True
+    else:
+        having_comma = False
+
+    word_tokens = word_tokenize(q)
+    good_tokens = [word for word in word_tokens if word not in stop_words]
+    adjust_sentence_query = ' '.join(good_tokens)
+
+    result = "{\"dis_max\":{\"queries\":["
+    queries_part = []
+    queries_part += [create_json_query_string_part(query=adjust_sentence_query, field="description_clip", boost=5)]
+    having_location, location_query = create_location_query(q, field="gps_description", boost=24)
+    if having_location:
+        queries_part += [location_query]
+    if having_comma:  # Yes ", " --> should focus on generate subterm | If No --> Should NOT focus since it is not worthy
+        o_subterm, subterm = generate_subterm_query(q, list_synonym)
+        qsq, qs_term, qs_term_adjust = generate_querystringquery_and_subquery(subterm, max_change)
+        o_qsq, o_qs_term, o_qs_term_adjust = generate_querystringquery_and_subquery(o_subterm, max_change)
+        queries_part += [create_json_query_string_part(query=o_qsq, field="description", boost=3)]
+        queries_part += [create_json_query_string_part(query=qsq, field="description", boost=2)]
+        queries_part += [create_json_query_string_part(query=o_qsq, field="description_clip", boost=1.25)]
+        for sub_query, o_sub_query in zip(qs_term, o_qs_term):
+            queries_part += [
+                create_json_query_string_part(query=sub_query[0], field="description", boost=0.75),
+                create_json_query_string_part(query=o_sub_query[0], field="description_clip", boost=0.45)
+            ]
+        for sub_query, o_sub_query in zip(qs_term_adjust, o_qs_term_adjust):
+            queries_part += [
+                create_json_query_string_part(query=sub_query[0], field="description", boost=0.35),
+                create_json_query_string_part(query=o_sub_query[0], field="description_clip", boost=0.1)
+            ]
+
+    if choice == 2:
+        embedded_query,_ = create_bow_ft_sentence(q, my_dictionary, list_synonym_stemmed, my_idf)
+        embedded_query = embedded_query.tolist()
+        script_query = {
+            "script_score": {
+                "query": {"match_all": {}},
+                "script": {
+                    "source": "9.5*(cosineSimilarity(params.query_embedded, doc['description_embedded']) + 1.0)",
+                    "params": {"query_embedded": embedded_query}
+                }
+            }
+        }
+        queries_part += [script_query]
+
+    queries_part_string = str(queries_part)
+    queries_part_string = queries_part_string.replace("'", "\"")
+    queries_part_string = queries_part_string.replace("doc[\"description_embedded\"]", "doc['description_embedded']")
+    queries_part_string = queries_part_string[1:-1]
+    result += queries_part_string
+    result += "],\"tie_breaker\":" + str(tie_breaker) + "}"
+    result += "}"
+
+    return result
+
+def generate_list_dismax_part_from_info(info):
+    # info is a dict with keys of obj, loc, period, time, timeofday
+    # Time will be in the query list --> scoring
+    field_clip = 'description_clip'
+    field_des = 'description'
+
+    # For obj and loc --> query as normal
+    obj_sentence = ', '.join(info['obj'])
+    loc_sentence = ', '.join(info['loc'])
+
+    queries_part = []
+    basic_obj_part = create_json_query_string_part(query=obj_sentence, field=field_clip, boost=3)
+    loc_as_obj_part = create_json_query_string_part(query=loc_sentence, field=field_clip, boost=3)
+    loc_as_obj_part_des = create_json_query_string_part(query=loc_sentence, field=field_des, boost=5)
+    
+    queries_part = queries_part + [basic_obj_part] if basic_obj_part is not None else queries_part
+    queries_part = queries_part + [loc_as_obj_part] if loc_as_obj_part is not None else queries_part
+    queries_part = queries_part + [loc_as_obj_part_des] if loc_as_obj_part_des is not None else queries_part
+    
+    having_location, location_query = create_location_query(info['loc'], field="address", boost=10)
+    queries_part = queries_part + [location_query] if having_location else queries_part
+    
+    # Expand object, location here
+
+    # For time and timeofday --> filter is better
+    filters_part = []
+    if len(info['time']) > 0:
+        for time in info['time']:
+            if time in ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']:
+                time_json = [{ "match":  { "weekday": {"query": time, "boost": 10}}}]
+            else:
+                time_convert = convert_text_to_date(time)
+                if len(time_convert) == 10: # full day, and month, year (be added)
+                    day = int(time_convert[0:2])
+                    month = int(time_convert[3:5])
+                else: # only month
+                    day = -1
+                    month = int(time_convert)
+                time_json = [{"term":{"month": {"query": month, "boost": 10}}}]
+                if day >= 0:
+                    time_json += [{"term": {"day": {"query": day, "boost": 10}}}]
+            filters_part += time_json
+    
+    if len(info['timeofday']) > 0:
+        time_json = []
+        for time in info['timeofday']:
+            if ';' in time:
+                temp = time.split('; ')
+                oclock = parse(temp[1])
+                oclock = oclock.hour
+                if temp[0] in ['after']:
+                    time_json += [{"range" : {"hour" : {"gte" : oclock-1, "boost": 10}}}]
+                elif temp[0] in ['to', 'til', 'before']:
+                    time_json += [{"range" : {"hour" : {"lte" : oclock+1, "boost": 10}}}]
+                elif temp[0] in ['at', 'around']:
+                    time_json += [{"range" : {"hour" : {"gte": oclock-1, "lte" : oclock+1, "boost": 10}}}]
+            else:
+                oclock = parse(time)
+                oclock = oclock.hour
+                time_json += [{"range" : {"hour" : {"gte" : oclock-1, "boost": 10}}}]
+        filters_part += time_json
+        
+    return queries_part + filters_part   
+
+
+
+'''
