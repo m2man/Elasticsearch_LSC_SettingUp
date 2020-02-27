@@ -96,6 +96,8 @@ def search_es_sequence_of_2(info1, info2, max_len=100, time_after = 2):
     # group image in each infor within time_after/2 hour * 60 minutes
     # Pass forward and backward to increase accuracy
     # search info1 --> result1 --> search info2 after result1 --> update result1 --> update result2
+    time_after_datetime = imglib.datetime.timedelta(hours=time_after)
+
     query_1, filter_1 = mylib.generate_list_dismax_part_and_filter_time_from_info(info1)
     query_2, filter_2 = mylib.generate_list_dismax_part_and_filter_time_from_info(info2)
 
@@ -147,18 +149,25 @@ def search_es_sequence_of_2(info1, info2, max_len=100, time_after = 2):
         score_1 = [x[1] for x in group_1]
         idx_1 = [x[0] for x in group_1]
 
-        mean_time_2 = [imglib.mean_time_stamp(x)[1] for x in idx_2]
+
+        mean_time_1 = [imglib.mean_time_stamp(x)[1] for x in idx_1] # datetime type
         result = []
-        for idx, group_1 in enumerate(idx_1):
-            time_1 = imglib.mean_time_stamp(group_1)[1]
-            list_time = [abs(time_1 - x) for x in mean_time_2]
-            if min(list_time) < imglib.datetime.timedelta(hours=time_after):
-                idx_min_time = list_time.index(min(list_time))
-                score_2_group = (2*score_2[idx_min_time] + score_1[idx])/3 # weighted following action have higher score than the previous
-                result.append([group_1, idx_2[idx_min_time], score_2_group])
+
+        for idx2, group_2 in enumerate(idx_2):
+            time_2 = imglib.mean_time_stamp(group_2)[1]
+            list_idx_1_satisfy_2= [idx_x for idx_x in range(len(mean_time_1)) if abs(time_2 - mean_time_1[idx_x]) < time_after_datetime]
+            
+            # Looking whether find action 1 within the time limit of current action 2
+            if len(list_idx_1_satisfy_2) != 0:
+                for idx_1_st_2 in list_idx_1_satisfy_2:
+                    score_group = (2*score_2[idx2] + score_1[idx_1_st_2])/3 # weighted following action have higher score than the previous
+                    result.append([idx_1[idx_1_st_2], group_2, score_group])
+        
+        # Sort score again
         score_2_group = [x[2] for x in result]
         sorted_score_index = sorted(range(len(score_2_group)), key=lambda k: score_2_group[k], reverse=True)
-        final = [result[x] for x in sorted_score_index]
+        final = [result[x] for x in sorted_score_index]            
+
     else:
         if len(id_result_1_1) > 0:
             final = group_list_images_and_calculate_score(id_result_1_1, score_result_1_1, time_delta=60)
@@ -169,8 +178,8 @@ def search_es_sequence_of_2(info1, info2, max_len=100, time_after = 2):
     return final
 
 def search_es_sequence_of_3(info1, info2, info3, max_len=100, time_after=2):
-    time_after = 2
-    max_len = 100
+    #time_after = 2
+    #max_len = 100
 
     time_after_datetime = imglib.datetime.timedelta(hours=time_after)
 
@@ -268,8 +277,12 @@ def search_es_sequence_of_3(info1, info2, info3, max_len=100, time_after=2):
                 for idx_3_st_2 in list_idx_3_satisfy_2:
                     score_group = (2*score_2[idx2] + score_1[idx_1_st_2] + score_3[idx_3_st_2])/4 # weighted following action have higher score than the previous
                     result.append([idx_1[idx_1_st_2], group_2, idx_3[idx_3_st_2], score_group])
-    
-    return result
+     # Sort score again
+    score_groups = [x[2] for x in result]
+    sorted_score_index = sorted(range(len(score_groups)), key=lambda k: score_groups[k], reverse=True)
+    final = [result[x] for x in sorted_score_index]    
+
+    return final
 
 
 
@@ -369,3 +382,4 @@ def combine_result_with_score_v0(id1, sc1, id2, sc2, max_len=100):
     return sc_result, id_result
     
 '''
+
