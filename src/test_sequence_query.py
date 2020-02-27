@@ -5,6 +5,7 @@ import src.Tag_Event as tage
 import src.MyLibrary_v2 as mylib
 import src.ProcImgLib as imglib 
 from elasticsearch import Elasticsearch
+import numpy as np
 
 es = Elasticsearch([{"host": "localhost", "port": 9200}])
 interest_index = "lsc2019_test_time"
@@ -18,6 +19,32 @@ info3 = info_full['future']
 #past_query, past_filter = mylib.generate_list_dismax_part_from_info(past_info)
 #present_query, present_filter = mylib.generate_list_dismax_part_from_info(present_info)
 #future_query, future_filter = mylib.generate_list_dismax_part_from_info(future_info)
+
+def group_list_images_and_calculate_score(id_list, sc_list, time_delta=100):
+    # Group images into groups (SIFT and Description) and calculate average score of that group
+    # time_delta (int) maximum minutes to be grouped --> if later or sooner than this thershold --> new group
+    # Rank descending
+    # Output is List of [group(list), score(scalar)]
+   
+    id_all = list(set(id_list))
+    id_list_array = np.asarray(id_list)
+    sc_list_array = np.asarray(sc_list)
+    group_id = imglib.grouping_image_with_sift_dict(sorted(id_all), time_delta=time_delta)
+    score_group_id = []
+    for group in group_id:
+        score_id = 0
+        for id_img in group:
+            idx = np.where(id_list_array == id_img)[0]
+            sc_id = np.sum(sc_list_array[idx])
+            score_id += sc_id
+        score_id /= len(group)
+        score_group_id.append(score_id)
+    
+    sorted_score_index = sorted(range(len(score_group_id)), key=lambda k: score_group_id[k], reverse=True)
+    sc_result = sorted(score_group_id, reverse=True)
+    id_result = [group_id[x] for x in sorted_score_index]
+    final = [[x, y] for x, y in zip(id_result, sc_result)]
+    return final
 
 def expend_time_from_previous_result(group_result, time_after=2):
     time_group = []
@@ -66,6 +93,7 @@ def expend_time_from_previous_result(group_result, time_after=2):
 def search_es_sequence_of_2(info1, info2, max_len=100, time_after = 2):
     # Search es for sequence info1 --> info2
     # time_after is hours that info2 happens after info1
+    # group image in each infor within time_after/2 hour * 60 minutes
     # Pass forward and backward to increase accuracy
     # search info1 --> result1 --> search info2 after result1 --> update result1 --> update result2
     query_1, filter_1 = mylib.generate_list_dismax_part_and_filter_time_from_info(info1)
@@ -81,7 +109,8 @@ def search_es_sequence_of_2(info1, info2, max_len=100, time_after = 2):
                                         percent_thres = 0.5, max_len=max_len)
     
     if len(id_result_1_1) > 0 and len(id_result_2_1) > 0:
-        group_result_1 = imglib.grouping_image_with_sift_dict(sorted(id_result_1_1))
+        group_result_1_with_score = group_list_images_and_calculate_score(id_result_1_1, score_result_1_1, time_delta=time_after*30)
+        group_result_1 = [x[0] for x in group_result_1_with_score]
         time_group_1, range_time_for_query_2 = expend_time_from_previous_result(group_result_1, time_after)
         query_2_added = query_2 + range_time_for_query_2
         es_query_2 = mylib.generate_query_text(query_2_added, filter_2)
@@ -90,7 +119,8 @@ def search_es_sequence_of_2(info1, info2, max_len=100, time_after = 2):
 
         
         # backward 1
-        group_result_2 = imglib.grouping_image_with_sift_dict(sorted(id_result_2_1))
+        group_result_2_with_score = group_list_images_and_calculate_score(id_result_2_1, score_result_2_1, time_delta=time_after*30)
+        group_result_2 = [x[0] for x in group_result_2_with_score]
         time_group_2, range_time_for_query_1 = expend_time_from_previous_result(group_result_2, time_after=-time_after)
         query_1_added = query_1 + range_time_for_query_1
         es_query_1 = mylib.generate_query_text(query_1_added, filter_1)
@@ -98,7 +128,8 @@ def search_es_sequence_of_2(info1, info2, max_len=100, time_after = 2):
                                             percent_thres = 0.5, max_len=max_len)
 
         # Forward 2
-        group_result_1 = imglib.grouping_image_with_sift_dict(sorted(id_result_1_2))
+        group_result_1_with_score = group_list_images_and_calculate_score(id_result_1_2, score_result_1_2, time_delta=time_after*30)
+        group_result_1 = [x[0] for x in group_result_1_with_score]
         time_group_1, range_time_for_query_2 = expend_time_from_previous_result(group_result_1, time_after)
         query_2_added = query_2 + range_time_for_query_2
         es_query_2 = mylib.generate_query_text(query_2_added, filter_2)
@@ -108,8 +139,13 @@ def search_es_sequence_of_2(info1, info2, max_len=100, time_after = 2):
         score_result = [score_result_1_1, score_result_1_2, score_result_2_1, score_result_2_2]
         id_result = [id_result_1_1, id_result_1_2, id_result_2_1, id_result_2_2]
 
-        score_2, idx_2 = combine_result_with_score(id_result[2], score_result[2], id_result[3], score_result[3])
-        score_1, idx_1 = combine_result_with_score(id_result[0], score_result[0], id_result[1], score_result[1])
+        # Group sequence actions into final return
+        group_2 = group_list_images_and_calculate_score(id_result[2] + id_result[3], score_result[2] + score_result[3], time_delta=time_after*30)
+        score_2 = [x[1] for x in group_2]
+        idx_2 = [x[0] for x in group_2]
+        group_1 = group_list_images_and_calculate_score(id_result[0] + id_result[1], score_result[0] + score_result[1], time_delta=time_after*30)
+        score_1 = [x[1] for x in group_1]
+        idx_1 = [x[0] for x in group_1]
 
         mean_time_2 = [imglib.mean_time_stamp(x)[1] for x in idx_2]
         result = []
@@ -118,22 +154,25 @@ def search_es_sequence_of_2(info1, info2, max_len=100, time_after = 2):
             list_time = [abs(time_1 - x) for x in mean_time_2]
             if min(list_time) < imglib.datetime.timedelta(hours=time_after):
                 idx_min_time = list_time.index(min(list_time))
-                score_2_group = (2*score_2[idx_min_time] + score_1[idx])/3
+                score_2_group = (2*score_2[idx_min_time] + score_1[idx])/3 # weighted following action have higher score than the previous
                 result.append([group_1, idx_2[idx_min_time], score_2_group])
         score_2_group = [x[2] for x in result]
         sorted_score_index = sorted(range(len(score_2_group)), key=lambda k: score_2_group[k], reverse=True)
         final = [result[x] for x in sorted_score_index]
     else:
         if len(id_result_1_1) > 0:
-            final = group_list_images_and_calculate_score(id_result_1_1, score_result_1_1)
+            final = group_list_images_and_calculate_score(id_result_1_1, score_result_1_1, time_delta=60)
         elif len(id_result_2_1) > 0:
-            final = group_list_images_and_calculate_score(id_result_2_1, score_result_2_1)
+            final = group_list_images_and_calculate_score(id_result_2_1, score_result_2_1, time_delta=60)
         else:
             final = []
     return final
 
 def search_es_sequence_of_3(info1, info2, info3, max_len=100, time_after=2):
     time_after = 2
+    max_len = 100
+
+    time_after_datetime = imglib.datetime.timedelta(hours=time_after)
 
     query_1, filter_1 = mylib.generate_list_dismax_part_and_filter_time_from_info(info1)
     query_2, filter_2 = mylib.generate_list_dismax_part_and_filter_time_from_info(info2)
@@ -148,16 +187,18 @@ def search_es_sequence_of_3(info1, info2, info3, max_len=100, time_after=2):
     #                                     percent_thres = 0.5, max_len=max_len)
 
     es_query_3 = mylib.generate_query_text(query_3, filter_3)
-    score_query_3_1, id_result_3_1 = mylib.search_es(es, index=interest_index, request=es_query_3, 
+    score_result_3_1, id_result_3_1 = mylib.search_es(es, index=interest_index, request=es_query_3, 
                                         percent_thres = 0.5, max_len=max_len)
 
     if len(id_result_1_1) > 0:
-        group_result_1 = imglib.grouping_image_with_sift_dict(sorted(id_result_1_1))
+        group_result_1_with_score = group_list_images_and_calculate_score(id_result_1_1, score_result_1_1, time_delta=time_after*30)
+        group_result_1 = [x[0] for x in group_result_1_with_score]
         time_group_1, range_time_for_query_2_from_1 = expend_time_from_previous_result(group_result_1, time_after=time_after)
     else:
         range_time_for_query_2_from_1 = []
     if len(id_result_3_1) > 0:
-        group_result_3 = imglib.grouping_image_with_sift_dict(sorted(id_result_3_1))
+        group_result_3_with_score = group_list_images_and_calculate_score(id_result_3_1, score_result_3_1, time_delta=time_after*30)
+        group_result_3 = [x[0] for x in group_result_3_with_score]
         time_group_3, range_time_for_query_2_from_3 = expend_time_from_previous_result(group_result_3, time_after=-time_after)
     else:
         range_time_for_query_2_from_3 = []
@@ -174,7 +215,8 @@ def search_es_sequence_of_3(info1, info2, info3, max_len=100, time_after=2):
                                         percent_thres = 0.5, max_len=max_len)
 
     # Update time for query 1 and 3
-    group_result_2 = imglib.grouping_image_with_sift_dict(sorted(id_result_2_1))
+    group_result_2_with_score = group_list_images_and_calculate_score(id_result_2_1, score_result_2_1, time_delta=time_after*30)
+    group_result_2 = [x[0] for x in group_result_2_with_score]
     _, range_time_for_query_1_from_2 = expend_time_from_previous_result(group_result_2, time_after=-time_after)
     _, range_time_for_query_3_from_2 = expend_time_from_previous_result(group_result_2, time_after=time_after)
 
@@ -189,64 +231,107 @@ def search_es_sequence_of_3(info1, info2, info3, max_len=100, time_after=2):
                                                       percent_thres = 0.5, max_len=max_len)
 
     # Update time for query 2
-    group_result_1 = imglib.grouping_image_with_sift_dict(sorted(id_result_1_2))
+    group_result_1_with_score = group_list_images_and_calculate_score(id_result_1_2, score_result_1_2, time_delta=time_after*30)
+    group_result_1 = [x[0] for x in group_result_1_with_score]
     time_group_1, range_time_for_query_2_from_1 = expend_time_from_previous_result(group_result_1, time_after=time_after)
-    group_result_3 = imglib.grouping_image_with_sift_dict(sorted(id_result_3_2))
+
+    group_result_3_with_score = group_list_images_and_calculate_score(id_result_3_2, score_result_3_2, time_delta=time_after*30)
+    group_result_3 = [x[0] for x in group_result_3_with_score]
     time_group_3, range_time_for_query_2_from_3 = expend_time_from_previous_result(group_result_3, time_after=-time_after)
 
     query_2_added = query_2 + range_time_for_query_2_from_1 + range_time_for_query_2_from_3
     es_query_2 = mylib.generate_query_text(query_2_added, filter_2)
     score_result_2_2, id_result_2_2 = mylib.search_es(es, index=interest_index, request=es_query_2, 
                                         percent_thres = 0.5, max_len=max_len)
+    group_result_2_with_score = group_list_images_and_calculate_score(id_result_2_2, score_result_2_2, time_delta=time_after*30)
 
+    # Group sequence action into final return
+    score_1 = [x[1] for x in group_result_1_with_score]
+    idx_1 = group_result_1
+    score_2 = [x[1] for x in group_result_2_with_score]
+    idx_2 = [x[0] for x in group_result_2_with_score]
+    score_3 = [x[1] for x in group_result_3_with_score]
+    idx_3 = group_result_3
+
+    mean_time_1 = [imglib.mean_time_stamp(x)[1] for x in idx_1] # datetime type
+    mean_time_3 = [imglib.mean_time_stamp(x)[1] for x in idx_3] # datetime type
+    result = []
+
+    for idx2, group_2 in enumerate(idx_2):
+        time_2 = imglib.mean_time_stamp(group_2)[1]
+        list_idx_1_satisfy_2= [idx_x for idx_x in range(len(mean_time_1)) if abs(time_2 - mean_time_1[idx_x]) < time_after_datetime]
+        list_idx_3_satisfy_2 = [idx_x for idx_x in range(len(mean_time_3)) if abs(time_2 - mean_time_3[idx_x]) < time_after_datetime]
+        
+        # Looking whether find action 1 and action 3 within the time limit of current action 2
+        if len(list_idx_1_satisfy_2) * len(list_idx_3_satisfy_2) != 0:
+            for idx_1_st_2 in list_idx_1_satisfy_2:
+                for idx_3_st_2 in list_idx_3_satisfy_2:
+                    score_group = (2*score_2[idx2] + score_1[idx_1_st_2] + score_3[idx_3_st_2])/4 # weighted following action have higher score than the previous
+                    result.append([idx_1[idx_1_st_2], group_2, idx_3[idx_3_st_2], score_group])
+    
+    return result
+
+
+
+
+
+    # for idx, group_1 in enumerate(idx_1):
+    #     time_1 = imglib.mean_time_stamp(group_1)[1]
+    #     list_time = [abs(time_1 - x) for x in mean_time_2]
+    #     if min(list_time) < imglib.datetime.timedelta(hours=time_after):
+    #         idx_min_time = list_time.index(min(list_time))
+    #         score_2_group = (2*score_2[idx_min_time] + score_1[idx])/3 # weighted following action have higher score than the previous
+    #         result.append([group_1, idx_2[idx_min_time], score_2_group])
+    # score_2_group = [x[2] for x in result]
+    # sorted_score_index = sorted(range(len(score_2_group)), key=lambda k: score_2_group[k], reverse=True)
+    # final = [result[x] for x in sorted_score_index]
+    
     
 
-def combine_result_with_score(id1, sc1, id2, sc2):
-    # Combine 2 idx result into 1 group, then group images in that group, then rank group based on average score
-    # Input: idx list 1, score list 1, idx list 2, score list 2
-    # Output: list score group (ranked), list group (ranked)
+def group_list_images_and_calculate_score(id_list, sc_list, time_delta=100):
+    # Group images into groups (SIFT and Description) and calculate average score of that group
+    # time_delta (int) maximum minutes to be grouped --> if later or sooner than this thershold --> new group
+    # Rank descending
+    # Output is List of [group(list), score(scalar)]
    
-    id_all = list(set(id1 + id2))
-    group_id = imglib.grouping_image_with_sift_dict(sorted(id_all))
+    id_all = list(set(id_list))
+    id_list_array = np.asarray(id_list)
+    sc_list_array = np.asarray(sc_list)
+    group_id = imglib.grouping_image_with_sift_dict(sorted(id_all), time_delta=time_delta)
     score_group_id = []
     for group in group_id:
         score_id = 0
-        for id in group:
-            try:
-                score_id_1 = sc1[id1.index(id)]
-            except:
-                score_id_1 = 0
-            try:
-                score_id_2 = sc2[id2.index(id)]
-            except:
-                score_id_2 = 0
-            score_id += score_id_1 + score_id_2
+        for id_img in group:
+            idx = np.where(id_list_array == id_img)[0]
+            sc_id = np.sum(sc_list_array[idx])
+            score_id += sc_id
         score_id /= len(group)
         score_group_id.append(score_id)
     
     sorted_score_index = sorted(range(len(score_group_id)), key=lambda k: score_group_id[k], reverse=True)
     sc_result = sorted(score_group_id, reverse=True)
     id_result = [group_id[x] for x in sorted_score_index]
-
-    return sc_result, id_result
-
-def group_list_images_and_calculate_score(list_id, list_score):
-    # Group images into groups (SIFT and Description) and calculate average score of that group
-    # Rank descending
-    # Output is List of [group(list), score(scalar)]
-    score = []
-    group_result = imglib.grouping_image_with_sift_dict(sorted(list_id))
-    for group in group_result:
-        group_score = 0
-        for x in group:
-            group_score += list_score[list_id.index(x)]
-        group_score /= len(group)
-        score.append(group_score)
-    sorted_score_index = sorted(range(len(score)), key=lambda k: score[k], reverse=True)
-    sorted_group_result = [group_result[x] for x in sorted_score_index]
-    score = sorted(score, reverse=True)
-    final = [[x, y] for x, y in zip(sorted_group_result, score)]
+    final = [[x, y] for x, y in zip(id_result, sc_result)]
     return final
+
+
+# def group_list_images_and_calculate_score(list_id, list_score):
+#     # Group images into groups (SIFT and Description) and calculate average score of that group
+#     # Rank descending
+#     # Output is List of [group(list), score(scalar)]
+#     score = []
+#     group_result = imglib.grouping_image_with_sift_dict(sorted(list_id))
+#     for group in group_result:
+#         group_score = 0
+#         for x in group:
+#             group_score += list_score[list_id.index(x)]
+#         group_score /= len(group)
+#         score.append(group_score)
+#     sorted_score_index = sorted(range(len(score)), key=lambda k: score[k], reverse=True)
+#     sorted_group_result = [group_result[x] for x in sorted_score_index]
+#     score = sorted(score, reverse=True)
+#     final = [[x, y] for x, y in zip(sorted_group_result, score)]
+#     return final
 
 '''
 import time

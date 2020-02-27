@@ -100,12 +100,13 @@ def create_sift_dict(description):
 
 #reate_sift_dict(description)
 
-def grouping_image_with_sift_dict(list_images, description=description, sift_dict=sift_dict):
+def grouping_image_with_sift_dict(list_images, description=description, sift_dict=sift_dict, time_delta = 100):
+    # time_delta (int) maximum minutes to be grouped --> if later or sooner than this thershold --> new group
     topk = 10
     slope1 = 0.7
     slope2 = 0.3
     thres = 1.7
-    time_break = datetime.timedelta(minutes = 100)
+    time_break = datetime.timedelta(minutes = time_delta)
     
     result = []
     n_images = len(list_images)
