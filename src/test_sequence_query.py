@@ -273,46 +273,7 @@ def search_es_sequence_of_3(info1, info2, info3, max_len=100, time_after=2):
 
 
 
-
-
-    # for idx, group_1 in enumerate(idx_1):
-    #     time_1 = imglib.mean_time_stamp(group_1)[1]
-    #     list_time = [abs(time_1 - x) for x in mean_time_2]
-    #     if min(list_time) < imglib.datetime.timedelta(hours=time_after):
-    #         idx_min_time = list_time.index(min(list_time))
-    #         score_2_group = (2*score_2[idx_min_time] + score_1[idx])/3 # weighted following action have higher score than the previous
-    #         result.append([group_1, idx_2[idx_min_time], score_2_group])
-    # score_2_group = [x[2] for x in result]
-    # sorted_score_index = sorted(range(len(score_2_group)), key=lambda k: score_2_group[k], reverse=True)
-    # final = [result[x] for x in sorted_score_index]
     
-    
-
-def group_list_images_and_calculate_score(id_list, sc_list, time_delta=100):
-    # Group images into groups (SIFT and Description) and calculate average score of that group
-    # time_delta (int) maximum minutes to be grouped --> if later or sooner than this thershold --> new group
-    # Rank descending
-    # Output is List of [group(list), score(scalar)]
-   
-    id_all = list(set(id_list))
-    id_list_array = np.asarray(id_list)
-    sc_list_array = np.asarray(sc_list)
-    group_id = imglib.grouping_image_with_sift_dict(sorted(id_all), time_delta=time_delta)
-    score_group_id = []
-    for group in group_id:
-        score_id = 0
-        for id_img in group:
-            idx = np.where(id_list_array == id_img)[0]
-            sc_id = np.sum(sc_list_array[idx])
-            score_id += sc_id
-        score_id /= len(group)
-        score_group_id.append(score_id)
-    
-    sorted_score_index = sorted(range(len(score_group_id)), key=lambda k: score_group_id[k], reverse=True)
-    sc_result = sorted(score_group_id, reverse=True)
-    id_result = [group_id[x] for x in sorted_score_index]
-    final = [[x, y] for x, y in zip(id_result, sc_result)]
-    return final
 
 
 # def group_list_images_and_calculate_score(list_id, list_score):
@@ -366,11 +327,12 @@ elif sum(contain_info) == 2:
     info2 = contain_info[list_tense[idx[1]]]
     final = search_es_sequence_of_2(info1, info2, max_len=max_len, time_after=time_after)
 elif sum(contain_info) == 3: # appear past, present, future action
+    max_len = 100
+    time_after = 2
     info1 = info_full['past']   
     info2 = info_full['present']
     info3 = info_full['future']
-
-
+    final = search_es_sequence_of_3(info1, info2, info3, max_len=max_len, time_after=time_after)
 else: # no info detected
     final = []
 
