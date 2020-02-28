@@ -1,20 +1,14 @@
 
 import os
 os.chdir('/Users/duynguyen/DuyNguyen/Gitkraken/Elasticsearch_LSC_SettingUp/')
-import src.Tag_Event as tage
-import src.MyLibrary_v2 as mylib
-import src.ProcImgLib as imglib 
+import Tag_Event as tage
+import MyLibrary_v2 as mylib
+import ProcImgLib as imglib 
 from elasticsearch import Elasticsearch
 import numpy as np
 
 es = Elasticsearch([{"host": "localhost", "port": 9200}])
 interest_index = "lsc2019_test_time"
-
-sent = 'after watching tv at 6am, went to DCU by car, then used my computer at the helix'
-info_full = tage.extract_info_from_sentence_full_tag(sent)
-info1 = info_full['past']
-info2 = info_full['present']
-info3 = info_full['future']
 
 #past_query, past_filter = mylib.generate_list_dismax_part_from_info(past_info)
 #present_query, present_filter = mylib.generate_list_dismax_part_from_info(present_info)
@@ -289,23 +283,6 @@ def search_es_sequence_of_3(info1, info2, info3, max_len=100, time_after=2):
     
 
 
-# def group_list_images_and_calculate_score(list_id, list_score):
-#     # Group images into groups (SIFT and Description) and calculate average score of that group
-#     # Rank descending
-#     # Output is List of [group(list), score(scalar)]
-#     score = []
-#     group_result = imglib.grouping_image_with_sift_dict(sorted(list_id))
-#     for group in group_result:
-#         group_score = 0
-#         for x in group:
-#             group_score += list_score[list_id.index(x)]
-#         group_score /= len(group)
-#         score.append(group_score)
-#     sorted_score_index = sorted(range(len(score)), key=lambda k: score[k], reverse=True)
-#     sorted_group_result = [group_result[x] for x in sorted_score_index]
-#     score = sorted(score, reverse=True)
-#     final = [[x, y] for x, y in zip(sorted_group_result, score)]
-#     return final
 
 '''
 import time
@@ -314,9 +291,10 @@ result = search_es_sequence_of_2(info1, info2, max_len=150)
 ed_time = time.time()
 print(f"Exc Time: {ed_time - st_time} seconds")
 '''
-#sent = 'after a flight, walking through an airbridge'
+
 list_tense = ['past', 'present', 'future']
 sent = 'flower, vase, old clock'
+#sent = 'after watching tv, went to dcu by car, then used computer in the office'
 
 info_full = tage.extract_info_from_sentence_full_tag(sent)
 contain_info = [1 if len(info_full[x]) > 0 else 0 for x in info_full] # check which tense contains information
@@ -351,10 +329,6 @@ else: # no info detected
 
 
 
-
-#result = search_es_sequence_of_2(info_full['past'], info_full['present'], max_len=150)
-
-
 '''
 # ======== OLD VERSION =======
 def combine_result_with_score_v0(id1, sc1, id2, sc2, max_len=100):
@@ -381,5 +355,23 @@ def combine_result_with_score_v0(id1, sc1, id2, sc2, max_len=100):
         sc_result = sc_result[0:max_len]
     return sc_result, id_result
     
+def group_list_images_and_calculate_score(list_id, list_score):
+    # Group images into groups (SIFT and Description) and calculate average score of that group
+    # Rank descending
+    # Output is List of [group(list), score(scalar)]
+    score = []
+    group_result = imglib.grouping_image_with_sift_dict(sorted(list_id))
+    for group in group_result:
+        group_score = 0
+        for x in group:
+            group_score += list_score[list_id.index(x)]
+        group_score /= len(group)
+        score.append(group_score)
+    sorted_score_index = sorted(range(len(score)), key=lambda k: score[k], reverse=True)
+    sorted_group_result = [group_result[x] for x in sorted_score_index]
+    score = sorted(score, reverse=True)
+    final = [[x, y] for x, y in zip(sorted_group_result, score)]
+    return final
+
 '''
 
