@@ -4,6 +4,17 @@ This is for setting up ES. Please install Elasticsearch first. Then run the ES, 
 
 ## Change Log
 ### 25/02/2019
+#### How to search Sequence Action
+1. Need to re-index elastic database (add some **time** fields)
+2. Download the SIFT feature pickle (below) and put in **data** folder
+3. Try with **Test_sequence_query.py**
+4. The search flow as depicted in below figures.
+<img width="673" alt="Screenshot 2020-02-28 at 15 28 44" src="https://user-images.githubusercontent.com/15571804/75561615-382af400-5a3f-11ea-9a3f-f27860e87233.png">
+
+<img width="782" alt="Screenshot 2020-02-28 at 15 28 54" src="https://user-images.githubusercontent.com/15571804/75561694-5abd0d00-5a3f-11ea-83a9-ce26768cb6d1.png">
+
+
+#### Updated Note
 1. Add NLP Processing in **Tag_Event.py** Library.
 - Usage: Run the function ```extract_info_from_sentence_full_tag(sentence)``` to extract the dictionary of past, present, and future action. If there is no information extracted, it will be an empty dict for each action.
 2. Add **ProcImgLib.py** Library: grouping list of images based on its SIFT, description, and time into distinct clusters.
@@ -13,7 +24,7 @@ This is for setting up ES. Please install Elasticsearch first. Then run the ES, 
 - Mechanism will be generate list of dismax and filter list, then generate json format query to pass to ES
 - ```generate_list_dismax_part_and_filter_time_from_info(info)``` take the input is the past/present/future action created in section 1, and create list dismax, filter.
 - Pass the list dismax and filter to ```generate_query_text``` function to create json fornat to be used in ES
-4. **Test_sequence_query,py** to test to search sequence (or single) action in ES. Flow will be generate dictionary of past/present/future dict, then seach each action and update the following. Do it TWICE!
+4. **Test_sequence_query.py** to test to search sequence (or single) action in ES. Flow will be generate dictionary of past/present/future dict, then seach each action and update the following. Do it TWICE!
 - **Single action**: search text as normal
 - **Double action**: search the previous action --> group result images --> generate times --> Add times as condition to the following action --> Do it again 1 more time!
 	- The Result will be the ranked list of [[group action 1], [group action 2], average score]

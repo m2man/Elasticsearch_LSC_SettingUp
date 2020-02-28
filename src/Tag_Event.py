@@ -13,6 +13,9 @@ import parsedatetime as pdt
 from parsedatetime import Constants
 from nltk.tokenize import WordPunctTokenizer
 import os
+from nltk.corpus import stopwords
+stop_words = stopwords.words('english')
+stop_words += [',', '.']
 
 #os.chdir("/Users/duynguyen/DuyNguyen/Gitkraken/Elasticsearch_LSC_SettingUp/")
 
@@ -585,47 +588,9 @@ def extract_info_from_tag(tag_info):
     
     return query_dict, obj_dict, loc_dict
     
-'''
-example_sent = """In a coffee shop called The Helix; one person; plastic plant on the right. 
-                  Keys on table; cafe sign on the left. 
-                  Walked to the cafe two minutes ago. 
-                  My colleague wears a white tshirt; red coffee cup. 
-                  Monday. After, I drive to the shop."""
-
-sent1 = """In a coffee shop in the afternoon called the Helix with at least one person in the background and a plastic plant on my right side.
-There are keys on the table in front of me and you can see the cafe sign on the left side.
-I walked to the cafe and it took less than two minutes to get there.
-I am speaking to my colleague in the foreground who is wearing a white shirt and drinking coffee from a red paper cup.
-It is a Monday and immediately after having the coffee, I drive to the shop."""
-sent2 = "I am at home in the very early morning and I am in my living room watching football on the television. There is a lamp to the right of the image and a box of things to the left of the image. After watching television, I use a computer and then drive to work. It is a Thursday."
-sent3 = "I am at home scanning receipts using a portable scanner. There are a number of receipts on the table in front of me and one long receipt is being scanned. Prior to this, I had been in the kitchen looking at a bowl of fruit. My arm and hand is clearly visible in the image and some vinyl records are visible to the left. It is late at night on a Monday."
-sent4 = "I am walking out to an airplane across the airport apron. I stayed in an airport hotel on the previous night before checking out and walking a short distance to the airport. The weather is very nice, but cold, with a clear blue sky. There is a man walking to the airplane in front of me with a blue jacket, green shoes and a black bag. Red airport vehicles are visible in the image also, along with a small number of passengers walking to, and boarding the plane. I am in Oslo, Norway and it is early in on a Monday morning."
-sent5 = "I am taking a photo of a white building with a unique blade-like design. The weather was cloudy and it was getting dark, being evening time. There are a number of buildings clearly visible in the image, including a hotel and a Norwegian style house. I had just walked from a sushi restaurant to the hotel where I was staying and I had taken the photo just before entering the hotel. A large yellow pipe is also visible in the image. Just before taking the photo, I had been walking beside the sea. This happened on a Wednesday."
-sent6 = "Find the time when I was looking at an old clock, with flowers visible. There was a lamp also, and a small blue monster (perhaps a long rabbit) watching me. Maybe there were two monsters. It was a Monday or a Thursday. I was at home and in a bedroom."
-sent7 = "A red car beside a white house on a cloudy day. I had driven for over an hour to get here. It was a saturday in August and it was in the early afternoon."
-sent8 = "Walking through an airbridge after a flight in the early morning after a flight of about two hours. After the airport, I immediately got a taxi to a meeting. I think it was a cloudy day on a Monday. I was in Tromso in Norway."
-sent9 = "I remember a doll’s house, a white dolls house. There were other people there, and candles too, I remember candles. There was some nice village scene in front of a lake on a picture. It was a Saturday."
-sent10 = "Catching my reflection in the bathroom mirror early on a Saturday morning when I was preparing to brush my teeth. There were pink wall tiles and I was wearing a white shirt. I had just finished watching some TV and then I drove somewhere."
-'''
-
-'''
-def main():
-    sent = "after having dinner at a restaurant, went to a train station, then watched tv at room"
-    init_tagger = Tagger(address_and_gps)
-    tags = init_tagger.tag(sent)
-    print(tags)
-    e_tag = ElementTagger()
-    info = e_tag.tag(tags)
-    query_dict, obj_dict, loc_dict = extract_info_from_tag(info)
-'''
-
-from nltk.corpus import stopwords
-stop_words = stopwords.words('english')
-stop_words += [',', '.']
 
 init_tagger = Tagger(address_and_gps)
 e_tag = ElementTagger()
-
 
 #sent = 'after walking to the bus station, I took the bus 109 to DCU which took 2 hours, then walked to my office, then played games on my laptop'
 #sent = 'after walking to bus station, go to DCU, 2 hours, then walked to office and played game on laptop'
@@ -697,7 +662,6 @@ def extract_info_from_sentence(sent):
             info['future']['timeofday'] = timeofday           
     
     return info     
-
 
 def extract_info_from_sentence_full_tag(sent):
     sent = sent.replace(', ', ',')
@@ -794,5 +758,39 @@ def extract_info_from_sentence_full_tag(sent):
     
     return info     
 
-sent = 'flower, vase'
-a = extract_info_from_sentence_full_tag(sent)
+#sent = 'flower, vase'
+#a = extract_info_from_sentence_full_tag(sent)
+
+'''
+example_sent = """In a coffee shop called The Helix; one person; plastic plant on the right. 
+                  Keys on table; cafe sign on the left. 
+                  Walked to the cafe two minutes ago. 
+                  My colleague wears a white tshirt; red coffee cup. 
+                  Monday. After, I drive to the shop."""
+
+sent1 = """In a coffee shop in the afternoon called the Helix with at least one person in the background and a plastic plant on my right side.
+There are keys on the table in front of me and you can see the cafe sign on the left side.
+I walked to the cafe and it took less than two minutes to get there.
+I am speaking to my colleague in the foreground who is wearing a white shirt and drinking coffee from a red paper cup.
+It is a Monday and immediately after having the coffee, I drive to the shop."""
+sent2 = "I am at home in the very early morning and I am in my living room watching football on the television. There is a lamp to the right of the image and a box of things to the left of the image. After watching television, I use a computer and then drive to work. It is a Thursday."
+sent3 = "I am at home scanning receipts using a portable scanner. There are a number of receipts on the table in front of me and one long receipt is being scanned. Prior to this, I had been in the kitchen looking at a bowl of fruit. My arm and hand is clearly visible in the image and some vinyl records are visible to the left. It is late at night on a Monday."
+sent4 = "I am walking out to an airplane across the airport apron. I stayed in an airport hotel on the previous night before checking out and walking a short distance to the airport. The weather is very nice, but cold, with a clear blue sky. There is a man walking to the airplane in front of me with a blue jacket, green shoes and a black bag. Red airport vehicles are visible in the image also, along with a small number of passengers walking to, and boarding the plane. I am in Oslo, Norway and it is early in on a Monday morning."
+sent5 = "I am taking a photo of a white building with a unique blade-like design. The weather was cloudy and it was getting dark, being evening time. There are a number of buildings clearly visible in the image, including a hotel and a Norwegian style house. I had just walked from a sushi restaurant to the hotel where I was staying and I had taken the photo just before entering the hotel. A large yellow pipe is also visible in the image. Just before taking the photo, I had been walking beside the sea. This happened on a Wednesday."
+sent6 = "Find the time when I was looking at an old clock, with flowers visible. There was a lamp also, and a small blue monster (perhaps a long rabbit) watching me. Maybe there were two monsters. It was a Monday or a Thursday. I was at home and in a bedroom."
+sent7 = "A red car beside a white house on a cloudy day. I had driven for over an hour to get here. It was a saturday in August and it was in the early afternoon."
+sent8 = "Walking through an airbridge after a flight in the early morning after a flight of about two hours. After the airport, I immediately got a taxi to a meeting. I think it was a cloudy day on a Monday. I was in Tromso in Norway."
+sent9 = "I remember a doll’s house, a white dolls house. There were other people there, and candles too, I remember candles. There was some nice village scene in front of a lake on a picture. It was a Saturday."
+sent10 = "Catching my reflection in the bathroom mirror early on a Saturday morning when I was preparing to brush my teeth. There were pink wall tiles and I was wearing a white shirt. I had just finished watching some TV and then I drove somewhere."
+'''
+
+'''
+def main():
+    sent = "after having dinner at a restaurant, went to a train station, then watched tv at room"
+    init_tagger = Tagger(address_and_gps)
+    tags = init_tagger.tag(sent)
+    print(tags)
+    e_tag = ElementTagger()
+    info = e_tag.tag(tags)
+    query_dict, obj_dict, loc_dict = extract_info_from_tag(info)
+'''
