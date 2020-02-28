@@ -336,8 +336,8 @@ elif sum(contain_info) == 2:
     time_after = 2
     idx_discard = contain_info.index(0)
     idx = [x for x in range(3) if x != idx_discard]
-    info1 = contain_info[list_tense[idx[0]]]
-    info2 = contain_info[list_tense[idx[1]]]
+    info1 = info_full[list_tense[idx[0]]]
+    info2 = info_full[list_tense[idx[1]]]
     final = search_es_sequence_of_2(info1, info2, max_len=max_len, time_after=time_after)
 elif sum(contain_info) == 3: # appear past, present, future action
     max_len = 100
