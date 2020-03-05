@@ -260,3 +260,12 @@ def grouping_image_with_sift_dict_v0(list_images, description, sift_dict):
 
 
 '''
+
+# list_images = list(description.keys())
+# sorted_list = sorted(list_images)
+
+# print('Processing ...')
+# group = grouping_image_with_sift_dict(sorted_list)
+# print('Finished!')
+# with open('Grouping_Info.pickle', 'wb') as f:
+#     pickle.dump(group, f)

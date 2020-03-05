@@ -18,10 +18,15 @@ os.chdir("/Users/duynguyen/DuyNguyen/Gitkraken/Elasticsearch_LSC_SettingUp/")
 
 Data_path = 'data'
 
+###### Grouping Info ######
+Group_file = Data_path + "/Grouping_Info.pickle"
+with open(Group_file, "rb") as f:
+    group = pickle.load(f)
+
 ###### Load Sequence Action ######
-Sequence_file = "Sequence_5_post_faster.pickle"
-with open(Sequence_file, "rb") as f:
-    sequence_5 = pickle.load(f)
+# Sequence_file = "Sequence_5_post_faster.pickle"
+# with open(Sequence_file, "rb") as f:
+#     sequence_5 = pickle.load(f)
 
 ###### Load list synonym ########
 Synonym_glove_all_file = Data_path + "/List_synonym_glove_all.pickle"
@@ -265,6 +270,9 @@ es.indices.create(
                             },
                             "month":{
                                 "type":"integer"
+                            },
+                            "group":{
+                                "type":"text"
                             }
                     }
             }                        
@@ -286,16 +294,16 @@ list_id_images_random = list_id_images
 for number_of_images_scanned in tqdm(range(number_of_files_want_to_index)):
         id_image = list_id_images_random[number_of_images_scanned]
         description_image = combined_description[id_image]
-        id_past_5 = sequence_5['past'][number_of_images_scanned]
-        id_future_5 = sequence_5['future'][number_of_images_scanned]
-        if id_past_5 != '':
-                description_image_past_5 = combined_description[id_past_5]
-        else:
-                description_image_past_5 = ''
-        if id_future_5 != '':
-                description_image_future_5 = combined_description[id_future_5]
-        else:
-                description_image_future_5 = ''
+        # id_past_5 = sequence_5['past'][number_of_images_scanned]
+        # id_future_5 = sequence_5['future'][number_of_images_scanned]
+        # if id_past_5 != '':
+        #         description_image_past_5 = combined_description[id_past_5]
+        # else:
+        #         description_image_past_5 = ''
+        # if id_future_5 != '':
+        #         description_image_future_5 = combined_description[id_future_5]
+        # else:
+        #         description_image_future_5 = ''
 
         image_date = id_image[:8]  # Extract date information
         image_datetime = datetime.strptime(image_date, '%Y%m%d')  # Convert to datetime type
@@ -305,6 +313,12 @@ for number_of_images_scanned in tqdm(range(number_of_files_want_to_index)):
 
         image_time = id_image[:15]
         image_time_string = f"{image_time[:4]}/{image_time[4:6]}/{image_time[6:8]} {image_time[9:11]}:{image_time[11:13]}:{image_time[13:15]}"
+        
+        try:
+                in_group = [x for x in group if id_image in x]
+                in_group = in_group[0]
+        except:
+                in_group = [id_image]
 
         document = {
                 "id": id_image,
@@ -319,7 +333,8 @@ for number_of_images_scanned in tqdm(range(number_of_files_want_to_index)):
                 "hour": round(int(image_time[9:11]) + int(image_time[11:13])/60.0, 2),
                 "minute": int(image_time[11:13]),
                 "day": int(image_time[6:8]),
-                "month": int(image_time[4:6])
+                "month": int(image_time[4:6]),
+                "group": ','.join(in_group)
         }
 
         res = es.index(index=interest_index,

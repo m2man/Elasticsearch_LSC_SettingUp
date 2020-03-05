@@ -107,6 +107,7 @@ def search_es(ES, index, request, percent_thres=0.9, max_len=10):
     if numb_result != 0:
         score = [d["_score"] for d in res["hits"]["hits"]]  # Score of all result (higher mean better)
         id_result = [d["_source"]["id"] for d in res["hits"]["hits"]]  # List all id images in the result
+        group_result = [d["_source"]["group"] for d in res["hits"]["hits"]]
 
         score_np = np.asarray(score)
 
@@ -118,23 +119,27 @@ def search_es(ES, index, request, percent_thres=0.9, max_len=10):
         if len(index_filter) > 1:
             result = list(itemgetter(*list(index_filter))(id_result))
             result_score = list(itemgetter(*list(index_filter))(score))
+            grou_result = list(itemgetter(*list(index_filter))(group_result))
             numb_result = len(result)
         else:
             result = id_result[0]
             result_score = score[0]
+            group_result = group_result[0]
             numb_result = 1
 
         if numb_result > max_len:
             result = result[0:max_len]
             result_score = result_score[0:max_len]
+            group_result = group_result[0:max_len]
 
         #print("Total remaining result: " + str(numb_result))  # Number of result
         #print("Total output result: " + str(min(max_len, numb_result)))  # Number of result
     else:
         result_score = []
         result = []
+        group_result = []
         
-    return result_score, result
+    return result_score, result, group_result
 
 def generate_original_synonym(given_word, list_synonym=list_synonym):
     '''
@@ -318,7 +323,7 @@ def generate_query_text(list_queries, list_filters, tie_breaker=0.7, numb_of_res
 
     result = "{\"size\":" + str(numb_of_result)
     result += ",\"_source\": {\"includes\":" 
-    result += "[\"id\", \"description\", \"time\"]" + "}"
+    result += "[\"id\", \"description\", \"time\", \"group\"]" + "}"
     result += ",\"query\":{\"bool\":{\"must\":["  
     result += dismax_part + "]"
 
