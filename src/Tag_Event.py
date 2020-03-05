@@ -17,7 +17,7 @@ from nltk.corpus import stopwords
 stop_words = stopwords.words('english')
 stop_words += [',', '.']
 
-#os.chdir("/Users/duynguyen/DuyNguyen/Gitkraken/Elasticsearch_LSC_SettingUp/")
+os.chdir("/Users/duynguyen/DuyNguyen/Gitkraken/Elasticsearch_LSC_SettingUp/")
 
 #nlp = spacy.load("en_core_web_sm")
 
