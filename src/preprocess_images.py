@@ -67,7 +67,8 @@ def match_images(img1_ft, img2_ft):
 def distance_between_images(img1_name, img2_name, topk=50, plot=False):
     # Using ORB (similar to SIFT-SURF) to find match keypoints and calculate mean distance between them
     # Smaller mean more similar
-
+    img1_name = img1_name.replace('jpg','png')
+    img2_name = img2_name.replace('jpg','png')
     img1 = cv2.imread(Image_path + '/' + find_folder_image_from_name(img1_name) + '/' + img1_name, 0)
     kp1, des1 = orb.detectAndCompute(img1, None)
     img2 = cv2.imread(Image_path + '/' + find_folder_image_from_name(img2_name) + '/' + img2_name, 0)
@@ -121,8 +122,8 @@ def group_sequence_action(description, min_time_dif=5, n_images=40):
     thres = 1.72
 
     test_present = sorted_list[0:n_images]
-    test_past = []
-    test_future = []
+    test_past = ['a' for _ in range(len(test_present))]
+    test_future = ['a' for _ in range(len(test_present))]
 
     time_delta = datetime.timedelta(minutes=min_time_dif)
 
@@ -135,56 +136,59 @@ def group_sequence_action(description, min_time_dif=5, n_images=40):
         flag_past = False
         flag_future = False
 
-        try:
+        if test_past[idx_present] == 'a':
             while flag_past == False:
                 idx_past = idx_past - 1
-                if idx_past < 0:
+                if idx_past < 0 or idx_present - idx_past >= 250:
+                    idx_past = max(-1, idx_past)
                     flag_past = True
                 else:
                     name_past = test_present[idx_past]
                     time_past = convert_to_time(name_past)
                     dif_time = time_present - time_past
-                    if dif_time > time_delta:
-                        distance_img = distance_between_images(name_present, name_past, topk=10, plot=False)
-                        distance_des = 1 - description_between_images(name_present, name_past, description)
-                        distance = 2*(slope1*distance_img/35 + slope2*distance_des)/(slope1+slope2)
-                        if distance > thres:
-                            flag_past = True
-        except Exception as e:
-            print(f"idx_present: {idx_present} --- idx_past: {idx_past}")
-            print(e)
-            break
+                    dif_day = time_present.day - time_past.day
+                    if dif_day > 0:
+                        flag_past = True
+                        idx_past = -1
+                    else:
+                        if dif_time > time_delta:
+                            distance_img = distance_between_images(name_present, name_past, topk=10, plot=False)
+                            distance_des = 1 - description_between_images(name_present, name_past, description)
+                            distance = 2*(slope1*distance_img/35 + slope2*distance_des)/(slope1+slope2)
+                            if distance > thres:
+                                flag_past = True
 
-        try:
-            while flag_future == False:
-                idx_future = idx_future + 1
-                if idx_future >= len(test_present) or idx_future - idx_present >= 250:
+        while flag_future == False:
+            idx_future = idx_future + 1
+            if idx_future >= len(test_present) or idx_future - idx_present >= 250:
+                flag_future = True
+                idx_future = min(len(test_present) - 1, idx_future)
+            else:
+                name_future = test_present[idx_future]
+                time_future = convert_to_time(name_future)
+                dif_time = time_future - time_present
+                dif_day = time_future.day - time_present.day
+                if dif_day > 0:
                     flag_future = True
                     idx_future = -1
                 else:
-                    name_future = test_present[idx_future]
-                    time_future = convert_to_time(name_future)
-                    dif_time = time_future - time_present
                     if dif_time > time_delta:
                         distance_img = distance_between_images(name_present, name_future, topk=10, plot=False)
                         distance_des = 1 - description_between_images(name_present, name_future, description)
                         distance = 2*(slope1*distance_img/35 + slope2*distance_des)/(slope1+slope2)
                         if distance > thres:
                             flag_future = True
-        except Exception as e:
-            print(f"idx_present: {idx_present} --- idx_future: {idx_future}")
-            print(e)
-            break
         
         if idx_past >= 0:
-            test_past.append(test_present[idx_past])
+            test_past[idx_present] = test_present[idx_past]
         else:
-            test_past.append('')
+            test_past[idx_present] = ''
 
         if idx_future >= 0:
-            test_future.append(test_present[idx_future])
+            test_future[idx_present] = test_present[idx_future]
+            test_past[idx_future] = test_present[idx_present]
         else:
-            test_future.append('')
+            test_future[idx_present] = ''
 
     return test_past, test_present, test_future
 
@@ -197,8 +201,8 @@ def group_sequence_action_faster(description, min_time_dif=5, n_images=40):
     thres = 1.7
 
     test_present = sorted_list[0:n_images]
-    test_future = []
-    test_past = []
+    test_past = ['a' for _ in range(len(test_present))]
+    test_future = ['a' for _ in range(len(test_present))]
     time_delta = datetime.timedelta(minutes=min_time_dif)
 
     idx_future = 0
@@ -221,7 +225,45 @@ def group_sequence_action_faster(description, min_time_dif=5, n_images=40):
                 last_ft = til_ft
                 flag_future = False
 
-        try:
+        while flag_future == False:
+            til_ft += 1
+            if til_ft >= len(test_present) or til_ft - last_ft >= 250:
+                til_ft = min(len(test_present)-1, til_ft)
+                flag_future = True
+                if last_ft == 0:
+                    last_ft = til_ft
+                last = til
+                til = idx_present
+                idx_past = int((last+til)/2) - 1
+            else:
+                name_last_ft = test_present[last_ft]
+                time_last_ft = convert_to_time(name_last_ft)
+                name_future = test_present[til_ft]
+                time_future = convert_to_time(name_future)
+                dif_time = time_future - time_last_ft
+                dif_day = time_future.day - time_last_ft.day
+                if dif_day > 0:
+                    flag_future = True
+                    if last_ft == 0:
+                        last_ft = til_ft
+                    last = til
+                    til = idx_present
+                    idx_past = int((last+til)/2) - 1
+
+                if dif_time > time_delta and dif_day == 0:
+                    distance_img = distance_between_images(name_last_ft, name_future, topk=10, plot=False)
+                    distance_des = 1 - description_between_images(name_last_ft, name_future, description)
+                    distance = 2*(slope1*distance_img/35 + slope2*distance_des)/(slope1+slope2)
+                    if distance > thres:
+                        if last_ft == 0:
+                            last_ft = til_ft
+                        flag_future = True
+                        last = til
+                        til = idx_present
+                        idx_past = int((last+til)/2) - 1
+
+        if til_ft == last_ft:
+            flag_future = False
             while flag_future == False:
                 til_ft += 1
                 if til_ft >= len(test_present) or til_ft - last_ft >= 250:
@@ -238,49 +280,19 @@ def group_sequence_action_faster(description, min_time_dif=5, n_images=40):
                         distance_des = 1 - description_between_images(name_last_ft, name_future, description)
                         distance = 2*(slope1*distance_img/35 + slope2*distance_des)/(slope1+slope2)
                         if distance > thres:
-                            if last_ft == 0:
-                                last_ft = til_ft
                             flag_future = True
-                            last = til
-                            til = idx_present
-                            idx_past = int((last+til)/2) - 1
-            if til_ft == last_ft:
-                flag_future = False
-                while flag_future == False:
-                    til_ft += 1
-                    if til_ft >= len(test_present) or til_ft - last_ft >= 250:
-                        til_ft = min(len(test_present)-1, til_ft)
-                        flag_future = True
-                    else:
-                        name_last_ft = test_present[last_ft]
-                        time_last_ft = convert_to_time(name_last_ft)
-                        name_future = test_present[til_ft]
-                        time_future = convert_to_time(name_future)
-                        dif_time = time_future - time_last_ft
-                        if dif_time > time_delta:
-                            distance_img = distance_between_images(name_last_ft, name_future, topk=10, plot=False)
-                            distance_des = 1 - description_between_images(name_last_ft, name_future, description)
-                            distance = 2*(slope1*distance_img/35 + slope2*distance_des)/(slope1+slope2)
-                            if distance > thres:
-                                flag_future = True
 
-            idx_future = int((last_ft + til_ft)/2)
+        idx_future = int((last_ft + til_ft)/2)
 
-
-        except Exception as e:
-            print(f"idx_present: {idx_present} --- last_ft: {last_ft}")
-            print(e)
-            break
-        
         if idx_past >= 0:
-            test_past.append(test_present[idx_past])
+            test_past[idx_present] = test_present[idx_past]
         else:
-            test_past.append('')
+            test_past[idx_present] = ''
 
         if idx_future >= 0:
-            test_future.append(test_present[idx_future])
+            test_future[idx_present] = test_present[idx_future]
         else:
-            test_future.append('')
+            test_future[idx_present] = ''
 
         #print(idx_past, idx_present, idx_future, last_ft, til_ft)
 
@@ -378,20 +390,22 @@ def post_processing(past, present, future):
     return result
 
 def run_grouping(description, time_delta):
-    past, present, future = group_sequence_action_faster(description, min_time_dif= time_delta, n_images=len(description)-1)
+    past, present, future = group_sequence_action_faster(description, min_time_dif= time_delta, n_images=len(description))
     result = {}
     result['past'] = past
     result['present'] = present
     result['future'] = future
-    with open(f"Sequence_{time_delta}_prior.pickle","wb") as f:
+    with open(f"Sequence_{time_delta}_prior_faster.pickle","wb") as f:
         pickle.dump(result, f)
 
     result = post_processing(past, present, future)
-    with open(f"Sequence_{time_delta}_post.pickle","wb") as f:
+    with open(f"Sequence_{time_delta}_post_faster.pickle","wb") as f:
         pickle.dump(result, f)
 
-timedif = [1]
+
+timedif = [5]
 #timedif = [1]
 for time_delta in timedif:
     print(f"Processing {time_delta} ... ")
     run_grouping(description, time_delta=time_delta)
+

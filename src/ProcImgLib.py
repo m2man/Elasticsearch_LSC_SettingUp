@@ -22,6 +22,9 @@ with open(Data_path + '/sift_dict_jpg.pickle', 'rb') as f:
     sift_dict = pickle.load(f)
 
 
+list_img = list(description.keys())
+sorted_list = sorted(list_img)
+
 orb = cv2.ORB_create()
 bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
 
