@@ -3,7 +3,13 @@ This is for setting up ES. Please install Elasticsearch first. Then run the ES, 
 ***Note: Please copy the [all_synonym.txt] file to [elastic_folder/config/analysis/] folder before running***
 
 ## Change Log
-### 25/02/2019
+### 09/03/2020
+1. Merge all retrieving function to **MyLibrary_v2.py**
+2. Grouping now is performed at indexing procedure (No need to run grouping after searching) --> Update **ES_text_search.py**
+3. Add searching through REST API to make it faster (reduce searching time from 1.5s to below 0.4s)
+4. Try **Test_sequence_query.py** to measure the time for sequential event retrieving
+
+### 25/02/2020
 #### How to search Sequence Action
 1. Need to re-index elastic database (add some **time** fields)
 2. Download the SIFT feature pickle (below) and put in **data** folder
