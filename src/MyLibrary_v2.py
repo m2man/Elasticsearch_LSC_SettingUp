@@ -712,7 +712,8 @@ def generate_list_dismax_part_and_filter_time_from_info(info):
             else:
                 oclock = parse(time)
                 oclock = oclock.hour
-                time_json += [{"range" : {"hour" : {"gte" : oclock-1}}}]
+                #time_json += [{"range" : {"hour" : {"gte" : oclock-1}}}]
+                time_json += [{"range" : {"hour" : {"gte": oclock-delta_hour, "lte" : oclock+delta_hour}}}]
         filters_part += time_json
         
     return queries_part, filters_part
@@ -1114,6 +1115,7 @@ def search_es_server_api(server, request, percent_thres=0.9, max_len=10):
     res = requests.post(server, headers=headers, data=request)
     
     res = res.json()
+    #print(res)
     numb_result = len(res["hits"]["hits"])
     print("Total searched result: " + str(numb_result))
 
@@ -1154,7 +1156,7 @@ def search_es_server_api(server, request, percent_thres=0.9, max_len=10):
         
     return result_score, result, group_result
 
-def search_es_sequence_of_2_server_api(info1, info2, server, max_len=100, time_after = 2,):
+def search_es_sequence_of_2_server_api(info1, info2, server, max_len=100, time_after = 2):
     # Search es for sequence info1 --> info2
     # time_after is hours that info2 happens after info1
     # group image in each infor within time_after/2 hour * 60 minutes
@@ -1357,13 +1359,13 @@ def search_es_sequence_of_3_server_api(info1, info2, info3, server, max_len=100,
 
 def search_es_temporal_server_api(sent, server="http://localhost:9200/lsc2019_test_time/_search", mins_between_events=10):
     list_tense = ['past', 'present', 'future']
-    time_between_events = imglib.datetime.timedelta(hours=mins_between_events/60) # 10 minutes
+    time_between_events = imglib.datetime.timedelta(hours=mins_between_events/60) # 10 minutes --> in hours
 
     info_full = tage.extract_info_from_sentence_full_tag(sent)
     contain_info = [1 if len(info_full[x]) > 0 else 0 for x in info_full] # check which tense contains information
 
     if sum(contain_info) == 1:
-        max_len = 600 # since only 1 infomation and will be grouped --> more images to have more groups to view
+        max_len = 1000 # since only 1 infomation and will be grouped --> more images to have more groups to view
         idx = contain_info.index(1)
         tense = list_tense[idx]
         info = info_full[tense]
@@ -1396,8 +1398,8 @@ def search_es_temporal_server_api(sent, server="http://localhost:9200/lsc2019_te
                     break
         final = [[sorted(x), sorted(y), sorted(z), t] for x, y, z, t in zip(previous_event, current_event, following_event, score_event)]
     elif sum(contain_info) == 2:
-        max_len = 450
-        time_after = 2
+        max_len = 1000
+        time_after = mins_between_events/60 * 2
         idx_discard = contain_info.index(0)
         idx = [x for x in range(3) if x != idx_discard]
         info1 = info_full[list_tense[idx[0]]]
@@ -1441,8 +1443,8 @@ def search_es_temporal_server_api(sent, server="http://localhost:9200/lsc2019_te
         final = [[sorted(x), sorted(y), sorted(z), t] for x, y, z, t in zip(previous_event, current_event, following_event, score_event)]
 
     elif sum(contain_info) == 3: # appear past, present, future action
-        max_len = 300
-        time_after = 2
+        max_len = 1000
+        time_after = mins_between_events/60 * 2
         info1 = info_full['past']   
         info2 = info_full['present']
         info3 = info_full['future']
